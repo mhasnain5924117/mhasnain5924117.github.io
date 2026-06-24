@@ -1,212 +1,138 @@
-# Muhammad Hasnain Research Portfolio (GitHub Pages)
+# Muhammad Hasnain Portfolio Website
 
-Production-ready personal researcher portfolio for **Muhammad Hasnain** with:
+This repository now keeps the website in a **dedicated folder**:
 
-- Modern, formal, mobile-first design
-- Personal narrative integrated with academic credibility
-- SEO-ready metadata and structured data
-- Fast static deployment on GitHub Pages
-- Simple update workflows for publications, conference photos, and milestones
+- `docs/`
+
+That gives you one clean place to manage the site instead of mixing website files with other project files.
 
 ---
 
-## 1) File Structure
+## Website location (single source of truth)
 
 ```text
-.
+docs/
 ├── .nojekyll
 ├── index.html
 ├── updates.html
 ├── robots.txt
 ├── sitemap.xml
-├── README.md
-└── assets
-    ├── css
-    │   └── styles.css
-    ├── js
-    │   └── main.js
-    └── images
-        ├── og-image.svg
-        ├── profile-placeholder.svg
-        ├── conference-placeholder-1.svg
-        ├── conference-placeholder-2.svg
-        └── conference-placeholder-3.svg
+└── assets/
+    ├── css/styles.css
+    ├── js/main.js
+    └── images/
 ```
 
 ---
 
-## 2) Quick Start (Local Preview)
+## Deploy with GitHub Pages (from `docs/`)
 
-From the repository root:
+1. Open your GitHub repository.
+2. Go to **Settings → Pages**.
+3. Under **Build and deployment**:
+   - Source: **Deploy from a branch**
+   - Branch: `main`
+   - Folder: `/docs`
+4. Save.
+
+This publishes the website from the dedicated `docs/` folder.
+
+---
+
+## If you want a completely separate website repository
+
+Best option: create a new repo named:
+
+- `mhasnain5924117.github.io`
+
+Then copy the **contents of `docs/`** into that repository root.
+
+That gives the clean user-site URL:
+
+- `https://mhasnain5924117.github.io/`
+
+---
+
+## Quick local preview
+
+From repo root:
 
 ```bash
 python3 -m http.server 8080
 ```
 
-Then open:
+Open:
 
-- `http://localhost:8080/`
-
----
-
-## 3) Deploy to GitHub Pages
-
-### Option A (Recommended): User Site
-Use repository name: **`mhasnain5924117.github.io`**  
-This gives the clean URL:
-
-- `https://mhasnain5924117.github.io/`
-
-### Option B: Project Site
-If repository name is different, URL will be:
-
-- `https://mhasnain5924117.github.io/<repo-name>/`
-
-If using Option B, update these URLs in:
-
-- `index.html` (canonical + OG URL/image)
-- `updates.html` (canonical + OG URL/image)
-- `robots.txt` (sitemap URL)
-- `sitemap.xml` (`<loc>` values)
-
-### GitHub Pages Setup Steps
-
-1. Push this code to GitHub.
-2. Open repository **Settings**.
-3. Go to **Pages**.
-4. Under **Build and deployment**, choose:
-   - **Source:** Deploy from a branch
-   - **Branch:** `main` (or your portfolio branch), folder `/ (root)`
-5. Save and wait for deployment.
-6. Verify the public URL and test on mobile + desktop.
+- `http://localhost:8080/docs/`
 
 ---
 
-## 4) Content Update Guide
+## Content update workflow
 
-### A) Replace personal photo
+### 1) Update bio/research sections
 
-1. Add your image to `assets/images/` (example: `profile.jpg`).
-2. In `index.html`, update hero image:
-   - From: `assets/images/profile-placeholder.svg`
-   - To: `assets/images/profile.jpg`
-3. Keep portrait ratio close to 1:1 and optimized size (WebP/JPEG under ~300 KB if possible).
+- Edit: `docs/index.html`
+- Sections to maintain:
+  - About
+  - Journey
+  - Research Experience
+  - Publications
+  - Awards
+  - Teaching/Service
+  - Contact
 
-### B) Add conference/event photos
+### 2) Add new publications
 
-1. Add images to `assets/images/` (example: `icml-2026-talk.webp`).
-2. In `index.html`, section `#conferences`, replace placeholder `src`.
-3. Update each `<figcaption>` with real event + year.
-4. Keep descriptive `alt` text for accessibility and image SEO.
+In `docs/index.html` under `#publications`:
 
-### C) Add/update publications
+- Add citation with title, venue, year, DOI/link
+- Keep newest/high-impact works near top
 
-Recommended approach:
+### 3) Add conference photos
 
-- Keep full authoritative list on **Google Scholar** and **OpenReview**.
-- On this site, highlight selected works and link out.
+1. Upload image to `docs/assets/images/`
+2. Replace placeholder paths in `#conferences`
+3. Update figure captions and alt text
 
-How to edit:
+### 4) Add new updates/blog entries
 
-1. Open `index.html`.
-2. Go to section `#research`.
-3. Add publication entries as short citation bullets inside the Publications card or create an additional card.
-4. Keep each citation with:
-   - Title
-   - Venue
-   - Year
-   - Link (DOI/arXiv/OpenReview/Publisher)
+Edit `docs/updates.html`:
 
-### D) Add awards/scholarships
+- Duplicate one `<article class="update-item">...</article>`
+- Update `time datetime`, title, and summary
+- Keep newest entry first
 
-1. Open `index.html`.
-2. Edit section `#awards`.
-3. Add concise entries with award name, institution, and year.
-4. Keep impact-oriented phrasing (avoid overstatement).
+### 5) Keep SEO current
 
-### E) Add updates/blog entries
+When URL structure changes, update:
 
-1. Open `updates.html`.
-2. Duplicate one `<article class="update-item">...</article>` block.
-3. Update:
-   - `datetime` in `<time>`
-   - heading
-   - short summary with links
-4. Keep newest entry at the top.
+- `docs/index.html` canonical + OG URL/image
+- `docs/updates.html` canonical + OG URL/image
+- `docs/robots.txt` sitemap line
+- `docs/sitemap.xml` `<loc>` entries
 
 ---
 
-## 5) SEO Checklist (Implemented + Ongoing)
+## SEO already implemented
 
-### Implemented in code
-
-- [x] Unique `<title>` and meta description
-- [x] Keyword-targeted metadata
-- [x] Canonical URLs
-- [x] Open Graph + Twitter metadata
-- [x] `robots.txt`
-- [x] `sitemap.xml`
-- [x] Structured data (Schema.org Person + publication work entity)
-- [x] Internal links (header anchors + updates page link)
-- [x] Mobile-responsive design
-- [x] Accessibility basics (landmarks, heading hierarchy, skip link, alt text)
-
-### Keep doing after launch
-
-- [ ] Add exact publication titles and links for long-tail indexing
-- [ ] Use real conference image filenames (`neurips-2026-poster.webp`) for semantic SEO
-- [ ] Keep updates page active (freshness signal)
-- [ ] Compress all images before upload
-- [ ] Re-check canonical/sitemap URLs if repo path changes
+- Meta title, description, and keyword targeting
+- Open Graph and Twitter metadata
+- Structured data (Schema.org Person + scholarly work)
+- Internal linking and semantic headings
+- Mobile-first responsive layout
+- Sitemap and robots
+- Accessible navigation (skip link, landmarks, clear hierarchy)
 
 ---
 
-## 6) Personal Narrative Guidance (Professional, Not Melodramatic)
+## Narrative guidance (professional, authentic)
 
-Use this framing consistently:
+Use this framing style for future edits:
 
-1. **Fact-first storytelling**  
-   State concrete facts (first from village abroad, scholarship-supported trajectory, family responsibility).
+1. Fact-first background context
+2. Research outcomes and technical depth
+3. Scholarship/funding thread as opportunity multiplier
+4. Forward-looking mission (impact, mentorship, rigorous science)
 
-2. **Research-forward identity**  
-   Pair story with outcomes: publications, conferences, ongoing PhD research impact.
-
-3. **Tone discipline**  
-   Avoid emotional exaggeration. Use calm, credible phrasing with measurable details.
-
-4. **Bridge narrative and mission**  
-   Connect adversity to purpose: rigorous research, mentorship, and broader educational access.
-
-Suggested recurring sentence style:
-
-> "My background shaped my resilience; my research reflects my commitment to practical, high-impact scholarship."
-
----
-
-## 7) Recommended Next Improvements
-
-- Add a downloadable CV PDF (`assets/docs/muhammad-hasnain-cv.pdf`) and link in hero/contact.
-- Add "Selected Publications" with 5-8 fully formatted citations.
-- Add a "Research Projects" subsection with methods, datasets, and outcomes.
-- Add conference-specific pages if media/story depth grows.
-
----
-
-## 8) Reference Links Used
-
-- LinkedIn: <https://www.linkedin.com/in/mhasnain1/>
-- Google Scholar: <https://scholar.google.com/citations?user=YYpAj5AAAAAJ&hl=en>
-- OpenReview: <https://openreview.net/profile?id=~Muhammad_Hasnain1>
-- ORCID: <https://orcid.org/0009-0004-6871-9713>
-- GitHub: <https://github.com/mhasnain5924117>
-
----
-
-## 9) Maintenance Routine (Monthly)
-
-1. Add latest publication(s) and conference activity.
-2. Add one brief update post.
-3. Review contact details and active links.
-4. Rebuild social preview image if major profile changes happen.
-5. Commit and push updates.
+Keep tone confident and evidence-based (not dramatic).
 
