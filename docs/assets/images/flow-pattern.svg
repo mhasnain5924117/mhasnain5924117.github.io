@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Subtle streamline background pattern</title>
+  <desc id="desc">Low-contrast flow-inspired lines used as a background motif.</desc>
+  <rect width="1600" height="900" fill="#faf7f1" />
+  <g fill="none" stroke="#1e7a8c" stroke-opacity="0.22" stroke-width="1.7">
+    <path d="M-20 170 C 220 60, 380 300, 620 170 C 850 45, 1080 295, 1320 175 C 1450 110, 1560 150, 1650 210" />
+    <path d="M-20 260 C 180 130, 430 390, 660 250 C 860 125, 1120 390, 1360 260 C 1470 200, 1570 225, 1650 285" />
+    <path d="M-20 350 C 180 220, 430 500, 660 360 C 860 245, 1120 500, 1360 365 C 1470 305, 1570 325, 1650 390" />
+    <path d="M-20 440 C 190 310, 450 600, 690 450 C 880 335, 1140 580, 1380 455 C 1490 390, 1580 420, 1660 480" />
+    <path d="M-20 530 C 180 420, 420 690, 660 545 C 860 430, 1110 670, 1360 550 C 1480 485, 1580 520, 1660 580" />
+    <path d="M-20 620 C 160 520, 390 765, 620 635 C 850 505, 1100 760, 1330 640 C 1460 575, 1570 610, 1650 675" />
+    <path d="M-20 710 C 130 640, 360 850, 620 735 C 860 635, 1090 860, 1320 740 C 1450 680, 1560 720, 1650 780" />
+  </g>
+</svg>
