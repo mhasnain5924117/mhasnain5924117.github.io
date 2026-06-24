@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Conference placeholder one</title>
+  <desc id="desc">Placeholder for conference presentation photo.</desc>
+  <rect width="1200" height="800" fill="#0b1f33" />
+  <rect x="90" y="100" width="1020" height="600" rx="26" fill="#17324f" />
+  <path d="M130 640 C 280 540, 390 730, 560 640 C 740 550, 850 720, 1030 625" fill="none" stroke="#1e7a8c" stroke-width="8" stroke-linecap="round" stroke-opacity="0.7" />
+  <text x="600" y="365" font-family="Inter, Arial, sans-serif" font-size="62" fill="#ecf3f7" text-anchor="middle">
+    Conference Talk
+  </text>
+  <text x="600" y="440" font-family="IBM Plex Mono, monospace" font-size="30" fill="#b9cdda" text-anchor="middle">
+    Replace with event photo
+  </text>
+</svg>
