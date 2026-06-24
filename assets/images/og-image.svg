@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Open Graph preview image</title>
+  <desc id="desc">Social preview for Muhammad Hasnain researcher portfolio.</desc>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0f172a" />
+      <stop offset="1" stop-color="#0f4c81" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)" />
+  <text x="80" y="250" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#93c5fd">
+    Muhammad Hasnain
+  </text>
+  <text x="80" y="330" font-family="Arial, Helvetica, sans-serif" font-size="62" fill="#f8fafc" font-weight="bold">
+    PhD Research Portfolio
+  </text>
+  <text x="80" y="392" font-family="Arial, Helvetica, sans-serif" font-size="32" fill="#dbeafe">
+    Texas A&amp;M University
+  </text>
+  <text x="80" y="500" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#bfdbfe">
+    Research " Publications " Conferences " Scholarships
+  </text>
+</svg>
