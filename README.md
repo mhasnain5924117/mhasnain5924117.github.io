@@ -1,31 +1,24 @@
 # Muhammad Hasnain Portfolio Website
 
-This repository now keeps the website in a **dedicated folder**:
+This repository now keeps website files in two ready-to-use locations:
 
-- `docs/`
+- `docs/` (current in-repo GitHub Pages source)
+- `mhasnain.github.io/` (standalone dedicated-repo package)
 
-That gives you one clean place to manage the site instead of mixing website files with other project files.
+Use `mhasnain.github.io/` when you want a fully separate website repository.
 
 ---
 
-## Website location (single source of truth)
+## Website locations
 
 ```text
-docs/
-├── .nojekyll
-├── index.html
-├── updates.html
-├── robots.txt
-├── sitemap.xml
-└── assets/
-    ├── css/styles.css
-    ├── js/main.js
-    └── images/
+docs/...
+mhasnain.github.io/...
 ```
 
 ---
 
-## Deploy with GitHub Pages (from `docs/`)
+## Option A: Deploy from this repository (`docs/`)
 
 1. Open your GitHub repository.
 2. Go to **Settings → Pages**.
@@ -35,21 +28,21 @@ docs/
    - Folder: `/docs`
 4. Save.
 
-This publishes the website from the dedicated `docs/` folder.
+This publishes the website from the `docs/` folder.
 
 ---
 
-## If you want a completely separate website repository
+## Option B (recommended for dedicated site): separate repository
 
-Best option: create a new repo named:
+Create a new repository named:
 
-- `mhasnain5924117.github.io`
+- `mhasnain.github.io`
 
-Then copy the **contents of `docs/`** into that repository root.
+Then copy the **contents of `mhasnain.github.io/`** into that repository root.
 
 That gives the clean user-site URL:
 
-- `https://mhasnain5924117.github.io/`
+- `https://mhasnain.github.io/`
 
 ---
 
@@ -61,9 +54,10 @@ From repo root:
 python3 -m http.server 8080
 ```
 
-Open:
+Open either:
 
 - `http://localhost:8080/docs/`
+- `http://localhost:8080/mhasnain.github.io/`
 
 ---
 
