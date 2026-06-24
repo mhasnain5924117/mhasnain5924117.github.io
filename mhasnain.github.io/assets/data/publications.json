@@ -1,0 +1,112 @@
+[
+  {
+    "title": "Predicting Thermal Response of Gypsum Board Under Various Heat Flux Configurations: A Three-Dimensional Mathematical Model",
+    "authors": "Muhammad Hasnain, Hayri Sezer, Shijin P. Kozhumal",
+    "year": 2026,
+    "type": "peer-reviewed",
+    "venue": "International Journal of Thermal Sciences",
+    "venue_url": "https://www.sciencedirect.com/journal/international-journal-of-thermal-sciences",
+    "paper_url": "https://doi.org/10.1016/j.ijthermalsci.2025.110457",
+    "impact_factor": "5.6",
+    "notes": "Journal article"
+  },
+  {
+    "title": "A Two-Phase Deep Learning Framework for Adaptive Time-Stepping in High-Speed Flow Modeling",
+    "authors": "Jacob Helwig, ... , Muhammad Hasnain, et al.",
+    "year": 2026,
+    "type": "conference",
+    "venue": "ICLR 2026",
+    "venue_url": "https://iclr.cc/",
+    "paper_url": "https://openreview.net/forum?id=d4gzLgGl7I",
+    "impact_factor": "N/A",
+    "notes": "Top-tier ML conference poster"
+  },
+  {
+    "title": "A Physics-Regularized Graph Neural Surrogate for Geometry-Generalizable Fluid Flow Prediction",
+    "authors": "Muhammad Hasnain, et al.",
+    "year": 2026,
+    "type": "under-review",
+    "venue": "Journal of Computational Physics (under review)",
+    "venue_url": "https://www.sciencedirect.com/journal/journal-of-computational-physics",
+    "paper_url": "",
+    "impact_factor": "4.1",
+    "notes": "Under review"
+  },
+  {
+    "title": "A Novel Residual Multilayer Perceptron-based Graph Convolutional Network for Modeling Heat Transfer and Fluid Flow",
+    "authors": "Muhammad Hasnain, et al.",
+    "year": 2025,
+    "type": "peer-reviewed",
+    "venue": "Physics of Fluids",
+    "venue_url": "https://pubs.aip.org/aip/pof",
+    "paper_url": "https://doi.org/10.1063/5.0292956",
+    "impact_factor": "4.6",
+    "notes": "Journal article"
+  },
+  {
+    "title": "Mathematical Modeling of Heat and Mass Transfer in Metal Hydride Hydrogen Storage Systems: A Comprehensive Review",
+    "authors": "Muhammad Hasnain, et al.",
+    "year": 2025,
+    "type": "peer-reviewed",
+    "venue": "Renewable and Sustainable Energy Reviews",
+    "venue_url": "https://www.sciencedirect.com/journal/renewable-and-sustainable-energy-reviews",
+    "paper_url": "https://doi.org/10.1016/j.rser.2025.116294",
+    "impact_factor": "16.3",
+    "notes": "Review article"
+  },
+  {
+    "title": "Modeling heat and mass transfer in metal hydride hydrogen storage reactors: Impact of operating conditions and reactor size on hydrogen desorption",
+    "authors": "Muhammad Hasnain, Hayri Sezer, Jerry Hunter Mason",
+    "year": 2025,
+    "type": "under-review",
+    "venue": "International Journal of Hydrogen Energy (under review)",
+    "venue_url": "https://www.sciencedirect.com/journal/international-journal-of-hydrogen-energy",
+    "paper_url": "https://ssrn.com/abstract=4898120",
+    "impact_factor": "7.2",
+    "notes": "SSRN preprint available"
+  },
+  {
+    "title": "Predictive Heat Transfer Model for Fire-Induced Injuries in Tree Stem",
+    "authors": "Muhammad U Khan, Muhammad Hasnain, et al.",
+    "year": 2025,
+    "type": "under-review",
+    "venue": "International Communications in Heat and Mass Transfer (under review)",
+    "venue_url": "https://www.sciencedirect.com/journal/international-communications-in-heat-and-mass-transfer",
+    "paper_url": "https://doi.org/10.21203/rs.3.rs-5671657/v1",
+    "impact_factor": "7.0",
+    "notes": "Preprint available"
+  },
+  {
+    "title": "Modeling Heat and Mass Transfer in Metal Hydride Hydrogen Storage Systems: Impact of Operating Parameters and Reactor Geometry",
+    "authors": "Muhammad Hasnain, et al.",
+    "year": 2024,
+    "type": "peer-reviewed",
+    "venue": "International Journal of Hydrogen Energy",
+    "venue_url": "https://www.sciencedirect.com/journal/international-journal-of-hydrogen-energy",
+    "paper_url": "https://doi.org/10.1016/j.ijhydene.2024.05.311",
+    "impact_factor": "7.2",
+    "notes": "Journal article"
+  },
+  {
+    "title": "Modeling Heat and Mass Transfer in Metal Hydride-Based Hydrogen Storage Systems Using the Finite Volume Method",
+    "authors": "Muhammad Hasnain, Shehzad Khan, M. Amin Ezazi, Hayri Sezer",
+    "year": 2023,
+    "type": "conference",
+    "venue": "ASME IMECE Proceedings",
+    "venue_url": "https://www.asme.org/events/imece",
+    "paper_url": "https://doi.org/10.1115/IMECE2023-112874",
+    "impact_factor": "N/A",
+    "notes": "Peer-reviewed conference proceeding"
+  },
+  {
+    "title": "Modeling Thermal Runaway in Prismatic Lithium-Ion Batteries",
+    "authors": "Shehzad Khan, Sohail Anwar, Jairo Casa, Muhammad Hasnain, et al.",
+    "year": 2023,
+    "type": "conference",
+    "venue": "ASME IMECE Proceedings",
+    "venue_url": "https://www.asme.org/events/imece",
+    "paper_url": "https://doi.org/10.1115/IMECE2023-113787",
+    "impact_factor": "N/A",
+    "notes": "Peer-reviewed conference proceeding"
+  }
+]
