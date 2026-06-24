@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Open graph image for portfolio</title>
+  <desc id="desc">Social sharing image for Muhammad Hasnain research portfolio.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0b1f33" />
+      <stop offset="1" stop-color="#1e7a8c" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <g fill="none" stroke="#96c7d2" stroke-opacity="0.5" stroke-width="2.2">
+    <path d="M20 200 C 200 120, 370 260, 560 190 C 780 105, 980 310, 1180 210" />
+    <path d="M20 280 C 200 200, 370 360, 560 290 C 780 205, 980 390, 1180 300" />
+    <path d="M20 360 C 200 280, 370 460, 560 390 C 780 315, 980 500, 1180 400" />
+  </g>
+  <text x="80" y="230" font-family="Inter, Arial, sans-serif" font-size="34" fill="#d9edf2">Muhammad Hasnain</text>
+  <text x="80" y="316" font-family="Newsreader, Georgia, serif" font-size="66" fill="#f7fafb">CFD + Scientific ML Research</text>
+  <text x="80" y="382" font-family="Inter, Arial, sans-serif" font-size="34" fill="#d9edf2">
+    Graph Neural Networks " Heat Transfer " Energy Systems
+  </text>
+  <text x="80" y="500" font-family="IBM Plex Mono, monospace" font-size="28" fill="#f4e3bf">
+    PhD Researcher | Texas A&amp;M University
+  </text>
+</svg>
