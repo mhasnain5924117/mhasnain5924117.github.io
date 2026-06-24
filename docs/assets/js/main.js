@@ -208,7 +208,8 @@ async function initMilestones() {
       const images = (post.images || []).filter((img) => !String(img.url || "").includes("static.licdn.com"));
       const summary = post.summary || "Professional milestone from research and academic progression.";
       const highlights = Array.isArray(post.highlights) ? post.highlights.slice(0, 3) : [];
-      return { ...post, context, images, summary, highlights };
+      const evidenceLinks = Array.isArray(post.evidence_links) ? post.evidence_links : [];
+      return { ...post, context, images, summary, highlights, evidenceLinks };
     });
 
     const render = () => {
@@ -228,6 +229,14 @@ async function initMilestones() {
           const bullets = item.highlights.length
             ? `<ul class="milestone-bullets">${item.highlights.map((point) => `<li>${escapeHtml(point)}</li>`).join("")}</ul>`
             : "";
+          const evidence = item.evidenceLinks.length
+            ? `<ul class="milestone-links">${item.evidenceLinks
+                .map(
+                  (entry) =>
+                    `<li><a href="${escapeHtml(entry.url || "#")}" target="_blank" rel="noopener">${escapeHtml(entry.label || "Supporting document")}</a></li>`
+                )
+                .join("")}</ul>`
+            : "";
           const actions = [
             item.images.length
               ? `<button class="button button-secondary" type="button" data-open-gallery="${item.id}">View Photos</button>`
@@ -246,6 +255,7 @@ async function initMilestones() {
               <h3>${escapeHtml(trimHeadline(item.title || "LinkedIn milestone"))}</h3>
               <p class="milestone-summary">${escapeHtml(item.summary)}</p>
               ${bullets}
+              ${evidence}
               <div class="card-actions">${actions}</div>
             </article>
           `;
