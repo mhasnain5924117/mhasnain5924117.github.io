@@ -43,6 +43,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/styles.css" />
+    <script defer src="assets/data/publications.data.js"></script>
+    <script defer src="assets/data/linkedin-posts.data.js"></script>
     <script defer src="assets/js/main.js"></script>
 
     <script type="application/ld+json">
@@ -168,13 +170,17 @@
         <div class="container">
           <h2>Education Journey, GPA, and Transcript Access</h2>
           <p class="section-intro">
-            Each stage below includes verified GPA/CGPA information and direct transcript/certificate links.
+            Move step-by-step through each stage using the horizontal controls. Each card includes verified GPA/CGPA and
+            direct transcript/certificate links.
           </p>
 
-          <div class="journey-path" aria-label="Education path from GIKI to TAMU">
-            <div class="journey-line" aria-hidden="true"></div>
-
-            <article class="journey-node">
+          <div class="education-stepper">
+            <div class="stepper-controls">
+              <button type="button" class="chip" data-edu-prev>◀ Previous</button>
+              <button type="button" class="chip" data-edu-next>Next ▶</button>
+            </div>
+            <div id="education-track" class="journey-path" aria-label="Education path from GIKI to TAMU">
+            <article class="journey-node stage-giki">
               <p class="node-time">2017-2021</p>
               <h3><a href="https://giki.edu.pk/" target="_blank" rel="noopener">GIKI, Pakistan</a></h3>
               <p>BS Mechanical Engineering</p>
@@ -182,7 +188,7 @@
               <p><a href="assets/docs/bachelors-transcript-evaluation.pdf" target="_blank" rel="noopener">View Transcript Evaluation (PDF)</a></p>
             </article>
 
-            <article class="journey-node">
+            <article class="journey-node stage-wcu">
               <p class="node-time">Spring 2020</p>
               <h3><a href="https://www.wcu.edu/" target="_blank" rel="noopener">Western Carolina University</a></h3>
               <p>Global UGRAD Exchange Program</p>
@@ -194,7 +200,7 @@
               </p>
             </article>
 
-            <article class="journey-node">
+            <article class="journey-node stage-gsu">
               <p class="node-time">2022-2024</p>
               <h3><a href="https://www.georgiasouthern.edu/" target="_blank" rel="noopener">Georgia Southern University</a></h3>
               <p>MS Mechanical Engineering</p>
@@ -206,13 +212,14 @@
               </p>
             </article>
 
-            <article class="journey-node">
+            <article class="journey-node stage-tamu">
               <p class="node-time">2024-2027 (Anticipated)</p>
               <h3><a href="https://www.tamu.edu/" target="_blank" rel="noopener">Texas A&amp;M University</a></h3>
               <p>PhD Mechanical Engineering</p>
               <p class="mono-note">Current GPA: 4.0/4.0 · 42 earned hours (transcript snapshot)</p>
               <p><a href="assets/docs/phd-unofficial-transcript-2026-06-23.pdf" target="_blank" rel="noopener">PhD Transcript (PDF)</a></p>
             </article>
+            </div>
           </div>
         </div>
       </section>
@@ -240,6 +247,34 @@
               </ul>
             </article>
           </div>
+
+          <div class="feature-strip">
+            <article class="feature-card">
+              <img src="assets/images/posts/post-02-01.jpg" alt="ASME IMECE 2025 conference moment" loading="lazy" />
+              <h3>ASME IMECE 2025</h3>
+              <p>
+                Presented graph-neural-network-driven scientific ML for heat transfer and fluid flow; a major step in my
+                PhD research trajectory.
+              </p>
+              <a href="https://www.linkedin.com/posts/mhasnain1_mechanicalengineering-scientificmachinelearning-activity-7397442123924504576-kK6z" target="_blank" rel="noopener">Related LinkedIn Post</a>
+            </article>
+            <article class="feature-card">
+              <img src="assets/images/posts/post-04-01.jpg" alt="Master defense presentation moment" loading="lazy" />
+              <h3>Master's Defense</h3>
+              <p>
+                Successfully defended thesis on coupled heat and mass transfer in metal-hydride hydrogen storage systems.
+              </p>
+              <a href="https://www.linkedin.com/posts/mhasnain1_mastersdefense-hydrogenstorage-mathematicalmodeling-activity-7203456563829760000-ED5r" target="_blank" rel="noopener">Defense Post</a>
+            </article>
+            <article class="feature-card">
+              <img src="assets/images/posts/post-06-01.jpg" alt="Research symposium award presentation" loading="lazy" />
+              <h3>Research Awards</h3>
+              <p>
+                Recognition for fire safety and hydrogen-storage modeling research at Georgia Southern research symposium.
+              </p>
+              <a href="https://www.linkedin.com/posts/mhasnain1_innovation-mechanicalengineering-firesafety-activity-7187552300494700544-_Vah" target="_blank" rel="noopener">Award Post</a>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -249,6 +284,29 @@
           <p class="section-intro">
             Filter by publication type and search by keywords. Journal/conference links, paper links, and impact-factor
             fields are included.
+          </p>
+
+          <div class="stats-row">
+            <article class="stat-card">
+              <p class="stat-label">Published</p>
+              <p class="stat-value">7</p>
+            </article>
+            <article class="stat-card">
+              <p class="stat-label">Under Review</p>
+              <p class="stat-value">3</p>
+            </article>
+            <article class="stat-card">
+              <p class="stat-label">Citations</p>
+              <p class="stat-value">61+</p>
+            </article>
+            <article class="stat-card">
+              <p class="stat-label">ResearchGate</p>
+              <p class="stat-value"><a href="https://www.researchgate.net/profile/Muhammad-Hasnain-40?ev=hdr_xprf" target="_blank" rel="noopener">Profile</a></p>
+            </article>
+          </div>
+          <p class="mono-note">
+            I attempted to auto-sync live ResearchGate counters, but direct access is blocked in this environment by
+            anti-bot restrictions. The profile link is provided for latest live metrics.
           </p>
 
           <div class="pub-controls">

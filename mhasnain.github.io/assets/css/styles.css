@@ -298,21 +298,25 @@ p {
   margin-bottom: 0.55rem;
 }
 
-.journey-path {
-  position: relative;
-  margin-top: 1.3rem;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(180px, 1fr));
-  gap: 0.9rem;
+.education-stepper {
+  margin-top: 1.2rem;
 }
 
-.journey-line {
-  position: absolute;
-  left: 4%;
-  right: 4%;
-  top: 2rem;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(30, 122, 140, 0.3), rgba(30, 122, 140, 0.85), rgba(30, 122, 140, 0.3));
+.stepper-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.55rem;
+  margin-bottom: 0.8rem;
+}
+
+.journey-path {
+  position: relative;
+  display: flex;
+  gap: 0.95rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  padding-bottom: 0.45rem;
 }
 
 .journey-node {
@@ -323,6 +327,9 @@ p {
   background: #fffdf9;
   padding: 0.9rem;
   min-height: 14rem;
+  min-width: min(100%, 340px);
+  max-width: 340px;
+  scroll-snap-align: start;
 }
 
 .journey-node::before {
@@ -339,6 +346,26 @@ p {
 
 .journey-node h3 {
   margin-left: 1.15rem;
+}
+
+.stage-giki {
+  border-color: #abc4de;
+  background: #f3f8ff;
+}
+
+.stage-wcu {
+  border-color: #9cd1d9;
+  background: #eefbfc;
+}
+
+.stage-gsu {
+  border-color: #cbb8e7;
+  background: #f6f1ff;
+}
+
+.stage-tamu {
+  border-color: #dcc387;
+  background: #fff9eb;
 }
 
 .node-time {
@@ -374,6 +401,65 @@ p {
 .panel-gold {
   border-color: #cdb687;
   background: #fffaf0;
+}
+
+.feature-strip {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+}
+
+.feature-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.85rem;
+  background: linear-gradient(180deg, #fffdf8 0%, #f6fbfd 100%);
+}
+
+.feature-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #d2dce8;
+  margin-bottom: 0.6rem;
+}
+
+.feature-card h3 {
+  margin-bottom: 0.35rem;
+}
+
+.feature-card p {
+  margin-bottom: 0.6rem;
+}
+
+.stats-row {
+  margin-top: 0.95rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
+  gap: 0.65rem;
+}
+
+.stat-card {
+  border: 1px solid #c7d4df;
+  border-radius: 12px;
+  background: #f5fbff;
+  padding: 0.72rem 0.78rem;
+}
+
+.stat-label {
+  margin: 0;
+  font-family: var(--mono);
+  color: #1a5a68;
+  font-size: 0.76rem;
+}
+
+.stat-value {
+  margin: 0.2rem 0 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #102a44;
 }
 
 .mono-note {
@@ -503,10 +589,39 @@ p {
 }
 
 .milestone-category {
-  font-size: 0.74rem;
-  color: #647884;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
+  display: inline-flex;
+  text-transform: capitalize;
+  padding: 0.18rem 0.54rem;
+  border-radius: 999px;
+  background: #e8f7fa;
+  color: #0e5462;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.milestone-category[data-category="research"] {
+  background: #e8f7fa;
+  color: #0e5462;
+}
+
+.milestone-category[data-category="education"] {
+  background: #edf3ff;
+  color: #2a4d80;
+}
+
+.milestone-category[data-category="awards"] {
+  background: #fff4d8;
+  color: #7a5a0d;
+}
+
+.milestone-category[data-category="industry"] {
+  background: #f0f7eb;
+  color: #2c6630;
+}
+
+.milestone-category[data-category="service"] {
+  background: #f2ebff;
+  color: #5e3f8f;
 }
 
 .milestone-card h3 {
@@ -632,14 +747,6 @@ p {
     max-width: 520px;
     margin-inline: auto;
   }
-
-  .journey-path {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .journey-line {
-    display: none;
-  }
 }
 
 @media (max-width: 760px) {
@@ -677,11 +784,18 @@ p {
     padding: 0.55rem 0.45rem;
   }
 
-  .journey-path {
-    grid-template-columns: 1fr;
+  .stepper-controls {
+    justify-content: stretch;
+  }
+
+  .stepper-controls .chip {
+    flex: 1;
+    text-align: center;
   }
 
   .journey-node {
+    min-width: calc(100vw - 3rem);
+    max-width: calc(100vw - 3rem);
     min-height: 0;
   }
 
