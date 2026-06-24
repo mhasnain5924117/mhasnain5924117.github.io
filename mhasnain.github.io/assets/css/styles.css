@@ -390,6 +390,10 @@ p {
   grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
 }
 
+.award-grid-secondary {
+  margin-top: 1rem;
+}
+
 .role-card,
 .panel {
   background: #fffdf8;
@@ -408,6 +412,50 @@ p {
 .panel-gold {
   border-color: #cdb687;
   background: #fffaf0;
+}
+
+.evidence-grid {
+  margin-top: 0.8rem;
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.evidence-grid a {
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #d5dde6;
+}
+
+.evidence-grid img {
+  width: 100%;
+  display: block;
+}
+
+.award-photo-grid {
+  margin-top: 0.4rem;
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.award-photo-grid figure {
+  margin: 0;
+}
+
+.award-photo-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #d5dde6;
+}
+
+.award-photo-grid figcaption {
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  color: #435665;
 }
 
 .feature-strip {
@@ -669,6 +717,17 @@ p {
   font-size: 0.93rem;
 }
 
+.milestone-links {
+  margin: 0.15rem 0 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.milestone-links li {
+  font-size: 0.86rem;
+}
+
 .card-actions {
   display: flex;
   flex-wrap: wrap;
@@ -767,6 +826,13 @@ p {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 0.95rem;
+}
+
+.update-item img {
+  width: 100%;
+  margin: 0.65rem 0 0.55rem;
+  border-radius: 10px;
+  border: 1px solid #d5dde6;
 }
 
 .update-item time {

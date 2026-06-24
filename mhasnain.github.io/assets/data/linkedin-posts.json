@@ -232,7 +232,7 @@
     "summary": "Awarded competitive travel support to present hydrogen storage and battery safety research at IMECE.",
     "context": {
       "date": "Oct 2023",
-      "category": "research"
+      "category": "awards"
     },
     "highlights": [
       "Selected by Georgia Southern Graduate Student Organization for conference travel support.",
@@ -350,9 +350,14 @@
     "published_time": "",
     "images": [
       {
-        "file": "assets/images/posts/post-13-01.jpg",
-        "url": "https://static.licdn.com/aero-v1/sc/h/c45fy346jw096z9pbphyyhdz7",
-        "bytes": 34857
+        "file": "assets/images/evidence/nij-gypsum-abstract.png",
+        "url": "https://nij.ojp.gov/library/publications/3d-mathematical-model-heat-and-mass-transfer-mechanisms-gypsum-board-exposed",
+        "bytes": 0
+      },
+      {
+        "file": "assets/images/evidence/nij-thermal-response-abstract.png",
+        "url": "https://nij.ojp.gov/library/publications/predicting-thermal-response-gypsum-board-under-various-heat-flux",
+        "bytes": 0
       }
     ],
     "summary": "Presented a 3D model for heat and mass transfer in gypsum board exposed to fire.",
@@ -364,6 +369,16 @@
       "Presented at the United States National Combustion Meeting (March 2023).",
       "Focused on fire-exposed gypsum board modeling and transport mechanisms.",
       "Engaged with researchers in combustion, heat transfer, and fire investigation."
+    ],
+    "evidence_links": [
+      {
+        "label": "NIJ Publication: 3D Mathematical Model for Heat and Mass Transfer Mechanisms in Gypsum Board Exposed to Fire",
+        "url": "https://nij.ojp.gov/library/publications/3d-mathematical-model-heat-and-mass-transfer-mechanisms-gypsum-board-exposed"
+      },
+      {
+        "label": "NIJ Publication: Predicting Thermal Response of Gypsum Board Under Various Heat Flux Configurations",
+        "url": "https://nij.ojp.gov/library/publications/predicting-thermal-response-gypsum-board-under-various-heat-flux"
+      }
     ]
   },
   {
@@ -373,11 +388,6 @@
     "description": "From Conventional Meetings to Coffee Chats: A Productive Day with Professor Dr. Gulzar Shah, PhD, MStat, MS., Department Chair at College of Public Health, Georgia Southern University\n\nGone are the days when students and professors had to meet in stuffy offices. Today, we had the honor of meeting the brilliant Professor Dr. Gulzar Shah over coffee at Starbucks, and it was an incredible experience. Dr. Shah has been an inspiration to us in many ways. His 20 years of interdisciplinary training and work experience in both academia and public health practice agencies is truly inspiring. It is an emotional experience to see someone from your home country achieving such great success.\n\nDuring our coffee chat, Dr. Shah shared his research interests in data improvement tools, and public health finances, among others, which opened new perspectives for us on combining computational modeling, machine learning, and health sciences. We had a very productive discussion that left us feeling energized and motivated to apply the insights gained to our research work.\n\nI would also like to extend a special thanks to our supervisor, Dr. Hayri Sezer, for his support and cooperation throughout. His village recently was hit by an earthquake, and he is still working hard to help the community with his great skills while giving his students the time and attention they need.\n\nBut that's not all, we also had the pleasure of having Shehzad Khan, my friend and research assistant. Shehzad is a social person and more like a business-minded person who always brings a fun element to the conversation. We are thankful to Shehzad for his company and for making the conversation more enjoyable.\n\nIn conclusion, I would like to thank Dr. Shah, Dr. Sezer, and Shehzad for their time and effort. Our coffee chat was a great reminder that sometimes unconventional meetings can be the most productive ones. \n\n#publichealth #research #PakistaniHeritage #UrduPoetry #CoffeeChat #machinelearning #community",
     "published_time": "",
     "images": [
-      {
-        "file": "assets/images/posts/post-14-01.jpg",
-        "url": "https://media.licdn.com/dms/image/v2/C5622AQGLDAMPdRokCA/feedshare-shrink_800/feedshare-shrink_800/0/1676516301806?e=2147483647&v=beta&t=3_mde9tCeVClsXVYTxwFwicz0FCdExlu9a_J0AeYGC4",
-        "bytes": 74307
-      },
       {
         "file": "assets/images/posts/post-14-02.jpg",
         "url": "https://media.licdn.com/dms/image/v2/C5622AQH0s0q5IKXZsg/feedshare-shrink_800/feedshare-shrink_800/0/1676516301863?e=2147483647&v=beta&t=5gilq-O8HJXfjZH8slVqQgNjHSRccGr5xHwS52P_Qh0",
@@ -485,6 +495,12 @@
       "Selected as Communication and Marketing Intern at Zigron Inc.",
       "Opportunity facilitated through Pakistan US Alumni Network (PUAN).",
       "Developed communication-oriented experience alongside engineering studies."
+    ],
+    "evidence_links": [
+      {
+        "label": "Zigron Internship Certificate (PDF)",
+        "url": "assets/docs/zigron-internship-certificate-puan.pdf"
+      }
     ]
   }
 ]

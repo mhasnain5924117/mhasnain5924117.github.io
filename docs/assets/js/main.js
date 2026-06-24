@@ -112,7 +112,7 @@ async function initPublicationExplorer() {
         .sort((a, b) => b.year - a.year);
 
       if (!filtered.length) {
-        container.innerHTML = '<p class="mono-note">No publications match the selected filter/search.</p>';
+        container.innerHTML = '<p class="mono-note">No publication records match the selected criteria.</p>';
         return;
       }
 
@@ -120,7 +120,7 @@ async function initPublicationExplorer() {
         .map((item) => {
           const paperLink = item.paper_url
             ? `<a href="${item.paper_url}" target="_blank" rel="noopener">Paper link</a>`
-            : '<span class="mono-note">Paper link to be added</span>';
+            : '<span class="mono-note">Link available upon publication.</span>';
           return `
             <article class="pub-card">
               <h3>${escapeHtml(item.title)}</h3>
@@ -157,7 +157,7 @@ async function initPublicationExplorer() {
 
     render();
   } catch (error) {
-    container.innerHTML = '<p class="mono-note">Unable to load publication data at this moment.</p>';
+    container.innerHTML = '<p class="mono-note">Publication records are temporarily unavailable.</p>';
   }
 }
 
@@ -208,14 +208,15 @@ async function initMilestones() {
       const images = (post.images || []).filter((img) => !String(img.url || "").includes("static.licdn.com"));
       const summary = post.summary || "Professional milestone from research and academic progression.";
       const highlights = Array.isArray(post.highlights) ? post.highlights.slice(0, 3) : [];
-      return { ...post, context, images, summary, highlights };
+      const evidenceLinks = Array.isArray(post.evidence_links) ? post.evidence_links : [];
+      return { ...post, context, images, summary, highlights, evidenceLinks };
     });
 
     const render = () => {
       const list = normalized.filter((item) => (activeFilter === "all" ? true : item.context.category === activeFilter));
 
       if (!list.length) {
-        container.innerHTML = '<p class="mono-note">No milestones match the selected category.</p>';
+        container.innerHTML = '<p class="mono-note">No milestone records match the selected criteria.</p>';
         return;
       }
 
@@ -224,15 +225,23 @@ async function initMilestones() {
           const first = item.images[0];
           const media = first
             ? `<img src="${first.file}" alt="${escapeHtml(item.title || "Milestone image")}" loading="lazy" />`
-            : '<div class="milestone-empty-media">No public photo archived for this entry</div>';
+            : '<div class="milestone-empty-media">Public photo is not available for this record.</div>';
           const bullets = item.highlights.length
             ? `<ul class="milestone-bullets">${item.highlights.map((point) => `<li>${escapeHtml(point)}</li>`).join("")}</ul>`
+            : "";
+          const evidence = item.evidenceLinks.length
+            ? `<ul class="milestone-links">${item.evidenceLinks
+                .map(
+                  (entry) =>
+                    `<li><a href="${escapeHtml(entry.url || "#")}" target="_blank" rel="noopener">${escapeHtml(entry.label || "Supporting document")}</a></li>`
+                )
+                .join("")}</ul>`
             : "";
           const actions = [
             item.images.length
               ? `<button class="button button-secondary" type="button" data-open-gallery="${item.id}">View Photos</button>`
               : "",
-            `<a class="button button-secondary" href="${item.source_url}" target="_blank" rel="noopener">Original Post</a>`
+            `<a class="button button-secondary" href="${item.source_url}" target="_blank" rel="noopener">Source Post</a>`
           ]
             .filter(Boolean)
             .join("");
@@ -246,6 +255,7 @@ async function initMilestones() {
               <h3>${escapeHtml(trimHeadline(item.title || "LinkedIn milestone"))}</h3>
               <p class="milestone-summary">${escapeHtml(item.summary)}</p>
               ${bullets}
+              ${evidence}
               <div class="card-actions">${actions}</div>
             </article>
           `;
@@ -278,7 +288,7 @@ async function initMilestones() {
 
     render();
   } catch (error) {
-    container.innerHTML = '<p class="mono-note">Unable to load LinkedIn milestone data right now.</p>';
+    container.innerHTML = '<p class="mono-note">Milestone records are temporarily unavailable.</p>';
   }
 }
 
