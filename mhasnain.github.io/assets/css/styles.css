@@ -203,6 +203,13 @@ p {
   max-width: 68ch;
 }
 
+.lead-sub {
+  margin-top: 0.7rem;
+  font-size: 0.99rem;
+  max-width: 68ch;
+  color: #2c4657;
+}
+
 .section-intro {
   max-width: 76ch;
 }
@@ -573,6 +580,22 @@ p {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  border: 1px solid #d8e1ea;
+  border-radius: 10px;
+}
+
+.milestone-empty-media {
+  min-height: 9.2rem;
+  border-radius: 10px;
+  border: 1px dashed #becad8;
+  background: #f6f9fc;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: #526575;
 }
 
 .milestone-head {
@@ -627,6 +650,23 @@ p {
 .milestone-card h3 {
   font-size: 1rem;
   margin-bottom: 0.35rem;
+}
+
+.milestone-summary {
+  margin: 0;
+}
+
+.milestone-bullets {
+  margin: 0.1rem 0 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.28rem;
+  color: #304857;
+}
+
+.milestone-bullets li {
+  line-height: 1.35;
+  font-size: 0.93rem;
 }
 
 .card-actions {

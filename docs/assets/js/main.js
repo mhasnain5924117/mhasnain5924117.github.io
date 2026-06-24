@@ -165,26 +165,6 @@ async function initMilestones() {
   const container = document.getElementById("milestone-list");
   if (!container) return;
 
-  const contextByPostId = {
-    "post-01": { date: "Apr 2026", category: "service", summary: "Invited by UROG to mentor students on research methodology and planning." },
-    "post-02": { date: "Nov 2025", category: "research", summary: "ASME IMECE 2025 participation on scientific ML for thermal-fluid systems." },
-    "post-03": { date: "Jun 2024", category: "education", summary: "Master's graduation announcement and thesis completion." },
-    "post-04": { date: "Jun 2024", category: "education", summary: "Successful master's thesis defense on hydrogen storage modeling." },
-    "post-05": { date: "Apr 2024", category: "awards", summary: "Awards at Georgia Southern research symposium." },
-    "post-06": { date: "Apr 2024", category: "awards", summary: "Fire safety and hydrogen-storage poster awards." },
-    "post-07": { date: "Mar 2024", category: "research", summary: "ESSCI technical meeting with multi-paper combustion/fire research outputs." },
-    "post-08": { date: "Nov 2023", category: "research", summary: "IMECE presentation on multi-physics modeling for hydrogen storage." },
-    "post-09": { date: "Oct 2023", category: "research", summary: "GSO-funded IMECE travel grant for research dissemination." },
-    "post-10": { date: "Jul 2023", category: "industry", summary: "E.R. Snell internship cohort and heavy civil exposure." },
-    "post-11": { date: "Aug 2023", category: "industry", summary: "Completion of E.R. Snell internship and field experience." },
-    "post-12": { date: "Apr 2023", category: "awards", summary: "Multiple awards in Georgia Southern student research symposium." },
-    "post-13": { date: "Mar 2023", category: "research", summary: "US National Combustion Meeting presentation (gypsum-board fire modeling)." },
-    "post-14": { date: "Feb 2023", category: "service", summary: "Interdisciplinary public-health and data-focused research networking." },
-    "post-15": { date: "Jul 2021", category: "industry", summary: "PepsiCo internship start through Roshan Kal program." },
-    "post-16": { date: "Jul 2021", category: "education", summary: "Bachelor's graduation milestone from GIKI." },
-    "post-17": { date: "Aug 2020", category: "industry", summary: "Selection for Zigron communication and marketing internship." }
-  };
-
   let activeFilter = "all";
   const filterButtons = Array.from(document.querySelectorAll("[data-milestone-filter]"));
 
@@ -224,16 +204,15 @@ async function initMilestones() {
     if (!Array.isArray(posts)) throw new Error("Invalid milestone data");
 
     const normalized = posts.map((post) => {
-      const context = contextByPostId[post.id] || { date: "Milestone", category: "research", summary: "" };
+      const context = post.context || { date: "Milestone", category: "research" };
       const images = (post.images || []).filter((img) => !String(img.url || "").includes("static.licdn.com"));
-      const detail = textExcerpt(post.description || "", 170);
-      return { ...post, context, images, detail };
+      const summary = post.summary || "Professional milestone from research and academic progression.";
+      const highlights = Array.isArray(post.highlights) ? post.highlights.slice(0, 3) : [];
+      return { ...post, context, images, summary, highlights };
     });
 
     const render = () => {
-      const list = normalized
-        .filter((item) => (activeFilter === "all" ? true : item.context.category === activeFilter))
-        .filter((item) => item.images.length > 0);
+      const list = normalized.filter((item) => (activeFilter === "all" ? true : item.context.category === activeFilter));
 
       if (!list.length) {
         container.innerHTML = '<p class="mono-note">No milestones match the selected category.</p>';
@@ -243,21 +222,31 @@ async function initMilestones() {
       container.innerHTML = list
         .map((item) => {
           const first = item.images[0];
+          const media = first
+            ? `<img src="${first.file}" alt="${escapeHtml(item.title || "Milestone image")}" loading="lazy" />`
+            : '<div class="milestone-empty-media">No public photo archived for this entry</div>';
+          const bullets = item.highlights.length
+            ? `<ul class="milestone-bullets">${item.highlights.map((point) => `<li>${escapeHtml(point)}</li>`).join("")}</ul>`
+            : "";
+          const actions = [
+            item.images.length
+              ? `<button class="button button-secondary" type="button" data-open-gallery="${item.id}">View Photos</button>`
+              : "",
+            `<a class="button button-secondary" href="${item.source_url}" target="_blank" rel="noopener">Original Post</a>`
+          ]
+            .filter(Boolean)
+            .join("");
           return `
             <article class="milestone-card">
-              <img src="${first.file}" alt="${escapeHtml(item.title || "LinkedIn milestone image")}" loading="lazy" />
+              ${media}
               <div class="milestone-head">
                 <span class="milestone-date">${escapeHtml(item.context.date)}</span>
                 <span class="milestone-category" data-category="${escapeHtml(item.context.category)}">${escapeHtml(item.context.category)}</span>
               </div>
               <h3>${escapeHtml(trimHeadline(item.title || "LinkedIn milestone"))}</h3>
-              <p>${escapeHtml(item.context.summary)}</p>
-              <p class="mono-note">${escapeHtml(item.detail)}</p>
-              <p class="mono-note">${item.images.length} image(s) available</p>
-              <div class="card-actions">
-                <button class="button button-secondary" type="button" data-open-gallery="${item.id}">Open Gallery</button>
-                <a class="button button-secondary" href="${item.source_url}" target="_blank" rel="noopener">LinkedIn Post</a>
-              </div>
+              <p class="milestone-summary">${escapeHtml(item.summary)}</p>
+              ${bullets}
+              <div class="card-actions">${actions}</div>
             </article>
           `;
         })
@@ -318,13 +307,6 @@ async function loadItems(url, globalName) {
     if (Array.isArray(fallback)) return fallback;
     throw fetchError;
   }
-}
-
-function textExcerpt(text, maxLen) {
-  const normalized = decodeBasicEntities(String(text)).replace(/\s+/g, " ").trim();
-  if (!normalized) return "";
-  if (normalized.length <= maxLen) return normalized;
-  return `${normalized.slice(0, maxLen - 3)}...`;
 }
 
 function trimHeadline(text) {
