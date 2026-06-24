@@ -42,6 +42,7 @@
   }
 
   initSectionSpy();
+  initEducationStepper();
   initPublicationExplorer();
   initMilestones();
 })();
@@ -94,8 +95,8 @@ async function initPublicationExplorer() {
   let searchValue = "";
 
   try {
-    const response = await fetch("assets/data/publications.json");
-    const items = await response.json();
+    const items = await loadItems("assets/data/publications.json", "__PUBLICATIONS__");
+    if (!Array.isArray(items)) throw new Error("Invalid publication data");
 
     const render = () => {
       const filtered = items
@@ -219,13 +220,14 @@ async function initMilestones() {
   });
 
   try {
-    const response = await fetch("assets/data/linkedin-posts.json");
-    const posts = await response.json();
+    const posts = await loadItems("assets/data/linkedin-posts.json", "__LINKEDIN_POSTS__");
+    if (!Array.isArray(posts)) throw new Error("Invalid milestone data");
 
     const normalized = posts.map((post) => {
       const context = contextByPostId[post.id] || { date: "Milestone", category: "research", summary: "" };
       const images = (post.images || []).filter((img) => !String(img.url || "").includes("static.licdn.com"));
-      return { ...post, context, images };
+      const detail = textExcerpt(post.description || "", 170);
+      return { ...post, context, images, detail };
     });
 
     const render = () => {
@@ -246,10 +248,11 @@ async function initMilestones() {
               <img src="${first.file}" alt="${escapeHtml(item.title || "LinkedIn milestone image")}" loading="lazy" />
               <div class="milestone-head">
                 <span class="milestone-date">${escapeHtml(item.context.date)}</span>
-                <span class="milestone-category">${escapeHtml(item.context.category)}</span>
+                <span class="milestone-category" data-category="${escapeHtml(item.context.category)}">${escapeHtml(item.context.category)}</span>
               </div>
               <h3>${escapeHtml(trimHeadline(item.title || "LinkedIn milestone"))}</h3>
               <p>${escapeHtml(item.context.summary)}</p>
+              <p class="mono-note">${escapeHtml(item.detail)}</p>
               <p class="mono-note">${item.images.length} image(s) available</p>
               <div class="card-actions">
                 <button class="button button-secondary" type="button" data-open-gallery="${item.id}">Open Gallery</button>
@@ -290,9 +293,49 @@ async function initMilestones() {
   }
 }
 
+function initEducationStepper() {
+  const track = document.getElementById("education-track");
+  if (!track) return;
+  const prev = document.querySelector("[data-edu-prev]");
+  const next = document.querySelector("[data-edu-next]");
+  const step = () => Math.max(220, Math.round(track.clientWidth * 0.92));
+
+  prev?.addEventListener("click", () => {
+    track.scrollBy({ left: -step(), behavior: "smooth" });
+  });
+  next?.addEventListener("click", () => {
+    track.scrollBy({ left: step(), behavior: "smooth" });
+  });
+}
+
+async function loadItems(url, globalName) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return await response.json();
+  } catch (fetchError) {
+    const fallback = window[globalName];
+    if (Array.isArray(fallback)) return fallback;
+    throw fetchError;
+  }
+}
+
+function textExcerpt(text, maxLen) {
+  const normalized = decodeBasicEntities(String(text)).replace(/\s+/g, " ").trim();
+  if (!normalized) return "";
+  if (normalized.length <= maxLen) return normalized;
+  return `${normalized.slice(0, maxLen - 3)}...`;
+}
+
 function trimHeadline(text) {
-  const cleaned = text.replace(/\s*\|\s*LinkedIn.*$/i, "").replace(/\s*\|\s*\d+\s*comments.*$/i, "");
+  const cleaned = decodeBasicEntities(text)
+    .replace(/\s*\|\s*LinkedIn.*$/i, "")
+    .replace(/\s*\|\s*\d+\s*comments.*$/i, "");
   return cleaned.length > 110 ? `${cleaned.slice(0, 107)}...` : cleaned;
+}
+
+function decodeBasicEntities(value) {
+  return String(value).replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#39;/g, "'");
 }
 
 function escapeHtml(value) {
