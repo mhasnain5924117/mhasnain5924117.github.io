@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mhasnain5924117.github.io/Repos/sitemap.xml
+Sitemap: https://mhasnain5924117.github.io/sitemap.xml

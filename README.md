@@ -19,7 +19,7 @@ This repository uses a **single** website source:
 
 Public URL for this repo:
 
-- `https://mhasnain5924117.github.io/Repos/`
+- `https://mhasnain5924117.github.io/`
 
 ---
 
