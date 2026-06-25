@@ -1,24 +1,12 @@
 # Muhammad Hasnain Portfolio Website
 
-This repository now keeps website files in two ready-to-use locations:
+This repository uses a **single** website source:
 
-- `docs/` (current in-repo GitHub Pages source)
-- `mhasnain.github.io/` (standalone dedicated-repo package)
-
-Use `mhasnain.github.io/` when you want a fully separate website repository.
+- `docs/` (GitHub Pages publish source)
 
 ---
 
-## Website locations
-
-```text
-docs/...
-mhasnain.github.io/...
-```
-
----
-
-## Option A: Deploy from this repository (`docs/`)
+## Deploy publicly from this repository
 
 1. Open your GitHub repository.
 2. Go to **Settings → Pages**.
@@ -27,22 +15,11 @@ mhasnain.github.io/...
    - Branch: `main`
    - Folder: `/docs`
 4. Save.
+5. Wait for Pages to finish building (usually 1-3 minutes).
 
-This publishes the website from the `docs/` folder.
+Public URL for this repo:
 
----
-
-## Option B (recommended for dedicated site): separate repository
-
-Create a new repository named:
-
-- `mhasnain.github.io`
-
-Then copy the **contents of `mhasnain.github.io/`** into that repository root.
-
-That gives the clean user-site URL:
-
-- `https://mhasnain.github.io/`
+- `https://mhasnain5924117.github.io/Repos/`
 
 ---
 
@@ -54,10 +31,9 @@ From repo root:
 python3 -m http.server 8080
 ```
 
-Open either:
+Open:
 
 - `http://localhost:8080/docs/`
-- `http://localhost:8080/mhasnain.github.io/`
 
 ---
 
@@ -104,29 +80,4 @@ When URL structure changes, update:
 - `docs/updates.html` canonical + OG URL/image
 - `docs/robots.txt` sitemap line
 - `docs/sitemap.xml` `<loc>` entries
-
----
-
-## SEO already implemented
-
-- Meta title, description, and keyword targeting
-- Open Graph and Twitter metadata
-- Structured data (Schema.org Person + scholarly work)
-- Internal linking and semantic headings
-- Mobile-first responsive layout
-- Sitemap and robots
-- Accessible navigation (skip link, landmarks, clear hierarchy)
-
----
-
-## Narrative guidance (professional, authentic)
-
-Use this framing style for future edits:
-
-1. Fact-first background context
-2. Research outcomes and technical depth
-3. Scholarship/funding thread as opportunity multiplier
-4. Forward-looking mission (impact, mentorship, rigorous science)
-
-Keep tone confident and evidence-based (not dramatic).
 
