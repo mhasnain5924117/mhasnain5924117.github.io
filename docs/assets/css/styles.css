@@ -451,7 +451,7 @@ p {
 }
 
 .doc-chip::before {
-  content: "[DOC] ";
+  content: "";
   font-family: var(--mono);
   color: var(--brass);
   font-size: 0.76rem;
