@@ -534,6 +534,10 @@ p {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
+.project-section-title {
+  margin-top: 1.85rem;
+}
+
 .project-grid h4 {
   margin-bottom: 0.4rem;
 }
