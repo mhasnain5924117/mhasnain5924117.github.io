@@ -117,22 +117,37 @@ async function initPublicationExplorer() {
 
       container.innerHTML = filtered
         .map((item) => {
+          const venueLabel = item.venue ? escapeHtml(item.venue) : "Venue not listed";
+          const typeLabel = escapeHtml(formatPublicationType(item.type));
+          const yearLabel = escapeHtml(item.year);
+          const venueLink = item.venue_url
+            ? `<a href="${item.venue_url}" target="_blank" rel="noopener">${escapeHtml(item.venue)}</a>`
+            : `<span>${venueLabel}</span>`;
           const paperLink = item.paper_url
             ? `<a href="${item.paper_url}" target="_blank" rel="noopener">Paper link</a>`
             : '<span class="mono-note">Link available upon publication.</span>';
+          const notes = item.notes ? `<p>${escapeHtml(item.notes)}</p>` : "";
           return `
-            <article class="pub-card">
-              <h3>${escapeHtml(item.title)}</h3>
-              <p>${escapeHtml(item.authors)}</p>
-              <div class="pub-meta">
-                <div><span class="label">Year</span><span>${item.year}</span></div>
-                <div><span class="label">Type</span><span>${escapeHtml(formatPublicationType(item.type))}</span></div>
-                <div><span class="label">Venue</span><span><a href="${item.venue_url}" target="_blank" rel="noopener">${escapeHtml(item.venue)}</a></span></div>
-                <div><span class="label">Impact factor</span><span>${escapeHtml(item.impact_factor)}</span></div>
+            <details class="pub-card pub-disclosure">
+              <summary class="pub-summary">
+                <div class="pub-summary-main">
+                  <h3>${escapeHtml(item.title)}</h3>
+                  <p class="pub-summary-line">${venueLabel} · ${yearLabel}</p>
+                </div>
+                <span class="pub-pill">${typeLabel}</span>
+              </summary>
+              <div class="pub-details">
+                <p>${escapeHtml(item.authors)}</p>
+                <div class="pub-meta">
+                  <div><span class="label">Year</span><span>${yearLabel}</span></div>
+                  <div><span class="label">Type</span><span>${typeLabel}</span></div>
+                  <div><span class="label">Venue</span><span>${venueLink}</span></div>
+                  <div><span class="label">Impact factor</span><span>${escapeHtml(item.impact_factor)}</span></div>
+                </div>
+                ${notes}
+                <div class="card-actions">${paperLink}</div>
               </div>
-              <p>${escapeHtml(item.notes)}</p>
-              <div class="card-actions">${paperLink}</div>
-            </article>
+            </details>
           `;
         })
         .join("");
@@ -291,14 +306,20 @@ async function initMilestones() {
 }
 
 async function loadItems(url, globalName) {
+  const fallback = window[globalName];
+  if (window.location.protocol === "file:") {
+    if (Array.isArray(fallback)) return fallback;
+    throw new Error(`Missing fallback bundle: ${globalName}`);
+  }
+
   try {
     const response = await fetch(url);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     return await response.json();
-  } catch (fetchError) {
+  } catch (error) {
     const fallback = window[globalName];
     if (Array.isArray(fallback)) return fallback;
-    throw fetchError;
+    throw error;
   }
 }
 
@@ -317,6 +338,7 @@ function formatPublicationType(type) {
   const labels = {
     "peer-reviewed": "Peer-Reviewed Output",
     conference: "Conference Proceeding",
+    poster: "Poster Presentation",
     "conference-under-review": "Conference Paper (Under Review)",
     "under-review": "Journal Manuscript (Under Review)"
   };
