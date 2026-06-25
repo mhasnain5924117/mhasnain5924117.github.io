@@ -305,6 +305,39 @@ p {
   margin-bottom: 0.55rem;
 }
 
+.education-grid {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.education-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fffdf8;
+  padding: 0.95rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.education-meta {
+  margin: 0;
+  font-weight: 600;
+  color: #1f3a49;
+}
+
+.education-links {
+  margin: 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.education-links li {
+  font-size: 0.9rem;
+}
+
 .education-stepper {
   margin-top: 1.2rem;
 }
@@ -409,6 +442,11 @@ p {
   margin-bottom: 0.45rem;
 }
 
+.research-card ul {
+  display: grid;
+  gap: 0.4rem;
+}
+
 .panel-gold {
   border-color: #cdb687;
   background: #fffaf0;
@@ -487,6 +525,17 @@ p {
 
 .feature-card p {
   margin-bottom: 0.6rem;
+}
+
+.project-grid {
+  margin-top: 0.75rem;
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.project-grid h4 {
+  margin-bottom: 0.4rem;
 }
 
 .stats-row {
@@ -622,6 +671,10 @@ p {
   padding: 0.75rem;
   display: grid;
   gap: 0.55rem;
+}
+
+.milestone-card-text {
+  border-style: dashed;
 }
 
 .milestone-card img {
@@ -890,19 +943,8 @@ p {
     padding: 0.55rem 0.45rem;
   }
 
-  .stepper-controls {
-    justify-content: stretch;
-  }
-
-  .stepper-controls .chip {
-    flex: 1;
-    text-align: center;
-  }
-
-  .journey-node {
-    min-width: calc(100vw - 3rem);
-    max-width: calc(100vw - 3rem);
-    min-height: 0;
+  .education-grid {
+    grid-template-columns: 1fr;
   }
 
   .pub-controls {

@@ -42,7 +42,6 @@
   }
 
   initSectionSpy();
-  initEducationStepper();
   initPublicationExplorer();
   initMilestones();
 })();
@@ -127,7 +126,7 @@ async function initPublicationExplorer() {
               <p>${escapeHtml(item.authors)}</p>
               <div class="pub-meta">
                 <div><span class="label">Year</span><span>${item.year}</span></div>
-                <div><span class="label">Type</span><span>${escapeHtml(item.type)}</span></div>
+                <div><span class="label">Type</span><span>${escapeHtml(formatPublicationType(item.type))}</span></div>
                 <div><span class="label">Venue</span><span><a href="${item.venue_url}" target="_blank" rel="noopener">${escapeHtml(item.venue)}</a></span></div>
                 <div><span class="label">Impact factor</span><span>${escapeHtml(item.impact_factor)}</span></div>
               </div>
@@ -213,7 +212,8 @@ async function initMilestones() {
     });
 
     const render = () => {
-      const list = normalized.filter((item) => (activeFilter === "all" ? true : item.context.category === activeFilter));
+      const filtered = normalized.filter((item) => (activeFilter === "all" ? true : item.context.category === activeFilter));
+      const list = [...filtered.filter((item) => item.images.length > 0), ...filtered.filter((item) => item.images.length === 0)];
 
       if (!list.length) {
         container.innerHTML = '<p class="mono-note">No milestone records match the selected criteria.</p>';
@@ -223,9 +223,7 @@ async function initMilestones() {
       container.innerHTML = list
         .map((item) => {
           const first = item.images[0];
-          const media = first
-            ? `<img src="${first.file}" alt="${escapeHtml(item.title || "Milestone image")}" loading="lazy" />`
-            : '<div class="milestone-empty-media">Public photo is not available for this record.</div>';
+          const media = first ? `<img src="${first.file}" alt="${escapeHtml(item.title || "Milestone image")}" loading="lazy" />` : "";
           const bullets = item.highlights.length
             ? `<ul class="milestone-bullets">${item.highlights.map((point) => `<li>${escapeHtml(point)}</li>`).join("")}</ul>`
             : "";
@@ -246,7 +244,7 @@ async function initMilestones() {
             .filter(Boolean)
             .join("");
           return `
-            <article class="milestone-card">
+            <article class="milestone-card${first ? "" : " milestone-card-text"}">
               ${media}
               <div class="milestone-head">
                 <span class="milestone-date">${escapeHtml(item.context.date)}</span>
@@ -292,21 +290,6 @@ async function initMilestones() {
   }
 }
 
-function initEducationStepper() {
-  const track = document.getElementById("education-track");
-  if (!track) return;
-  const prev = document.querySelector("[data-edu-prev]");
-  const next = document.querySelector("[data-edu-next]");
-  const step = () => Math.max(220, Math.round(track.clientWidth * 0.92));
-
-  prev?.addEventListener("click", () => {
-    track.scrollBy({ left: -step(), behavior: "smooth" });
-  });
-  next?.addEventListener("click", () => {
-    track.scrollBy({ left: step(), behavior: "smooth" });
-  });
-}
-
 async function loadItems(url, globalName) {
   try {
     const response = await fetch(url);
@@ -328,6 +311,16 @@ function trimHeadline(text) {
 
 function decodeBasicEntities(value) {
   return String(value).replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+}
+
+function formatPublicationType(type) {
+  const labels = {
+    "peer-reviewed": "Peer-Reviewed Output",
+    conference: "Conference Proceeding",
+    "conference-under-review": "Conference Paper (Under Review)",
+    "under-review": "Journal Manuscript (Under Review)"
+  };
+  return labels[type] || type;
 }
 
 function escapeHtml(value) {

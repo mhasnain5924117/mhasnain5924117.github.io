@@ -1,5 +1,53 @@
 [
   {
+    "id": "post-18",
+    "source_url": "https://event.asme.org/IMECE",
+    "title": "Graduate Student Travel Award for IMECE 2025 Presentation",
+    "description": "Travel support award from the Texas A&M Department of Mechanical Engineering to present research at ASME IMECE 2025, Memphis, Tennessee.",
+    "published_time": "",
+    "images": [],
+    "summary": "Awarded travel support to disseminate thermal-fluid scientific ML research at ASME IMECE 2025.",
+    "context": {
+      "date": "2025",
+      "category": "awards"
+    },
+    "highlights": [
+      "Received Graduate Student Travel Award ($750) from Texas A&M Mechanical Engineering.",
+      "Supported conference presentation at ASME IMECE 2025 in Memphis, Tennessee.",
+      "Used for dissemination of graph-based thermal-fluid modeling research."
+    ],
+    "evidence_links": [
+      {
+        "label": "ASME IMECE Conference Portal",
+        "url": "https://event.asme.org/IMECE"
+      }
+    ]
+  },
+  {
+    "id": "post-19",
+    "source_url": "https://www.wccm2026.org/",
+    "title": "RAP and Child Care Travel Awards for WCCM-ECCOMAS 2026",
+    "description": "Texas A&M Graduate and Professional School RAP and Child Care travel awards to support presentation at WCCM-ECCOMAS 2026, Munich, Germany.",
+    "published_time": "",
+    "images": [],
+    "summary": "Received combined $1,750 travel support for WCCM-ECCOMAS 2026 research presentation in Munich.",
+    "context": {
+      "date": "2026",
+      "category": "awards"
+    },
+    "highlights": [
+      "Awarded Graduate Student Research and Presentation (RAP) Travel Award.",
+      "Awarded Graduate Student Child Care (CC) Travel Award.",
+      "Combined support of $1,750 allocated for WCCM-ECCOMAS 2026 presentation expenses."
+    ],
+    "evidence_links": [
+      {
+        "label": "WCCM-ECCOMAS 2026 Conference",
+        "url": "https://www.wccm2026.org/"
+      }
+    ]
+  },
+  {
     "id": "post-01",
     "source_url": "https://www.linkedin.com/posts/urog_undergraduate-research-opportunities-at-giki-activity-7450614993240080384-ulwv",
     "title": "Invited Research Methodology Mentoring Session (UROG, GIKI)",
