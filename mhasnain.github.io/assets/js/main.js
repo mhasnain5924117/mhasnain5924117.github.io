@@ -267,7 +267,7 @@ async function initMilestones() {
           if (!item || !dialog || !galleryTitle || !gallerySource) return;
           galleryImages = item.images;
           galleryIndex = 0;
-          galleryTitle.textContent = `${item.context.date} · ${item.context.summary}`;
+          galleryTitle.textContent = `${item.context.date} · ${item.summary}`;
           gallerySource.href = item.source_url;
           renderGallery();
           dialog.showModal();
