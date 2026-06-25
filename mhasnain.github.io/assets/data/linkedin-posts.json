@@ -25,7 +25,7 @@
   },
   {
     "id": "post-19",
-    "source_url": "https://www.wccm2026.org/",
+    "source_url": "https://wccm-eccomas2026.org/",
     "title": "RAP and Child Care Travel Awards for WCCM-ECCOMAS 2026",
     "description": "Texas A&M Graduate and Professional School RAP and Child Care travel awards to support presentation at WCCM-ECCOMAS 2026, Munich, Germany.",
     "published_time": "",
@@ -43,7 +43,7 @@
     "evidence_links": [
       {
         "label": "WCCM-ECCOMAS 2026 Conference",
-        "url": "https://www.wccm2026.org/"
+        "url": "https://wccm-eccomas2026.org/"
       }
     ]
   },
@@ -400,11 +400,6 @@
       {
         "file": "assets/images/evidence/nij-gypsum-abstract.png",
         "url": "https://nij.ojp.gov/library/publications/3d-mathematical-model-heat-and-mass-transfer-mechanisms-gypsum-board-exposed",
-        "bytes": 0
-      },
-      {
-        "file": "assets/images/evidence/nij-thermal-response-abstract.png",
-        "url": "https://nij.ojp.gov/library/publications/predicting-thermal-response-gypsum-board-under-various-heat-flux",
         "bytes": 0
       }
     ],
