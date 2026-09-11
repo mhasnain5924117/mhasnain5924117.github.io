@@ -37,47 +37,52 @@ Open:
 
 ---
 
+## Site structure
+
+Everything lives in a single static page, `docs/index.html`, with these sections (in order):
+About (with Education), Research (three thrusts, future directions, software, collaborations),
+Publications (selected, then grouped full list), Teaching and Mentoring, Talks, Awards and Funding,
+Service and Outreach, News, Contact and References.
+
+Supporting files:
+
+- `docs/assets/css/styles.css` – styles, including print rules
+- `docs/assets/js/main.js` – mobile menu and nav highlighting only
+- `docs/assets/cv/Muhammad_Hasnain_CV.pdf` – the file behind every "CV (PDF)" link
+- `docs/assets/images/photos/` – conference, poster, and teaching photographs
+- `docs/assets/images/figures/` – SVG schematics for the research thrusts
+- `docs/assets/images/og-image.jpg` – 1200x630 social-preview collage
+- `docs/updates.html` – redirect to `/#news` (kept for old links)
+
 ## Content update workflow
 
-### 1) Update bio/research sections
+### 1) Add a publication
 
-- Edit: `docs/index.html`
-- Sections to maintain:
-  - About
-  - Journey
-  - Research Experience
-  - Publications
-  - Awards
-  - Teaching/Service
-  - Contact
+In `docs/index.html` under `#publications`, add an `<li>` to the matching group
+(Journal articles / Refereed conference papers / Preprints / Presentations / Posters).
+Use the full author list with `<strong>M. Hasnain</strong>`, and include the DOI string as a link.
+Update the "Selected publications" block only for the 3–5 most important works.
 
-### 2) Add new publications
+### 2) Add a news item
 
-In `docs/index.html` under `#publications`:
+Add a one-line `<li><time datetime="YYYY-MM">Mon YYYY</time> ...</li>` at the top of `#news`.
 
-- Add citation with title, venue, year, DOI/link
-- Keep newest/high-impact works near top
+### 3) Add a photo
 
-### 3) Add conference photos
+1. Resize to at most 1200 px on the long edge and save as JPEG in `docs/assets/images/photos/`.
+2. Reference it with descriptive `alt` text and a `<figcaption>`.
+3. Never add transcripts, certificates, ID documents, or other personal records.
 
-1. Upload image to `docs/assets/images/`
-2. Replace placeholder paths in `#conferences`
-3. Update figure captions and alt text
+### 4) Refresh the CV
 
-### 4) Add new updates/blog entries
-
-Edit `docs/updates.html`:
-
-- Duplicate one `<article class="update-item">...</article>`
-- Update `time datetime`, title, and summary
-- Keep newest entry first
+Replace `docs/assets/cv/Muhammad_Hasnain_CV.pdf` with the current CV (same filename) and update the
+"Last updated" date in the footer of `docs/index.html`.
 
 ### 5) Keep SEO current
 
 When URL structure changes, update:
 
 - `docs/index.html` canonical + OG URL/image
-- `docs/updates.html` canonical + OG URL/image
 - `docs/robots.txt` sitemap line
-- `docs/sitemap.xml` `<loc>` entries
+- `docs/sitemap.xml` `<loc>` and `<lastmod>` entries
 
