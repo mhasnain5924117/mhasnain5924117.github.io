@@ -50,7 +50,7 @@ Supporting files:
 - `docs/assets/js/main.js` – mobile menu and nav highlighting only
 - `docs/assets/cv/Muhammad_Hasnain_CV.pdf` – the file behind every "CV (PDF)" link
 - `docs/assets/images/photos/` – conference, poster, and teaching photographs
-- `docs/assets/images/figures/` – SVG schematics for the research thrusts
+- `docs/assets/images/figures/` – result figures taken from the papers and presentations
 - `docs/assets/images/og-image.jpg` – 1200x630 social-preview collage
 - `docs/updates.html` – redirect to `/#news` (kept for old links)
 
@@ -76,7 +76,9 @@ Add a one-line `<li><time datetime="YYYY-MM">Mon YYYY</time> ...</li>` at the to
 ### 4) Refresh the CV
 
 Replace `docs/assets/cv/Muhammad_Hasnain_CV.pdf` with the current CV (same filename) and update the
-"Last updated" date in the footer of `docs/index.html`.
+"Last updated" date in the footer of `docs/index.html`. Before uploading, remove the phone number
+and any home address from the PDF (true redaction, not a black box drawn over the text) and strip
+document metadata; the hosted copy should carry only the university e-mail.
 
 ### 5) Keep SEO current
 
