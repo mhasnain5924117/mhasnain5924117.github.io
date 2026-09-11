@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="t3 d3">
+  <title id="t3">Schematic: adaptive time-stepping and hybrid solver-ML workflows</title>
+  <desc id="d3">A timeline compares small uniform CFL-limited time steps with learned adaptive steps that grow where the solution is smooth. Below, a loop shows a numerical solver exchanging data with a learned model.</desc>
+  <defs>
+    <marker id="arr3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5b6b7a"/></marker>
+  </defs>
+  <rect width="640" height="360" fill="#f6f4ee"/>
+  <!-- timelines -->
+  <text x="40" y="50" font-family="Inter, Arial, sans-serif" font-size="12" fill="#5b6b7a">Fixed CFL-limited steps</text>
+  <path d="M40 70h560" stroke="#9aa7b2" stroke-width="2"/>
+  <g stroke="#9aa7b2" stroke-width="2">
+    <path d="M40 62v16 M62 62v16 M84 62v16 M106 62v16 M128 62v16 M150 62v16 M172 62v16 M194 62v16 M216 62v16 M238 62v16 M260 62v16 M282 62v16 M304 62v16 M326 62v16 M348 62v16 M370 62v16 M392 62v16 M414 62v16 M436 62v16 M458 62v16 M480 62v16 M502 62v16 M524 62v16 M546 62v16 M568 62v16 M590 62v16"/>
+  </g>
+  <text x="40" y="120" font-family="Inter, Arial, sans-serif" font-size="12" fill="#1e7a8c">Learned adaptive steps</text>
+  <path d="M40 140h560" stroke="#1e7a8c" stroke-width="2.5"/>
+  <g stroke="#1e7a8c" stroke-width="2.5">
+    <path d="M40 130v20 M62 130v20 M84 130v20 M140 130v20 M230 130v20 M330 130v20 M380 130v20 M400 130v20 M420 130v20 M500 130v20 M600 130v20"/>
+  </g>
+  <path d="M355 150c25 20 45 20 70 0" fill="none" stroke="#c94a2b" stroke-width="1.5" stroke-dasharray="3 3"/>
+  <text x="390" y="172" font-family="Inter, Arial, sans-serif" font-size="10.5" text-anchor="middle" fill="#c94a2b">shock passage: steps shrink</text>
+  <!-- hybrid loop -->
+  <g>
+    <rect x="80" y="220" width="180" height="70" rx="10" fill="#0b1f33"/>
+    <text x="170" y="250" font-family="Inter, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f6f4ee">Numerical solver</text>
+    <text x="170" y="270" font-family="Inter, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#c8d3dc">FVM / OpenFOAM, MMS data</text>
+    <rect x="380" y="220" width="180" height="70" rx="10" fill="#1e7a8c"/>
+    <text x="470" y="250" font-family="Inter, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#f6f4ee">Learned model</text>
+    <text x="470" y="270" font-family="Inter, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#dff3f6">neural operator, step predictor</text>
+    <path d="M262 240h114" stroke="#5b6b7a" stroke-width="2" marker-end="url(#arr3)"/>
+    <path d="M378 272H264" stroke="#5b6b7a" stroke-width="2" marker-end="url(#arr3)"/>
+    <text x="320" y="233" font-family="Inter, Arial, sans-serif" font-size="10.5" text-anchor="middle" fill="#5b6b7a">fields, residuals</text>
+    <text x="320" y="290" font-family="Inter, Arial, sans-serif" font-size="10.5" text-anchor="middle" fill="#5b6b7a">step size, closure, initial guess</text>
+  </g>
+  <text x="320" y="330" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5b6b7a">Physics-consistent learning that accelerates, rather than replaces, trusted solvers</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="t1 d1">
+  <title id="t1">Schematic: geometry-aware graph neural surrogate</title>
+  <desc id="d1">An unstructured CFD mesh is converted into a graph, passed through residual message-passing layers with physics regularization, and yields velocity and temperature fields on unseen geometries.</desc>
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#1e7a8c"/><stop offset="1" stop-color="#0b1f33"/></linearGradient>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5b6b7a"/></marker>
+  </defs>
+  <rect width="640" height="360" fill="#f6f4ee"/>
+  <!-- mesh -->
+  <g stroke="#1e7a8c" stroke-width="1.2" fill="none" opacity="0.9">
+    <path d="M40 90h120v120H40z M40 150h120 M100 90v120 M40 90l60 60 M100 90l60 60 M40 150l60 60 M100 150l60 60"/>
+    <circle cx="100" cy="150" r="26" fill="#f6f4ee" stroke="#0b1f33" stroke-width="2"/>
+  </g>
+  <text x="100" y="240" font-family="Inter, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#0b1f33">Unstructured mesh</text>
+  <text x="100" y="257" font-family="Inter, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#5b6b7a">obstacle geometry, BCs</text>
+  <path d="M175 150h50" stroke="#5b6b7a" stroke-width="2" marker-end="url(#arr)"/>
+  <!-- graph -->
+  <g>
+    <g stroke="#9aa7b2" stroke-width="1.5">
+      <path d="M260 110L300 90 M260 110L280 160 M300 90L340 120 M280 160L340 120 M340 120L370 170 M280 160L330 200 M330 200L370 170 M300 90L360 70 M360 70L340 120"/>
+    </g>
+    <g fill="#1e7a8c">
+      <circle cx="260" cy="110" r="7"/><circle cx="300" cy="90" r="7"/><circle cx="280" cy="160" r="7"/><circle cx="340" cy="120" r="7"/><circle cx="370" cy="170" r="7"/><circle cx="330" cy="200" r="7"/><circle cx="360" cy="70" r="7"/>
+    </g>
+    <circle cx="340" cy="120" r="12" fill="none" stroke="#c9a23a" stroke-width="2.5"/>
+  </g>
+  <text x="315" y="240" font-family="Inter, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#0b1f33">Graph + residual MLP</text>
+  <text x="315" y="257" font-family="Inter, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#5b6b7a">message passing, physics-regularized loss</text>
+  <path d="M400 150h50" stroke="#5b6b7a" stroke-width="2" marker-end="url(#arr)"/>
+  <!-- field -->
+  <g>
+    <rect x="470" y="90" width="130" height="120" rx="4" fill="url(#g1)"/>
+    <g fill="none" stroke="#f6f4ee" stroke-width="1.4" opacity="0.85">
+      <path d="M470 110c30 0 40 20 70 20s30-15 60-15"/>
+      <path d="M470 140c30 0 40 25 70 25s30-20 60-20"/>
+      <path d="M470 175c30 0 40 20 70 20s30-10 60-10"/>
+    </g>
+    <circle cx="520" cy="150" r="18" fill="#f6f4ee" opacity="0.95"/>
+  </g>
+  <text x="535" y="240" font-family="Inter, Arial, sans-serif" font-size="13" text-anchor="middle" fill="#0b1f33">Predicted u, v, p, T</text>
+  <text x="535" y="257" font-family="Inter, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#5b6b7a">generalizes to unseen geometries</text>
+  <text x="320" y="320" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#5b6b7a">Train once on a single geometry, infer across families of shapes in milliseconds</text>
+</svg>
