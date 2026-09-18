@@ -396,13 +396,13 @@ figcaption {
   padding-top: 0.2rem;
 }
 
-.thrust-list {
+.area-list {
   display: grid;
   gap: 1.4rem;
   margin: 1.6rem 0 2rem;
 }
 
-.thrust {
+.area {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
   gap: 1.4rem;
@@ -413,25 +413,25 @@ figcaption {
   padding: 1.1rem;
 }
 
-.thrust:nth-child(even) {
+.area:nth-child(even) {
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.9fr);
 }
 
-.thrust:nth-child(even) .thrust-figure {
+.area:nth-child(even) .area-figure {
   order: 2;
 }
 
-.thrust-figure {
+.area-figure {
   margin: 0;
 }
 
-.thrust-figure img {
+.area-figure img {
   width: 100%;
   border: 1px solid #d8d1c3;
   background: #f6f4ee;
 }
 
-.thrust-index {
+.area-index {
   margin: 0 0 0.25rem;
   font-family: var(--mono);
   font-size: 0.76rem;
@@ -440,18 +440,18 @@ figcaption {
   color: var(--teal);
 }
 
-.thrust-body h3 {
+.area-body h3 {
   margin-bottom: 0.6rem;
 }
 
-.thrust-links {
+.area-links {
   margin: 0.4rem 0 0;
   padding-left: 1.05rem;
   font-size: 0.9rem;
   color: #35556f;
 }
 
-.thrust-links li {
+.area-links li {
   margin-bottom: 0.2rem;
 }
 
@@ -678,6 +678,29 @@ figcaption {
   box-shadow: var(--shadow);
 }
 
+.experience-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  gap: 1.4rem;
+  align-items: start;
+}
+
+.experience-list {
+  padding-left: 1.2rem;
+}
+
+.experience-figure {
+  margin: 0;
+}
+
+.experience-figure img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border: 1px solid #d5dde6;
+  box-shadow: var(--shadow);
+}
+
 .talk-list,
 .award-list,
 .news-list,
@@ -774,8 +797,8 @@ figcaption {
   .about-grid,
   .two-col,
   .teaching-grid,
-  .thrust,
-  .thrust:nth-child(even) {
+  .area,
+  .area:nth-child(even) {
     grid-template-columns: 1fr;
   }
 
@@ -783,7 +806,7 @@ figcaption {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .thrust:nth-child(even) .thrust-figure {
+  .area:nth-child(even) .area-figure {
     order: 0;
   }
 
@@ -870,8 +893,13 @@ figcaption {
   .photo-pair,
   .collab-grid,
   .mentoring-list,
-  .project-grid {
+  .project-grid,
+  .experience-grid {
     grid-template-columns: 1fr;
+  }
+
+  .experience-figure {
+    max-width: 220px;
   }
 
   .doi {
@@ -888,6 +916,7 @@ figcaption {
   .photo-strip,
   .photo-stack,
   .teaching-figure,
+  .experience-figure,
   .skip-link {
     display: none !important;
   }
@@ -904,7 +933,7 @@ figcaption {
 
   .section-alt,
   .panel,
-  .thrust,
+  .area,
   .about-aside,
   .collab-grid li,
   .project-card,
@@ -926,11 +955,11 @@ figcaption {
   .hero-grid,
   .about-grid,
   .two-col,
-  .thrust {
+  .area {
     grid-template-columns: 1fr;
   }
 
-  .thrust-figure {
+  .area-figure {
     max-width: 60%;
   }
 }
