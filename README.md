@@ -40,7 +40,7 @@ Open:
 ## Site structure
 
 Everything lives in a single static page, `docs/index.html`, with these sections (in order):
-About (with Education), Research (three thrusts, future directions, software, collaborations),
+About (with Education), Research (four areas, selected projects, future directions, software, collaborations),
 Publications (selected, then grouped full list), Teaching and Mentoring, Talks, Awards and Funding,
 Service and Outreach, News, Contact and References.
 

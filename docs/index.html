@@ -10,7 +10,7 @@
     />
     <meta
       name="keywords"
-      content="Muhammad Hasnain, Texas A&amp;M, mechanical engineering, scientific machine learning, graph neural networks, CFD, heat transfer, hydrogen storage, fire safety, faculty candidate, postdoctoral researcher"
+      content="Muhammad Hasnain, Texas A&amp;M, mechanical engineering, scientific machine learning, graph neural networks, CFD, heat transfer, hydrogen storage, fire safety, faculty candidate"
     />
     <meta name="author" content="Muhammad Hasnain" />
     <meta name="theme-color" content="#0b1f33" />
@@ -132,13 +132,13 @@
               convolutional surrogate for thermal-fluid fields (<em>Physics of Fluids</em>, 2025), a
               physics-regularized graph surrogate that extrapolates in Reynolds number and to unseen step
               geometries after training on a single geometry (under review, <em>Physics of Fluids</em>), and
-              experimentally validated three-dimensional models of fire-exposed gypsum board and metal hydride
-              hydrogen storage reactors.
+              experimentally validated finite-volume models of fire-exposed gypsum board and tree stems and of metal
+              hydride hydrogen storage reactors.
             </p>
             <p class="availability">
               <strong>Availability:</strong> I expect to complete my PhD in May or July 2027, depending on the start
-              date of my next position, and I am applying for tenure-track faculty and postdoctoral positions in
-              computational mechanics, thermal-fluid sciences, and scientific machine learning.
+              date of my next position, and I am applying for tenure-track faculty positions in computational
+              mechanics, thermal-fluid sciences, and scientific machine learning.
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="assets/cv/Muhammad_Hasnain_CV.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
@@ -180,9 +180,9 @@
             <p>
               Before Texas A&amp;M, I completed an MS in Mechanical Engineering at Georgia Southern University with
               Dr. Hayri Sezer in the Fire and Energy (FireGY) Laboratory, where I developed finite-volume models of
-              coupled heat and mass transfer in metal hydride hydrogen storage reactors and a three-dimensional model
-              of gypsum board dehydration under fire exposure that was validated against experiments and supported a
-              National Institute of Justice-funded project. I am a first-generation college graduate, and mentoring
+              coupled heat and mass transfer in metal hydride hydrogen storage reactors and fire-response models of
+              gypsum board and tree stems that were validated against experiments and supported a National
+              Institute of Justice-funded project. I am a first-generation college graduate, and mentoring
               students who are new to research is a central part of how I work.
             </p>
             <h3 class="subheading">Education</h3>
@@ -218,11 +218,17 @@
               </li>
             </ol>
             <h3 class="subheading">Industry and applied experience</h3>
-            <ul class="tight">
-              <li><strong>Artificial Intelligence Research Intern</strong>, CureMD, Aug 2021–Feb 2022. Built a TensorFlow CNN for multimodal sentiment classification from speech and text after speaker diarization.</li>
-              <li><strong>Engineering Intern</strong>, E.R. Snell Contractor, Summer 2023. Thermal processing and quality-assurance workflows in asphalt manufacturing; OSHA 10-hour construction safety certification.</li>
-              <li><strong>Math Expert</strong>, Photomath Expert Marketplace, Jul 2020–Dec 2022. Authored and reviewed step-by-step solutions in algebra, calculus, geometry, statistics, and elementary mathematics (1,019 solutions authored; 23,584 reviewed).</li>
-            </ul>
+            <div class="experience-grid">
+              <ol class="tight experience-list">
+                <li><strong>Engineering Intern</strong>, E.R. Snell Contractor, Inc., Summer 2023. Thermal processing and quality-assurance workflows at asphalt plants, including mix sampling and testing; OSHA 10-hour construction safety certification.</li>
+                <li><strong>Mathematics Subject Matter Expert and Content Reviewer</strong>, Photomath Expert Marketplace, Jul 2020–Dec 2022. Peer-reviewed and quality-assured 23,584 step-by-step solutions in algebra, calculus, geometry, statistics, and foundational mathematics for correctness, clarity, and completeness, and authored 1,019 original solutions aligned with international school and early-university curricula.</li>
+                <li><strong>Artificial Intelligence Research Intern</strong>, CureMD, Aug 2021–Feb 2022. Built a TensorFlow CNN for multimodal sentiment classification from speech and text after speaker diarization.</li>
+              </ol>
+              <figure class="experience-figure">
+                <img src="assets/images/photos/industry-er-snell-2023.jpg" alt="Muhammad Hasnain in a hard hat and safety vest sampling asphalt mix at an E.R. Snell plant" loading="lazy" width="360" height="480" />
+                <figcaption>Sampling asphalt mix at an E.R. Snell plant, Summer 2023.</figcaption>
+              </figure>
+            </div>
           </div>
           <aside class="about-aside">
             <h3>At a glance</h3>
@@ -232,7 +238,7 @@
               <dt>Advisor</dt>
               <dd>Prof. N. K. Anand, Computational Heat Transfer Laboratory</dd>
               <dt>Publications</dt>
-              <dd>5 journal articles (published or accepted), 3 refereed conference papers, 1 to appear, 2 under review (<a href="#publications">list</a>)</dd>
+              <dd>5 journal articles, 3 refereed conference papers, 1 to appear, 2 under review (<a href="#publications">list</a>)</dd>
               <dt>Teaching</dt>
               <dd>Teaching assistant for 5 courses across Texas A&amp;M and Georgia Southern, including MEEN 344 Fluid Mechanics (90+ students)</dd>
               <dt>Peer review</dt>
@@ -249,88 +255,115 @@
         <div class="container">
           <h2>Research</h2>
           <p class="section-intro">
-            High-fidelity simulation of transport phenomena is accurate but prohibitively slow to repeat across the
-            many geometries and operating conditions that design, optimization, and safety analysis demand. My
-            research vision is to make physics-consistent learned models a trusted complement to numerical solvers:
-            fast enough for design loops and digital twins, and constrained enough by conservation laws to be
-            believed. I pursue this through three connected thrusts. All figures below are from my own papers and
-            presentations.
+            High-fidelity simulation of transport phenomena is accurate but too slow to repeat across the many
+            geometries and operating conditions that design, optimization, and safety analysis demand. My work makes
+            physics-consistent learned models a trusted complement to numerical solvers, and applies validated
+            finite-volume multiphysics models to fire safety and energy storage problems. It is organized in four
+            areas; all figures below are taken from my own papers and presentations.
           </p>
 
-          <div class="thrust-list">
-            <article class="thrust">
-              <figure class="thrust-figure">
+          <div class="area-list">
+            <article class="area">
+              <figure class="area-figure">
                 <img src="assets/images/figures/fig-resmlp-gcn.jpg" alt="ResMLP-GCN architecture diagram above OpenFOAM versus GNN velocity fields and absolute error maps for a double lid-driven cavity at Re 2000 and a backward-facing step at Re 200" width="1400" height="1197" loading="lazy" />
                 <figcaption>ResMLP-GCN message-passing architecture (top) and OpenFOAM vs. GNN velocity fields with absolute error for the double lid-driven cavity (Re = 2000) and backward-facing step (Re = 200). From <a href="https://doi.org/10.1063/5.0292956" target="_blank" rel="noopener">Hasnain et al., <em>Phys. Fluids</em> 2025</a>.</figcaption>
               </figure>
-              <div class="thrust-body">
-                <p class="thrust-index">Thrust 1</p>
+              <div class="area-body">
+                <p class="area-index">Area 1</p>
                 <h3>Geometry-aware, physics-regularized graph learning for thermal-fluid systems</h3>
                 <p>
-                  I design graph neural network surrogates that operate directly on unstructured CFD meshes. The
-                  residual multilayer-perceptron graph convolutional network (ResMLP-GCN) published in
-                  <em>Physics of Fluids</em> (2025) takes Reynolds number and geometric descriptors as inputs and
-                  predicts coupled velocity fields for the double lid-driven cavity (trained Re 100–2000, tested to
-                  Re 3000) and backward-facing step flows, reproducing the dominant flow structures well beyond the
-                  training range. The follow-on physics-regularized surrogate, under review in
-                  <em>Physics of Fluids</em>, is trained on a single step height and predicts reattachment lengths
-                  and velocity fields for step heights varied by ±40%, the property needed for geometry optimization
-                  and rapid design screening.
+                  I designed graph neural network surrogates that operate directly on unstructured CFD meshes. The
+                  residual multilayer-perceptron graph convolutional network (ResMLP-GCN), published in
+                  <em>Physics of Fluids</em> (2025), takes Reynolds number and geometric descriptors as inputs and
+                  predicts coupled velocity fields for the double lid-driven cavity and backward-facing step. Trained
+                  on Re 100–2000, it reproduced the dominant flow structures at Re 3000, well beyond the training
+                  range. I then developed a physics-regularized surrogate, now under review in
+                  <em>Physics of Fluids</em>, that was trained on a single step height and predicted reattachment
+                  lengths and velocity fields for step heights varied by ±40%, the property required for geometry
+                  optimization and rapid design screening. I presented this work at WCCM-ECCOMAS 2026 and ASME IMECE
+                  2025.
                 </p>
-                <ul class="thrust-links">
+                <ul class="area-links">
                   <li><a href="https://doi.org/10.1063/5.0292956" target="_blank" rel="noopener">Physics of Fluids 37, 107138 (2025)</a> · <a href="https://dx.doi.org/10.2139/ssrn.6446623" target="_blank" rel="noopener">SSRN preprint (under review)</a></li>
-                  <li>Presented at WCCM-ECCOMAS 2026 (Munich) and ASME IMECE 2025 (Memphis)</li>
                 </ul>
               </div>
             </article>
 
-            <article class="thrust">
-              <figure class="thrust-figure">
-                <img src="assets/images/figures/fig-gypsum-validation.jpg" alt="Measured and predicted temperature histories at four depths in a gypsum board exposed to 50 kW per square meter, showing close agreement" width="1400" height="820" loading="lazy" />
-                <figcaption>Predicted vs. measured temperatures at 0, 4, 8, and 12 mm depth in gypsum board under 50 kW/m² exposure. From <a href="https://doi.org/10.1016/j.ijthermalsci.2025.110457" target="_blank" rel="noopener">Hasnain, Sezer, Kozhumal, <em>Int. J. Therm. Sci.</em> 2026</a>.</figcaption>
+            <article class="area">
+              <figure class="area-figure">
+                <img src="assets/images/figures/fig-fire-materials.jpg" alt="Four panels: schematic of a gypsum slab with imposed heat flux and convective and radiative losses; predicted versus measured temperatures at four depths under 50 kilowatts per square metre; temperature field in a tree stem cross section after one-sided fire exposure; and predicted necrotic depth around the stem" width="1430" height="1050" loading="lazy" />
+                <figcaption>(a) Gypsum slab with imposed heat flux and convective and radiative losses; (b) predicted vs. measured temperatures at 0, 4, 8, and 12 mm depth under 50 kW/m² (<a href="https://doi.org/10.1016/j.ijthermalsci.2025.110457" target="_blank" rel="noopener"><em>Int. J. Therm. Sci.</em> 2026</a>); (c) tree stem temperature at the end of a one-sided fire exposure and (d) the resulting necrotic depth (<a href="https://doi.org/10.1016/j.icheatmasstransfer.2026.112653" target="_blank" rel="noopener"><em>Int. Commun. Heat Mass Transfer</em> 2026</a>).</figcaption>
               </figure>
-              <div class="thrust-body">
-                <p class="thrust-index">Thrust 2</p>
-                <h3>Multiphysics transport in reactive porous media for energy storage and fire safety</h3>
+              <div class="area-body">
+                <p class="area-index">Area 2</p>
+                <h3>Fire safety: thermal response of building materials and vegetation</h3>
                 <p>
-                  Using in-house finite-volume solvers, I model coupled heat, mass, and momentum transfer with
-                  reaction kinetics in porous media. For metal hydride hydrogen storage, I quantified how operating
-                  parameters and reactor geometry govern absorption and desorption performance
-                  (<em>Int. J. Hydrogen Energy</em>, 2024) and wrote a comprehensive review of the field
-                  (<em>Renewable and Sustainable Energy Reviews</em>, 2026). For fire safety, I developed a
-                  three-dimensional dehydration and calcination model of gypsum board under arbitrary heat flux
-                  configurations, validated against cone-calorimeter measurements (<em>Int. J. Thermal Sciences</em>,
-                  2026), that supports forensic fire investigation. Related work covers lithium-ion thermal runaway
-                  with decomposition kinetics (ASME IMECE 2023) and fire-induced injury in tree stems (accepted,
-                  <em>Int. Commun. Heat Mass Transfer</em>).
+                  In the Fire and Energy Laboratory at Georgia Southern, I built finite-volume models of coupled heat
+                  and mass transfer with reaction kinetics in porous solids exposed to fire. For gypsum board, the most
+                  common wall lining, I developed a three-dimensional dehydration and calcination model under
+                  arbitrary heat-flux configurations, validated it against cone-calorimeter measurements at four
+                  depths, and showed how calcination depth can be related to the heat-flux history a wall experienced,
+                  which gives fire investigators a quantitative tool (<em>Int. J. Thermal Sciences</em>, 2026; project
+                  funded by the National Institute of Justice). For vegetation, I co-developed a predictive heat
+                  transfer model of tree stems under surface fire that resolves bark and wood layers with radially
+                  varying moisture, matched Douglas-fir experiments more closely than FireStem2D, and converted the
+                  temperature history into cell-death rate and necrotic depth for symmetric and one-sided exposures
+                  and for several species and moisture contents (<em>Int. Commun. Heat Mass Transfer</em>, 2026).
                 </p>
-                <ul class="thrust-links">
+                <ul class="area-links">
+                  <li><a href="https://doi.org/10.1016/j.icheatmasstransfer.2026.112653" target="_blank" rel="noopener">Int. Commun. Heat Mass Transfer 180, 112653 (2026)</a></li>
                   <li><a href="https://doi.org/10.1016/j.ijthermalsci.2025.110457" target="_blank" rel="noopener">Int. J. Thermal Sciences 221, 110457 (2026)</a></li>
-                  <li><a href="https://doi.org/10.1016/j.rser.2025.116294" target="_blank" rel="noopener">Renew. Sustain. Energy Rev. 226, 116294 (2026)</a></li>
-                  <li><a href="https://doi.org/10.1016/j.ijhydene.2024.05.311" target="_blank" rel="noopener">Int. J. Hydrogen Energy 71, 1045–1055 (2024)</a></li>
                 </ul>
               </div>
             </article>
 
-            <article class="thrust">
-              <figure class="thrust-figure">
+            <article class="area">
+              <figure class="area-figure">
+                <img src="assets/images/figures/fig-energy-storage.jpg" alt="Four panels: cross-sectional schematic of a metal hydride reactor with heat-transfer-fluid jacket; average reacted fraction versus time compared with experiment; schematic of a stack of prismatic lithium-ion cells; and temperature profiles across a sixteen-cell module at successive times" width="1430" height="1050" loading="lazy" />
+                <figcaption>(a) Cross-section of a jacketed metal hydride reactor; (b) predicted vs. measured average reacted fraction during charging (<a href="https://doi.org/10.1016/j.ijhydene.2024.05.311" target="_blank" rel="noopener"><em>Int. J. Hydrogen Energy</em> 2024</a>); (c) stack of prismatic lithium-ion cells; (d) temperature across a 16-cell module approaching thermal runaway (<a href="https://doi.org/10.1115/IMECE2023-113787" target="_blank" rel="noopener">ASME IMECE 2023</a>).</figcaption>
+              </figure>
+              <div class="area-body">
+                <p class="area-index">Area 3</p>
+                <h3>Energy storage and conversion systems: hydrogen storage and lithium-ion safety</h3>
+                <p>
+                  For metal hydride hydrogen storage, I formulated and solved coupled heat, mass, and momentum
+                  transfer with absorption and desorption kinetics in finned and jacketed reactors, validated the
+                  model against equilibrium-pressure, reacted-fraction, and temperature measurements from three
+                  independent experiments, and quantified how supply pressure, coolant temperature, and reactor
+                  dimensions set charging time (<em>Int. J. Hydrogen Energy</em>, 2024; MS thesis). I then wrote a
+                  comprehensive review that consolidates two decades of reactor-scale modeling and identifies the
+                  open problems in coupled kinetics, heat management, and reactor geometry (<em>Renewable and
+                  Sustainable Energy Reviews</em>, 2026). For lithium-ion batteries, I co-developed a finite-volume
+                  thermal runaway model with four-step decomposition kinetics and inter-cell contact resistance that
+                  reproduced oven-test critical ambient temperatures for single cells and four-cell ensembles to
+                  within 1 °C of experiment and extended it to a 16-cell module (ASME IMECE 2023).
+                </p>
+                <ul class="area-links">
+                  <li><a href="https://doi.org/10.1016/j.rser.2025.116294" target="_blank" rel="noopener">Renew. Sustain. Energy Rev. 226, 116294 (2026)</a></li>
+                  <li><a href="https://doi.org/10.1016/j.ijhydene.2024.05.311" target="_blank" rel="noopener">Int. J. Hydrogen Energy 71, 1045–1055 (2024)</a> · <a href="https://doi.org/10.1115/IMECE2023-113787" target="_blank" rel="noopener">IMECE2023-113787</a></li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="area">
+              <figure class="area-figure">
                 <img src="assets/images/figures/fig-advection-diffusion-rollout.png" alt="Three plots of temperature versus time at different probe locations comparing finite-element solution and GNN autoregressive prediction, with the prediction zone extending beyond the training zone" width="952" height="275" loading="lazy" />
                 <figcaption>Autoregressive GNN rollout of a transient advection-diffusion problem with nonlinear convective and radiative sources; predictions remain accurate well past the training window.</figcaption>
               </figure>
-              <div class="thrust-body">
-                <p class="thrust-index">Thrust 3</p>
+              <div class="area-body">
+                <p class="area-index">Area 4</p>
                 <h3>Scalable, physics-informed PDE learning and hybrid solver-ML workflows</h3>
                 <p>
                   I work on the infrastructure that makes learned PDE models usable at scale. I developed a
                   solver-free, method-of-manufactured-solutions data-generation framework for training and
                   benchmarking neural operators across PDE classes, parameter ranges, and boundary conditions
-                  (ASME IMECE 2026, to appear), and I study stable autoregressive rollout of graph surrogates for
+                  (ASME IMECE 2026, to appear), and I studied stable autoregressive rollout of graph surrogates for
                   transient advection-diffusion systems. As part of the ShockCast team, I contributed to a two-phase
                   framework that learns adaptive time-step sizes for supersonic flows with shocks, published at ICLR
                   2026 with code in the open-source AIRS library. Earlier, I implemented physics-informed neural
                   networks in Julia SciML for transient scalar transport and coupled learned models with OpenFOAM.
                 </p>
-                <ul class="thrust-links">
+                <ul class="area-links">
                   <li><a href="https://openreview.net/forum?id=d4gzLgGl7I" target="_blank" rel="noopener">ICLR 2026 (OpenReview)</a> · <a href="https://arxiv.org/abs/2506.07969" target="_blank" rel="noopener">arXiv:2506.07969</a></li>
                   <li><a href="https://github.com/divelab/AIRS" target="_blank" rel="noopener">AIRS library (ShockCast)</a></li>
                 </ul>
@@ -341,21 +374,44 @@
           <h3 class="subheading">Selected projects</h3>
           <div class="project-grid">
             <article class="project-card">
+              <img src="assets/images/figures/fig-tree-stem-temperature.png" alt="Four polar temperature maps of a tree stem cross section at 400, 600, 800, and 1140 seconds under a one-sided fire heat flux, showing heat penetrating from the exposed bark toward the core" width="1600" height="387" loading="lazy" />
+              <h4>Fire-induced injury and mortality in tree stems</h4>
+              <p>
+                A two-dimensional heat transfer model of a tree stem with bark and wood layers, radially varying
+                moisture, and a measured surface-fire heat flux. Temperature evolution under one-sided exposure
+                (shown at 400–1140 s) was converted into tissue death rate and necrotic depth, 9.5 mm for uniform
+                exposure and 4.4 mm for one-sided exposure, and compared across species and moisture contents to
+                support prescribed-burn planning and post-fire mortality assessment.
+              </p>
+              <p class="pub-why"><a href="https://doi.org/10.1016/j.icheatmasstransfer.2026.112653" target="_blank" rel="noopener">Int. Commun. Heat Mass Transfer 180, 112653 (2026)</a> · ESSCI 2024 presentation.</p>
+            </article>
+            <article class="project-card">
               <img src="assets/images/figures/fig-bfs-geometry-generalization.png" alt="Scatter of GNN-predicted versus OpenFOAM reattachment length colored by step height, with most points inside a 10 percent band, and box plots of relative error versus Reynolds number" width="1008" height="438" loading="lazy" />
               <h4>Geometry optimization with geometry-generalizable surrogates</h4>
               <p>
-                A physics-regularized GNN trained on one backward-facing step geometry predicts reattachment lengths
-                across step heights varied by ±40% and Reynolds numbers 125–375, mostly within 10% of OpenFOAM. This
-                makes shape sweeps and geometry optimization loops feasible at a fraction of CFD cost.
+                A physics-regularized GNN trained on one backward-facing step geometry predicted reattachment lengths
+                across step heights varied by ±40% and Reynolds numbers 125–375, mostly within 10% of OpenFOAM,
+                making shape sweeps and geometry optimization loops feasible at a fraction of CFD cost.
               </p>
               <p class="pub-why"><a href="https://dx.doi.org/10.2139/ssrn.6446623" target="_blank" rel="noopener">Preprint (SSRN)</a> · under review, <em>Physics of Fluids</em>; WCCM-ECCOMAS 2026 talk.</p>
+            </article>
+            <article class="project-card">
+              <img src="assets/images/figures/fig-gypsum-gaussian-flux.jpg" alt="Gaussian heat flux distribution over a gypsum slab surface, schematic of the slab with probe depths at 0, 6, and 12 millimetres, and temperature histories at those depths" width="1500" height="366" loading="lazy" />
+              <h4>Gypsum board under non-uniform fire exposure</h4>
+              <p>
+                The three-dimensional dehydration and calcination model applied to a Gaussian heat-flux footprint on a
+                12 mm board. Temperature histories at the exposed, middle, and unexposed surfaces show how localized
+                exposure produces steep in-plane gradients, the link between observed calcination patterns and the location
+                and intensity of the exposure.
+              </p>
+              <p class="pub-why"><a href="https://doi.org/10.1016/j.ijthermalsci.2025.110457" target="_blank" rel="noopener">Int. J. Thermal Sciences 221, 110457 (2026)</a> · Top Eagle Award poster, 2024.</p>
             </article>
             <article class="project-card">
               <img src="assets/images/figures/fig-error-vs-reynolds.png" alt="Mean squared error and mean percentage error of the GNN versus Reynolds number, low in the interpolation range and rising smoothly in extrapolation" width="967" height="413" loading="lazy" />
               <h4>Parametric extrapolation with ResMLP-GCN</h4>
               <p>
                 Error growth of the ResMLP-GCN surrogate for the double lid-driven cavity as Reynolds number moves
-                from the training range (100–2000) into extrapolation (2000–3000). The surrogate degrades smoothly
+                from the training range (100–2000) into extrapolation (2000–3000). The surrogate degraded smoothly
                 rather than failing abruptly, a prerequisite for trustworthy use in design.
               </p>
               <p class="pub-why"><a href="https://doi.org/10.1063/5.0292956" target="_blank" rel="noopener">Physics of Fluids 37, 107138 (2025)</a></p>
@@ -364,9 +420,9 @@
               <img src="assets/images/figures/fig-metal-hydride-results.jpg" alt="Reacted fraction and temperature contours in a metal hydride reactor at 1000 and 2000 seconds of charging, with plots of average reacted fraction versus pressure and fluid temperature" width="1400" height="788" loading="lazy" />
               <h4>Metal hydride hydrogen storage reactors</h4>
               <p>
-                Coupled heat and mass transfer with absorption/desorption kinetics in a finned reactor, validated
-                against experiments. The study quantifies how supply pressure, coolant temperature, and reactor
-                dimensions set charging time, informing safer and faster hydrogen storage design.
+                Reacted-fraction and temperature fields during charging of a finned reactor, with parametric sweeps
+                over supply pressure and coolant temperature. The study quantified how these operating parameters and
+                the reactor dimensions set charging time, informing safer and faster hydrogen storage design.
               </p>
               <p class="pub-why"><a href="https://doi.org/10.1016/j.ijhydene.2024.05.311" target="_blank" rel="noopener">Int. J. Hydrogen Energy 71 (2024)</a> · <a href="https://doi.org/10.1115/IMECE2023-112874" target="_blank" rel="noopener">IMECE 2023</a> · <a href="https://doi.org/10.1016/j.rser.2025.116294" target="_blank" rel="noopener">RSER review (2026)</a></p>
             </article>
@@ -375,10 +431,11 @@
               <h4>Thermal runaway in lithium-ion batteries</h4>
               <p>
                 A finite-volume model with four-step decomposition kinetics and inter-cell contact resistance
-                reproduces oven-test critical ambient temperatures for single cells and four-cell ensembles to within
-                1 °C of experiment, matching or improving on COMSOL and GPYRO benchmarks.
+                reproduced oven-test critical ambient temperatures for single cells and four-cell ensembles to within
+                1 °C of experiment, matching or improving on COMSOL and GPYRO benchmarks, and predicted the onset
+                time and critical temperature of a 16-cell module.
               </p>
-              <p class="pub-why"><a href="https://doi.org/10.1115/IMECE2023-113787" target="_blank" rel="noopener">ASME IMECE 2023</a>; ESSCI 2024 and U.S. National Combustion Meeting 2023 presentations.</p>
+              <p class="pub-why"><a href="https://doi.org/10.1115/IMECE2023-113787" target="_blank" rel="noopener">ASME IMECE 2023</a> · ESSCI 2024 and U.S. National Combustion Meeting 2023 presentations.</p>
             </article>
           </div>
 
@@ -421,6 +478,7 @@
             <li><span class="collab-name">Texas A&amp;M University</span><span class="collab-detail">Mechanical Engineering; Computer Science and Engineering; Aerospace Engineering</span></li>
             <li><span class="collab-name">Georgia Southern University</span><span class="collab-detail">Fire and Energy (FireGY) Laboratory</span></li>
             <li><span class="collab-name">Worcester Polytechnic Institute</span><span class="collab-detail">Fire Protection Engineering</span></li>
+            <li><span class="collab-name">Eastern Kentucky University</span><span class="collab-detail">Fire and forensic thermal modeling</span></li>
             <li><span class="collab-name">West Virginia University</span><span class="collab-detail">Mechanical and Aerospace Engineering</span></li>
             <li><span class="collab-name">Idaho National Laboratory</span><span class="collab-detail">DOE proposal collaboration</span></li>
             <li><span class="collab-name">General Atomics</span><span class="collab-detail">DOE proposal collaboration</span></li>
@@ -440,14 +498,6 @@
 
           <h3 class="subheading">Selected publications</h3>
           <ol class="pub-list pub-selected">
-            <li>
-              <p class="pub-cite">
-                <strong>M. Hasnain</strong>, N. K. Anand, A. Srinivasa, P. Kumar. A novel residual multilayer perceptron-based graph
-                convolutional network for modeling heat transfer and fluid flow. <em>Physics of Fluids</em> 37(10), 107138, 2025.
-                <a class="doi" href="https://doi.org/10.1063/5.0292956" target="_blank" rel="noopener">doi:10.1063/5.0292956</a>
-              </p>
-              <p class="pub-why">Introduced a residual graph convolutional architecture that predicts coupled velocity, pressure, and temperature fields directly on unstructured CFD meshes and extrapolates in Reynolds number.</p>
-            </li>
             <li>
               <p class="pub-cite">
                 J. Helwig, S. S. Adavi, X. Zhang, Y. Lin, F. S. Chim, L. T. Vizzini, H. Yu, <strong>M. Hasnain</strong>, S. K. Biswas,
@@ -474,14 +524,22 @@
               </p>
               <p class="pub-why">Consolidates two decades of reactor-scale modeling and identifies open problems in coupled kinetics, heat management, and reactor geometry.</p>
             </li>
+            <li>
+              <p class="pub-cite">
+                <strong>M. Hasnain</strong>, N. K. Anand, A. Srinivasa, P. Kumar. A novel residual multilayer perceptron-based graph
+                convolutional network for modeling heat transfer and fluid flow. <em>Physics of Fluids</em> 37(10), 107138, 2025.
+                <a class="doi" href="https://doi.org/10.1063/5.0292956" target="_blank" rel="noopener">doi:10.1063/5.0292956</a>
+              </p>
+              <p class="pub-why">Introduced a residual graph convolutional architecture that predicts coupled velocity, pressure, and temperature fields directly on unstructured CFD meshes and extrapolates in Reynolds number.</p>
+            </li>
           </ol>
 
           <h3 class="subheading">Journal articles</h3>
-          <ol class="pub-list" reversed>
+          <ol class="pub-list">
             <li>
               M. U. Khan, <strong>M. Hasnain</strong>, H. Sezer, S. P. Kozhumal, M. K. Selvaraj, A. Simeoni. Predictive heat transfer model
-              for fire-induced injuries in tree stem. <em>International Communications in Heat and Mass Transfer</em>, accepted, 2026.
-              <a class="doi" href="https://doi.org/10.21203/rs.3.rs-5671657/v1" target="_blank" rel="noopener">preprint doi:10.21203/rs.3.rs-5671657/v1</a>
+              for fire-induced injuries in tree stems. <em>International Communications in Heat and Mass Transfer</em> 180 (Part 3), 112653, 2026.
+              <a class="doi" href="https://doi.org/10.1016/j.icheatmasstransfer.2026.112653" target="_blank" rel="noopener">doi:10.1016/j.icheatmasstransfer.2026.112653</a>
             </li>
             <li>
               <strong>M. Hasnain</strong>, H. Sezer, S. P. Kozhumal. Predicting thermal response of gypsum board under various heat flux
@@ -506,7 +564,7 @@
           </ol>
 
           <h3 class="subheading">Refereed conference papers</h3>
-          <ol class="pub-list" reversed>
+          <ol class="pub-list">
             <li>
               <strong>M. Hasnain</strong>, N. K. Anand, A. Srinivasa. A manufactured-solution-based data generation framework for machine
               learning models of transport PDEs. <em>Proceedings of the ASME International Mechanical Engineering Congress and Exposition
@@ -534,7 +592,7 @@
           </ol>
 
           <h3 class="subheading">Preprints and manuscripts under review</h3>
-          <ol class="pub-list" reversed>
+          <ol class="pub-list">
             <li>
               <strong>M. Hasnain</strong>, N. K. Anand, P. Kumar, A. Srinivasa, S. Ji. A physics-regularized graph neural surrogate for
               parametric and geometric extrapolation in backward-facing step flow. Under review, <em>Physics of Fluids</em>, 2026.
@@ -549,7 +607,7 @@
           </ol>
 
           <h3 class="subheading">Conference presentations and abstracts</h3>
-          <ol class="pub-list" reversed>
+          <ol class="pub-list">
             <li>
               <strong>M. Hasnain</strong>, N. K. Anand, P. Kumar, A. Srinivasa, S. Ji. A physics-assisted geometry-generalizable graph
               convolutional network for fluid flow. <em>17th World Congress on Computational Mechanics and 10th European Congress on
@@ -593,7 +651,7 @@
           </ol>
 
           <h3 class="subheading">Posters</h3>
-          <ol class="pub-list" reversed>
+          <ol class="pub-list">
             <li>
               <strong>M. Hasnain</strong>, H. Sezer. Mathematical modeling of heat and mass transfer in metal-hydrides for safer and more
               efficient hydrogen storage reactors. <em>9th Annual Texas A&amp;M Conference on Energy</em>, College Station, TX, September 2025.
@@ -733,6 +791,11 @@
           <h3 class="subheading">Mentoring</h3>
           <ul class="tight mentoring-list">
             <li>
+              <strong>Invited workshop, Undergraduate Research Group (UROG), GIKI (April 2026).</strong> "The Blueprint:
+              Methodology and Experimental Design" in the Research Excellence Series, on reproducible research
+              workflows and moving from problem identification to publication.
+            </li>
+            <li>
               <strong>Research mentor, FireGY Laboratory, Georgia Southern (2022–2024).</strong> Trained undergraduate and
               graduate researchers in finite-volume modeling, running a hands-on workshop series with the open-source
               <a href="https://github.com/simulkade/FVTool" target="_blank" rel="noopener">FVTool</a> toolbox to solve
@@ -742,11 +805,6 @@
             <li>
               <strong>Student mentor, Mentor Collective, Georgia Southern (2023–2024).</strong> Guided new university
               students through academic planning, research opportunities, and campus engagement.
-            </li>
-            <li>
-              <strong>Invited workshop, Undergraduate Research Group (UROG), GIKI (April 2026).</strong> "The Blueprint:
-              Methodology and Experimental Design" in the Research Excellence Series, on reproducible research
-              workflows and moving from problem identification to publication.
             </li>
           </ul>
 
@@ -842,8 +900,8 @@
                 <li><span class="award-year">2024</span><span>Innovation Award, second place ($350), Georgia Power, Georgia Southern University Student Research Symposium.</span></li>
                 <li><span class="award-year">2023</span><span>Graduate Student Organization Research Award ($750) and Travel Grant for IMECE 2023, Georgia Southern University.</span></li>
                 <li><span class="award-year">2023</span><span>SALT Research Awards (second and third place) and Gulfstream Aerospace Research Award (third place), Georgia Southern University Student Research Symposium.</span></li>
-                <li><span class="award-year">2020</span><span>Global Undergraduate Exchange Program (Global UGRAD) Scholar, U.S. Department of State; Leadership, Engagement, and Action for Pakistan (LEAP) Institute, George Mason University.</span></li>
                 <li><span class="award-year">2017–2021</span><span>Khyber Pakhtunkhwa Chief Minister Merit Scholarship and Dean's Honor Roll in all eight semesters, GIKI.</span></li>
+                <li><span class="award-year">2020</span><span>Global Undergraduate Exchange Program (Global UGRAD) Scholar, U.S. Department of State; Leadership, Engagement, and Action for Pakistan (LEAP) Institute, George Mason University.</span></li>
               </ul>
             </article>
             <article class="panel">
@@ -898,24 +956,24 @@
             <article class="panel">
               <h3>Peer review, memberships, and credentials</h3>
               <ul class="tight">
-                <li>Reviewer, <em>International Journal of Hydrogen Energy</em> (6 manuscripts, 2024–2026).</li>
-                <li>Reviewer, <em>Physics of Fluids</em> (4 manuscripts, 2025–2026).</li>
                 <li>Reviewer, <em>ASME Journal of Thermal Science and Engineering Applications</em> (3 manuscripts, 2026).</li>
+                <li>Reviewer, <em>Physics of Fluids</em> (4 manuscripts, 2025–2026).</li>
+                <li>Reviewer, <em>International Journal of Hydrogen Energy</em> (6 manuscripts, 2024–2026).</li>
+                <li>Member, Texas A&amp;M Energy Research Society, since 2024.</li>
                 <li>Member, American Society of Mechanical Engineers (ASME), since 2023.</li>
                 <li>Member, The Combustion Institute, since 2023.</li>
-                <li>Member, Texas A&amp;M Energy Research Society, since 2024.</li>
                 <li>Registered Engineer, Pakistan Engineering Council, since 2021.</li>
               </ul>
             </article>
             <article class="panel">
               <h3>Outreach and community</h3>
               <ul class="tight">
+                <li>Invited workshop for the Undergraduate Research Group (UROG), GIKI, April 2026.</li>
                 <li>Volunteer, Texas Science and Engineering Fair, Spark! PK–12 Engineering Education Outreach, Texas A&amp;M Engineering, March 2026.</li>
                 <li>Research mentor, FireGY Laboratory, Georgia Southern University, 2022–2024.</li>
                 <li>Student mentor, Mentor Collective, Georgia Southern University, 2023–2024.</li>
-                <li>Invited workshop for the Undergraduate Research Group (UROG), GIKI, April 2026.</li>
-                <li>Community volunteer, Community Table, Sylva, NC, Spring 2020 (Global UGRAD service).</li>
                 <li>Member, Project Topi, GIKI, 2017–2021: educational support for underprivileged children, anti-child-labor awareness, and blood-donation drives with the Pakistan Red Crescent Society.</li>
+                <li>Community volunteer, Community Table, Sylva, NC, Spring 2020 (Global UGRAD service).</li>
               </ul>
             </article>
           </div>
@@ -934,6 +992,7 @@
         <div class="container">
           <h2>News</h2>
           <ul class="news-list">
+            <li><time datetime="2026-09">Sep 2026</time><span>Tree-stem fire-injury heat transfer model published in <em>International Communications in Heat and Mass Transfer</em> (vol. 180, article 112653).</span></li>
             <li><time datetime="2026-07">Jul 2026</time><span>Presented "A physics-assisted geometry-generalizable graph convolutional network for fluid flow" at WCCM-ECCOMAS 2026 in Munich, supported by Texas A&amp;M Graduate and Professional School travel awards.</span></li>
             <li><time datetime="2026-04">Apr 2026</time><span>Invited workshop "The Blueprint: Methodology and Experimental Design" for the Undergraduate Research Group at GIKI.</span></li>
             <li><time datetime="2026-03">Mar 2026</time><span>Volunteered at the Texas Science and Engineering Fair through Spark! PK–12 outreach; three-dimensional gypsum board thermal response model published in <em>International Journal of Thermal Sciences</em>.</span></li>
@@ -959,8 +1018,7 @@
           <div>
             <h2>Contact</h2>
             <p class="section-intro">
-              I welcome conversations about faculty and postdoctoral opportunities, collaborations, and speaking
-              invitations.
+              I welcome conversations about faculty opportunities, collaborations, and speaking invitations.
             </p>
             <ul class="contact-list">
               <li><strong>Email:</strong> <a href="mailto:mhasnain5924117@tamu.edu">mhasnain5924117@tamu.edu</a></li>
@@ -997,7 +1055,7 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <p>© <span data-year></span> Muhammad Hasnain</p>
-        <p>Last updated <time datetime="2026-09-11">September 2026</time></p>
+        <p>Last updated <time datetime="2026-09-18">September 2026</time></p>
       </div>
     </footer>
   </body>
