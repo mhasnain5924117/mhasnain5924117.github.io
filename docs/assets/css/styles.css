@@ -404,31 +404,41 @@ figcaption {
 
 .area {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
-  gap: 1.4rem;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 1.6rem;
   align-items: start;
   background: #fffdf8;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 1.1rem;
-}
-
-.area:nth-child(even) {
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.9fr);
-}
-
-.area:nth-child(even) .area-figure {
-  order: 2;
+  padding: 1.2rem 1.3rem;
 }
 
 .area-figure {
   margin: 0;
+  max-width: 400px;
+  justify-self: end;
 }
 
 .area-figure img {
   width: 100%;
   border: 1px solid #d8d1c3;
-  background: #f6f4ee;
+  background: #fff;
+  padding: 0.3rem;
+  box-sizing: border-box;
+}
+
+.area-figure figcaption {
+  margin-top: 0.45rem;
+}
+
+.figure-link {
+  display: block;
+  line-height: 0;
+}
+
+.figure-link:hover img,
+.figure-link:focus-visible img {
+  border-color: var(--teal);
 }
 
 .area-index {
@@ -602,9 +612,13 @@ figcaption {
 
 .project-card img {
   width: 100%;
+  max-height: 230px;
+  object-fit: contain;
   border: 1px solid #d8d1c3;
   background: #fff;
-  margin-bottom: 0.75rem;
+  padding: 0.3rem;
+  box-sizing: border-box;
+  margin: 0.2rem 0 0.8rem;
 }
 
 .project-card h4 {
@@ -680,8 +694,8 @@ figcaption {
 
 .experience-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 180px;
-  gap: 1.4rem;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 1.8rem;
   align-items: start;
 }
 
@@ -689,16 +703,26 @@ figcaption {
   padding-left: 1.2rem;
 }
 
-.experience-figure {
+.experience-list li + li {
+  margin-top: 0.7rem;
+}
+
+.experience-photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.experience-photos figure {
   margin: 0;
 }
 
-.experience-figure img {
+.experience-photos img {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
+  object-position: center 25%;
   border: 1px solid #d5dde6;
-  box-shadow: var(--shadow);
 }
 
 .talk-list,
@@ -797,17 +821,18 @@ figcaption {
   .about-grid,
   .two-col,
   .teaching-grid,
-  .area,
-  .area:nth-child(even) {
+  .experience-grid,
+  .area {
     grid-template-columns: 1fr;
+  }
+
+  .area-figure {
+    max-width: 460px;
+    justify-self: start;
   }
 
   .collab-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .area:nth-child(even) .area-figure {
-    order: 0;
   }
 
   .hero-media {
@@ -893,13 +918,12 @@ figcaption {
   .photo-pair,
   .collab-grid,
   .mentoring-list,
-  .project-grid,
-  .experience-grid {
+  .project-grid {
     grid-template-columns: 1fr;
   }
 
-  .experience-figure {
-    max-width: 220px;
+  .experience-photos {
+    max-width: 420px;
   }
 
   .doi {
@@ -916,7 +940,7 @@ figcaption {
   .photo-strip,
   .photo-stack,
   .teaching-figure,
-  .experience-figure,
+  .experience-photos,
   .skip-link {
     display: none !important;
   }
