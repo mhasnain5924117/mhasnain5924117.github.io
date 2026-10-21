@@ -633,7 +633,7 @@ figcaption {
   font-size: 0.95rem;
 }
 
-.project-card p:last-child {
+.project-card p:last-of-type {
   margin-bottom: 0;
 }
 
@@ -816,6 +816,276 @@ figcaption {
   gap: 0.6rem 1rem;
 }
 
+/* Research films ------------------------------------------------------- */
+.films {
+  --film-ink: #eef3f7;
+  --film-muted: #a9b9c8;
+  --film-line: rgba(255, 255, 255, 0.12);
+  background: radial-gradient(120% 100% at 80% 0%, #15314d 0%, #0b1f33 55%, #081625 100%);
+  color: var(--film-ink);
+  border-top: 1px solid #0a1a2b;
+  border-bottom: 1px solid #0a1a2b;
+}
+
+.films .eyebrow {
+  color: #7fd0d9;
+}
+
+.films h2 {
+  color: #ffffff;
+}
+
+.films .section-intro {
+  color: var(--film-muted);
+}
+
+.films a {
+  color: #9fdde3;
+}
+
+.films a:hover,
+.films a:focus-visible {
+  color: #ffffff;
+}
+
+.film-theater {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(280px, 1fr);
+  gap: 1.6rem 2rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.film-stage {
+  margin: 0;
+  min-width: 0;
+}
+
+.film-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #04101c;
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.film-frame video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #04101c;
+}
+
+.film-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.film-caption {
+  padding: 1.25rem 0.25rem 0;
+}
+
+.film-narration {
+  margin: 0 0 1rem;
+  min-height: 3.2em;
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1.6vw, 1.32rem);
+  line-height: 1.4;
+  color: #ffffff;
+  transition: opacity 0.35s ease;
+}
+
+.film-narration.is-fading {
+  opacity: 0;
+}
+
+.film-title {
+  margin: 0 0 0.45rem;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.film-sub {
+  margin: 0 0 0.8rem;
+  color: var(--film-muted);
+  font-size: 0.98rem;
+  max-width: 64ch;
+}
+
+.film-meta {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.film-meta a {
+  text-decoration: none;
+  border-bottom: 1px solid rgba(159, 221, 227, 0.45);
+}
+
+.film-meta a:hover,
+.film-meta a:focus-visible {
+  border-bottom-color: #ffffff;
+}
+
+.film-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.film-item {
+  --progress: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 0.9rem;
+  align-items: center;
+  text-align: left;
+  padding: 0.65rem 0.75rem 0.65rem 0.65rem;
+  border-radius: 14px;
+  border: 1px solid var(--film-line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--film-ink);
+  font: inherit;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.film-item:hover,
+.film-item:focus-visible {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateX(3px);
+  outline: none;
+}
+
+.film-item:focus-visible {
+  box-shadow: 0 0 0 3px rgba(127, 208, 217, 0.55);
+}
+
+.film-item.is-active {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(127, 208, 217, 0.65);
+}
+
+.film-item img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  background: #04101c;
+}
+
+.film-item-text {
+  display: grid;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.film-item-index {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #7fd0d9;
+}
+
+.film-item-title {
+  font-family: var(--serif);
+  font-size: 1.02rem;
+  line-height: 1.25;
+  color: #ffffff;
+}
+
+.film-item-sub {
+  font-size: 0.86rem;
+  color: var(--film-muted);
+}
+
+.film-item-progress {
+  display: block;
+  margin-top: 0.35rem;
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.film-item-progress span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #7fd0d9, #d9b35c);
+  transform-origin: left center;
+  transform: scaleX(var(--progress));
+  transition: transform 0.25s linear;
+}
+
+.film-note {
+  margin: 1.8rem 0 0;
+  color: var(--film-muted);
+  font-size: 0.88rem;
+  max-width: 76ch;
+}
+
+.project-film-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.55rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--teal);
+  text-decoration: none;
+}
+
+.project-film-link::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 8px;
+  border-color: transparent transparent transparent currentColor;
+}
+
+.project-film-link:hover,
+.project-film-link:focus-visible {
+  text-decoration: underline;
+}
+
+@media (max-width: 1140px) {
+  .header-cv {
+    display: none;
+  }
+
+  .brand {
+    white-space: nowrap;
+  }
+
+  .site-nav ul {
+    gap: 0.7rem;
+  }
+}
+
 @media (max-width: 980px) {
   .hero-grid,
   .about-grid,
@@ -824,6 +1094,14 @@ figcaption {
   .experience-grid,
   .area {
     grid-template-columns: 1fr;
+  }
+
+  .film-theater {
+    grid-template-columns: 1fr;
+  }
+
+  .film-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .area-figure {
@@ -849,7 +1127,7 @@ figcaption {
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 940px) {
   .menu-toggle {
     display: inline-flex;
   }
@@ -883,7 +1161,9 @@ figcaption {
   .site-nav a {
     padding: 0.55rem 0.45rem;
   }
+}
 
+@media (max-width: 760px) {
   .course-table thead {
     display: none;
   }
@@ -918,8 +1198,17 @@ figcaption {
   .photo-pair,
   .collab-grid,
   .mentoring-list,
-  .project-grid {
+  .project-grid,
+  .film-list {
     grid-template-columns: 1fr;
+  }
+
+  .film-item {
+    grid-template-columns: 96px minmax(0, 1fr);
+  }
+
+  .film-frame {
+    border-radius: 10px;
   }
 
   .experience-photos {
@@ -941,6 +1230,8 @@ figcaption {
   .photo-stack,
   .teaching-figure,
   .experience-photos,
+  .films,
+  .project-film-link,
   .skip-link {
     display: none !important;
   }

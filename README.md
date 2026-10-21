@@ -41,13 +41,15 @@ Open:
 
 Everything lives in a single static page, `docs/index.html`, with these sections (in order):
 About (with Education), Research (four areas, selected projects, future directions, software, collaborations),
-Publications (selected, then grouped full list), Teaching and Mentoring, Talks, Awards and Funding,
+Films (four short research animations with a playlist), Publications (selected, then grouped full list), Teaching and Mentoring, Talks, Awards and Funding,
 Service and Outreach, News, Contact and References.
 
 Supporting files:
 
 - `docs/assets/css/styles.css` – styles, including print rules
-- `docs/assets/js/main.js` – mobile menu and nav highlighting only
+- `docs/assets/js/main.js` – mobile menu, nav highlighting, and the film player (playlist, captions-as-narration, auto-advance)
+- `docs/assets/videos/` – the four research films (`*-720p.mp4` for the page, `*-1080p.mp4` for download, poster/thumb JPEGs, and `.vtt` captions)
+- `tools/research-films/render_films.py` – Python/ffmpeg renderer that produces every file in `docs/assets/videos/`
 - `docs/assets/cv/Muhammad_Hasnain_CV.pdf` – the file behind every "CV (PDF)" link
 - `docs/assets/images/photos/` – conference, poster, and teaching photographs
 - `docs/assets/images/figures/` – result figures taken from the papers and presentations
@@ -80,7 +82,20 @@ Replace `docs/assets/cv/Muhammad_Hasnain_CV.pdf` with the current CV (same filen
 and any home address from the PDF (true redaction, not a black box drawn over the text) and strip
 document metadata; the hosted copy should carry only the university e-mail.
 
-### 5) Keep SEO current
+### 5) Re-render a research film
+
+The films are generated, not hand-edited. Install `numpy pillow matplotlib contourpy` plus `ffmpeg`, then:
+
+```bash
+cd tools/research-films
+python3 render_films.py --film bfs --preview --times 4,18,30   # quick PNG frames in out/preview
+python3 render_films.py --film all --render --out ../../docs/assets/videos
+```
+
+Each film is a short, silent dashboard-style animation driven by a simplified model of the paper's
+physics; the captions double as the on-page narration. Keep the "Illustrative animation" footnote.
+
+### 6) Keep SEO current
 
 When URL structure changes, update:
 
