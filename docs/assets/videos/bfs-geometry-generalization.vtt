@@ -1,0 +1,16 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.600
+A graph neural surrogate trained on a single backward-facing step height, at Reynolds number 125.
+
+00:00:02.600 --> 00:00:11.600
+The step is lowered to 2.9 millimetres. The recirculation bubble shrinks and reattachment moves upstream.
+
+00:00:11.600 --> 00:00:23.600
+The step is raised to 6.9 millimetres, 40 percent beyond training. Reattachment moves downstream and the prediction stays close to the CFD reference.
+
+00:00:23.600 --> 00:00:31.000
+Returning to the training height. Each point on the parity plot compares predicted and CFD reattachment length.
+
+00:00:31.000 --> 00:00:36.000
+Geometry-generalizable surrogates make rapid shape sweeps possible at a fraction of the cost of CFD.
