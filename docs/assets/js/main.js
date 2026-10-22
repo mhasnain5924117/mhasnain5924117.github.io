@@ -43,6 +43,7 @@
 
   initSectionSpy();
   initAnimations();
+  initProjectMedia();
 })();
 
 function initSectionSpy() {
@@ -86,8 +87,8 @@ function initSectionSpy() {
 function initAnimations() {
   const dialog = document.getElementById("animation-dialog");
   const player = document.getElementById("animation-player");
-  const tiles = Array.from(document.querySelectorAll(".anim-tile[data-animation]"));
-  if (!(dialog instanceof HTMLDialogElement) || !(player instanceof HTMLVideoElement) || !tiles.length) return;
+  const openers = Array.from(document.querySelectorAll("[data-animation-open]"));
+  if (!(dialog instanceof HTMLDialogElement) || !(player instanceof HTMLVideoElement) || !openers.length) return;
 
   const narration = document.getElementById("animation-narration");
   const title = document.getElementById("animation-title");
@@ -116,9 +117,11 @@ function initAnimations() {
     };
   };
 
-  const open = (tile) => {
-    const { src, vtt, poster, title: animTitle, sub: animSub, links: linkJson, hd } = tile.dataset;
-    opener = tile;
+  const open = (button) => {
+    const { src, vtt, poster, title: animTitle, sub: animSub, links: linkJson, hd } = button.dataset;
+    opener = button;
+    // Pause any in-card animation so two copies never run at once.
+    document.querySelectorAll("video.project-video").forEach((video) => video.pause());
 
     const source = player.querySelector("source");
     if (source && src) source.setAttribute("src", src);
@@ -184,18 +187,63 @@ function initAnimations() {
     button.addEventListener("click", close);
   });
 
-  tiles.forEach((tile) => {
-    tile.addEventListener("click", () => open(tile));
+  openers.forEach((button) => {
+    button.addEventListener("click", () => open(button));
+  });
+}
+
+function initProjectMedia() {
+  const cards = Array.from(document.querySelectorAll(".project-card-media"));
+  if (!cards.length) return;
+  const videos = cards.map((card) => card.querySelector("video.project-video")).filter(Boolean);
+
+  cards.forEach((card) => {
+    const video = card.querySelector("video.project-video");
+    const figure = card.querySelector(".project-figure");
+    const narration = card.querySelector(".project-narration");
+    const buttons = Array.from(card.querySelectorAll(".media-switch button[data-media]"));
+    if (!video || !figure || !buttons.length) return;
+
+    // Captions are shown as a narration line under the video instead of over it.
+    const track = video.textTracks && video.textTracks[0];
+    if (track && narration) {
+      track.mode = "hidden";
+      track.addEventListener("cuechange", () => {
+        const cue = track.activeCues && track.activeCues[0];
+        const text = cue && "text" in cue ? String(cue.text) : "";
+        if (narration.textContent === text) return;
+        narration.classList.add("is-fading");
+        window.setTimeout(() => {
+          narration.textContent = text;
+          narration.classList.remove("is-fading");
+        }, 150);
+      });
+    }
+
+    const show = (mode) => {
+      const showFigure = mode === "figure";
+      figure.hidden = !showFigure;
+      video.hidden = showFigure;
+      if (narration) narration.hidden = showFigure;
+      if (showFigure) video.pause();
+      buttons.forEach((button) => {
+        const active = button.dataset.media === mode;
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+      });
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => show(button.dataset.media || "animation"));
+    });
   });
 
-  // "View animation" links on the project cards open the matching tile.
-  document.querySelectorAll("a[data-animation]").forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const id = link.getAttribute("data-animation");
-      const tile = tiles.find((candidate) => candidate.dataset.animation === id);
-      if (!tile) return;
-      event.preventDefault();
-      open(tile);
+  // Only one card animation plays at a time.
+  videos.forEach((video) => {
+    video.addEventListener("play", () => {
+      videos.forEach((other) => {
+        if (other !== video && !other.paused) other.pause();
+      });
     });
   });
 }

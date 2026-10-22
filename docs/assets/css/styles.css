@@ -816,142 +816,130 @@ figcaption {
   gap: 0.6rem 1rem;
 }
 
-/* Animated research summaries ------------------------------------------ */
-.anim-head {
-  margin-top: 0.4rem;
-}
-
-.anim-intro {
-  margin: -0.3rem 0 1rem;
-  color: var(--ink-muted);
+/* Project cards with animated summaries -------------------------------- */
+.projects-intro {
+  margin: -0.4rem 0 1rem;
   font-size: 0.95rem;
-  max-width: 76ch;
+  color: var(--ink-muted);
 }
 
-.anim-grid {
-  list-style: none;
-  margin: 0 0 2rem;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
+.media-switch {
+  display: inline-flex;
+  gap: 0;
+  margin: 0.1rem 0 0.6rem;
+  padding: 2px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #f4f1ea;
 }
 
-.anim-tile {
-  width: 100%;
-  display: grid;
-  gap: 0.3rem;
-  padding: 0;
+.media-switch button {
   border: 0;
   background: transparent;
-  color: var(--ink);
+  color: var(--ink-muted);
   font: inherit;
-  text-align: left;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
   cursor: pointer;
-  border-radius: 12px;
-}
-
-.anim-tile:focus-visible {
-  outline: 3px solid var(--teal);
-  outline-offset: 4px;
-}
-
-.anim-thumb {
-  position: relative;
-  display: block;
-  aspect-ratio: 16 / 9;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  background: #fff;
-  box-shadow: 0 6px 18px rgba(11, 31, 51, 0.08);
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
-.anim-thumb img {
+.media-switch button.is-active {
+  background: var(--ink);
+  color: #fff;
+}
+
+.media-switch button:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+.project-media {
+  margin: 0 0 0.8rem;
+}
+
+.project-video {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #04101c;
+  box-shadow: 0 8px 22px rgba(11, 31, 51, 0.1);
 }
 
-.anim-thumb::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(11, 31, 51, 0) 55%, rgba(11, 31, 51, 0.45) 100%);
-  transition: background 0.25s ease;
+.project-card-media .project-figure img {
+  margin: 0;
 }
 
-.anim-thumb::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 48px;
-  height: 48px;
-  margin: -24px 0 0 -24px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.94) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%230b1f33' d='M9 6.5v11l9-5.5z'/></svg>") center / 22px no-repeat;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-  transition: transform 0.25s ease;
+.project-video[hidden],
+.project-figure[hidden],
+.project-narration[hidden] {
+  display: none;
 }
 
-.anim-tile:hover .anim-thumb,
-.anim-tile:focus-visible .anim-thumb {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 26px rgba(11, 31, 51, 0.16);
-}
-
-.anim-tile:hover .anim-thumb::after,
-.anim-tile:focus-visible .anim-thumb::after {
-  transform: scale(1.08);
-}
-
-.anim-duration {
-  position: absolute;
-  right: 0.55rem;
-  bottom: 0.5rem;
-  padding: 0.1rem 0.45rem;
-  border-radius: 6px;
-  background: rgba(11, 31, 51, 0.82);
-  color: #fff;
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.03em;
-}
-
-.anim-kicker {
-  margin-top: 0.35rem;
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--teal);
-}
-
-.anim-title {
+.project-narration {
+  margin: 0.85rem 0 0;
+  min-height: 2.7em;
   font-family: var(--serif);
-  font-size: 1rem;
-  line-height: 1.3;
-  color: var(--ink);
+  font-size: 0.98rem;
+  line-height: 1.35;
+  color: var(--ink-mid);
+  transition: opacity 0.25s ease;
 }
 
-.project-anim-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+.project-narration:empty::before {
+  content: "Press play for a captioned walk-through of the study.";
+  color: var(--ink-muted);
+  font-family: var(--sans);
+  font-size: 0.85rem;
+}
+
+.project-narration.is-fading {
+  opacity: 0;
+}
+
+.project-actions {
   margin-top: auto;
   padding-top: 0.55rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
   font-size: 0.9rem;
   font-weight: 700;
+}
+
+.project-actions a {
   color: var(--teal);
   text-decoration: none;
 }
 
-.project-anim-link::before {
+.project-actions a:hover,
+.project-actions a:focus-visible {
+  text-decoration: underline;
+}
+
+.link-button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--teal);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.link-button::before {
   content: "";
   width: 0;
   height: 0;
@@ -960,8 +948,8 @@ figcaption {
   border-color: transparent transparent transparent currentColor;
 }
 
-.project-anim-link:hover,
-.project-anim-link:focus-visible {
+.link-button:hover,
+.link-button:focus-visible {
   text-decoration: underline;
 }
 
@@ -1122,9 +1110,6 @@ figcaption {
     grid-template-columns: 1fr;
   }
 
-  .anim-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 
   .area-figure {
     max-width: 460px;
@@ -1224,15 +1209,6 @@ figcaption {
     grid-template-columns: 1fr;
   }
 
-  .anim-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.7rem;
-  }
-
-  .anim-title {
-    font-size: 0.92rem;
-  }
-
   .anim-dialog {
     width: calc(100% - 1rem);
     border-radius: 10px;
@@ -1261,10 +1237,10 @@ figcaption {
   .photo-stack,
   .teaching-figure,
   .experience-photos,
-  .anim-grid,
-  .anim-head,
   .anim-dialog,
-  .project-anim-link,
+  .media-switch,
+  .project-video,
+  .project-actions,
   .skip-link {
     display: none !important;
   }
@@ -1309,5 +1285,9 @@ figcaption {
 
   .area-figure {
     max-width: 60%;
+  }
+
+  .project-figure[hidden] {
+    display: block !important;
   }
 }
