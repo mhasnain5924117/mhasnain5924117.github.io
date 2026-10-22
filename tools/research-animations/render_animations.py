@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""Render the four research films shown on the portfolio site.
+"""Render the four research animations shown on the portfolio site.
 
-Each film is a 1920x1080, 30 fps dashboard-style animation: a swept parameter,
+Each animation is a 1920x1080, 30 fps dashboard-style animation: a swept parameter,
 a schematic of the physical scenario, a live field computed from a simplified
 model, and a result plot that draws itself as the parameter changes. The fields
 and curves are illustrative (computed from reduced-order models for
 presentation), not reported research data.
 
 Usage:
-    python3 render_films.py --preview            # PNG stills into ./out/preview
-    python3 render_films.py --render             # MP4s + posters + VTT into ./out
-    python3 render_films.py --render --out ../../docs/assets/videos
-    python3 render_films.py --film tree --render
+    python3 render_animations.py --preview            # PNG stills into ./out/preview
+    python3 render_animations.py --render             # MP4s + posters + VTT into ./out
+    python3 render_animations.py --render --out ../../docs/assets/videos
+    python3 render_animations.py --animation tree --render
 
 Dependencies: Python 3.10+, Pillow, NumPy, matplotlib (colormaps and contours),
 ffmpeg on PATH, and the Inter font family.
@@ -276,15 +276,15 @@ class Plot:
 
 
 # --------------------------------------------------------------------------- #
-# Film base class: chrome shared by all films
+# Animation base class: chrome shared by all four
 # --------------------------------------------------------------------------- #
 KPI_BOX = (60, 205, 1800, 114)
 CARDS = [(60, 342, 440, 520), (530, 342, 720, 520), (1280, 342, 580, 520)]
 
 
-class Film:
+class Animation:
     key = "base"
-    file = "Film"
+    file = "Animation"
     duration = 30.0
     eyebrow = "MUHAMMAD HASNAIN  /  RESEARCH PORTFOLIO"
     tag = ""
@@ -405,14 +405,14 @@ class Film:
 
 
 # --------------------------------------------------------------------------- #
-# FILM 1: Backward-facing step, geometry generalization
+# ANIMATION 1: Backward-facing step, geometry generalization
 # --------------------------------------------------------------------------- #
 def lr_model(h, re):
     """Illustrative reattachment length [mm] for step height h [mm] at Reynolds number re."""
     return h * (0.95 + 0.0128 * re) * (0.74 + 0.052 * h)
 
 
-class BFSFilm(Film):
+class BFSAnimation(Animation):
     key = "bfs"
     file = "bfs-geometry-generalization"
     duration = 36.0
@@ -711,7 +711,7 @@ class BFSFilm(Film):
 
 
 # --------------------------------------------------------------------------- #
-# FILM 2: Tree stem fire injury
+# ANIMATION 2: Tree stem fire injury
 # --------------------------------------------------------------------------- #
 def fire_flux_factor(tau):
     """Normalized surface-fire heat flux history: rapid rise, peak near 150 s, then the fire front passes."""
@@ -808,7 +808,7 @@ def simulate_tree():
                 probes={k_: np.array(v) for k_, v in probes.items()}, necro=np.array(necro))
 
 
-class TreeFilm(Film):
+class TreeAnimation(Animation):
     key = "tree"
     file = "tree-stem-fire-injury"
     duration = 32.0
@@ -1023,7 +1023,7 @@ class TreeFilm(Film):
 
 
 # --------------------------------------------------------------------------- #
-# FILM 3: Gypsum board under localized fire exposure
+# ANIMATION 3: Gypsum board under localized fire exposure
 # --------------------------------------------------------------------------- #
 def simulate_gypsum():
     nx, ny, nz = 72, 48, 7
@@ -1085,7 +1085,7 @@ def simulate_gypsum():
                 probes={k_: np.array(v) for k_, v in probes.items()}, footprint=footprint, xc=xc, yc=yc, sig=sig, dz=dz)
 
 
-class GypsumFilm(Film):
+class GypsumAnimation(Animation):
     key = "gypsum"
     file = "gypsum-fire-response"
     duration = 32.0
@@ -1267,7 +1267,7 @@ class GypsumFilm(Film):
 
 
 # --------------------------------------------------------------------------- #
-# FILM 4: Metal-hydride hydrogen storage
+# ANIMATION 4: Metal-hydride hydrogen storage
 # --------------------------------------------------------------------------- #
 def simulate_hydride(P_bar, record_fields=True):
     nr, nz = 30, 60
@@ -1316,7 +1316,7 @@ def simulate_hydride(P_bar, record_fields=True):
     return dict(r=r, snapsF=snapsF, snapsT=snapsT, avg=np.array(avg), dt_snap=every * dt, R=R, L=L)
 
 
-class HydrideFilm(Film):
+class HydrideAnimation(Animation):
     key = "hydride"
     file = "hydrogen-storage"
     duration = 32.0
@@ -1500,33 +1500,33 @@ class HydrideFilm(Film):
         T(d, (x + 24, y + 504), "Higher pressure raises the equilibrium temperature; more heat can leave the bed.", 14, MUTED)
 
 
-FILMS = {"bfs": BFSFilm, "tree": TreeFilm, "gypsum": GypsumFilm, "hydride": HydrideFilm}
+ANIMATIONS = {"bfs": BFSAnimation, "tree": TreeAnimation, "gypsum": GypsumAnimation, "hydride": HydrideAnimation}
 
 
 # --------------------------------------------------------------------------- #
 # Output
 # --------------------------------------------------------------------------- #
-def write_vtt(film, path):
+def write_vtt(animation, path):
     def ts(v):
         return f"{int(v // 3600):02d}:{int(v % 3600 // 60):02d}:{v % 60:06.3f}"
     lines = ["WEBVTT", ""]
-    for a, b, s in film.captions:
+    for a, b, s in animation.captions:
         lines += [f"{ts(a)} --> {ts(b)}", s, ""]
     path.write_text("\n".join(lines))
 
 
 def render(key, out: Path):
     out.mkdir(parents=True, exist_ok=True)
-    film = FILMS[key]()
-    hd = out / f"{film.file}-1080p.mp4"
-    web = out / f"{film.file}-720p.mp4"
+    animation = ANIMATIONS[key]()
+    hd = out / f"{animation.file}-1080p.mp4"
+    web = out / f"{animation.file}-720p.mp4"
     cmd = ["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
            "-an", "-c:v", "libx264", "-preset", "medium", "-crf", "19", "-pix_fmt", "yuv420p", "-profile:v", "high",
-           "-level", "4.1", "-movflags", "+faststart", "-metadata", f"title={film.title}", str(hd)]
+           "-level", "4.1", "-movflags", "+faststart", "-metadata", f"title={animation.title}", str(hd)]
     p = subprocess.Popen(cmd, stdin=subprocess.PIPE)
-    n = int(film.duration * FPS)
+    n = int(animation.duration * FPS)
     for i in range(n):
-        p.stdin.write(film.frame(i / FPS).tobytes())
+        p.stdin.write(animation.frame(i / FPS).tobytes())
         if i % 150 == 0:
             print(f"{key}: {i}/{n}", flush=True)
     p.stdin.close()
@@ -1536,32 +1536,32 @@ def render(key, out: Path):
                     "-preset", "medium", "-crf", "23", "-pix_fmt", "yuv420p", "-profile:v", "high", "-level", "4.0",
                     "-movflags", "+faststart", str(web)], check=True)
     # posters: full-size jpg and a small thumbnail
-    film.part = None
-    film.last_t = None
-    poster = film.frame(film.poster_time)
-    poster.save(out / f"{film.file}-poster.jpg", quality=86, optimize=True, progressive=True)
-    poster.resize((640, 360), Image.Resampling.LANCZOS).save(out / f"{film.file}-thumb.jpg", quality=82, optimize=True)
-    write_vtt(film, out / f"{film.file}.vtt")
+    animation.part = None
+    animation.last_t = None
+    poster = animation.frame(animation.poster_time)
+    poster.save(out / f"{animation.file}-poster.jpg", quality=86, optimize=True, progressive=True)
+    poster.resize((640, 360), Image.Resampling.LANCZOS).save(out / f"{animation.file}-thumb.jpg", quality=82, optimize=True)
+    write_vtt(animation, out / f"{animation.file}.vtt")
     print("done", key, flush=True)
 
 
 def preview(key, out: Path, times):
     out.mkdir(parents=True, exist_ok=True)
-    film = FILMS[key]()
+    animation = ANIMATIONS[key]()
     for t in times:
-        film.frame(t).save(out / f"{key}_{t:05.1f}.png")
+        animation.frame(t).save(out / f"{key}_{t:05.1f}.png")
         print("preview", key, t, flush=True)
 
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--film", choices=list(FILMS) + ["all"], default="all")
+    ap.add_argument("--animation", choices=list(ANIMATIONS) + ["all"], default="all")
     ap.add_argument("--preview", action="store_true")
     ap.add_argument("--render", action="store_true")
     ap.add_argument("--times", default="3,10,17,24,30")
     ap.add_argument("--out", default=str(HERE / "out"))
     args = ap.parse_args()
-    keys = list(FILMS) if args.film == "all" else [args.film]
+    keys = list(ANIMATIONS) if args.animation == "all" else [args.animation]
     if args.preview:
         times = [float(v) for v in args.times.split(",")]
         for k in keys:

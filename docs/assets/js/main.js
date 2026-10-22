@@ -42,187 +42,8 @@
   }
 
   initSectionSpy();
-  initFilms();
+  initAnimations();
 })();
-
-function initFilms() {
-  const player = document.getElementById("film-player");
-  const items = Array.from(document.querySelectorAll(".film-item[data-film]"));
-  if (!(player instanceof HTMLVideoElement) || !items.length) return;
-
-  const narration = document.getElementById("film-narration");
-  const title = document.getElementById("film-title");
-  const sub = document.getElementById("film-sub");
-  const meta = document.getElementById("film-meta");
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  let current = items.findIndex((item) => item.classList.contains("is-active"));
-  if (current < 0) current = 0;
-  let userPaused = false;
-  let programmaticPause = false;
-
-  const setProgress = (item, value) => {
-    item.style.setProperty("--progress", String(Math.max(0, Math.min(1, value))));
-  };
-
-  const setNarration = (text) => {
-    if (!narration) return;
-    if (narration.textContent.trim() === text.trim()) return;
-    narration.classList.add("is-fading");
-    window.setTimeout(() => {
-      narration.textContent = text;
-      narration.classList.remove("is-fading");
-    }, reducedMotion ? 0 : 180);
-  };
-
-  const attachCaptions = () => {
-    const track = player.textTracks && player.textTracks[0];
-    if (!track) return;
-    track.mode = "hidden";
-    track.oncuechange = () => {
-      const cue = track.activeCues && track.activeCues[0];
-      if (cue && "text" in cue) setNarration(String(cue.text));
-    };
-  };
-
-  const load = (index, { autoplay = false } = {}) => {
-    const item = items[index];
-    if (!item) return;
-    current = index;
-
-    items.forEach((other, i) => {
-      const active = i === index;
-      other.classList.toggle("is-active", active);
-      other.setAttribute("aria-pressed", active ? "true" : "false");
-      if (!active) setProgress(other, 0);
-    });
-
-    const { src, vtt, poster, title: filmTitle, sub: filmSub, links, hd } = item.dataset;
-
-    if (!player.paused) {
-      programmaticPause = true;
-      player.pause();
-    }
-    player.poster = poster || "";
-    player.setAttribute("aria-label", `Research film: ${filmTitle || ""}`);
-
-    const source = player.querySelector("source");
-    if (source && src) source.setAttribute("src", src);
-    const track = player.querySelector("track");
-    if (track && vtt) track.setAttribute("src", vtt);
-    player.load();
-    attachCaptions();
-
-    if (title && filmTitle) title.textContent = filmTitle;
-    if (sub && filmSub) sub.textContent = filmSub;
-    if (narration) narration.textContent = filmSub || "";
-
-    if (meta) {
-      meta.textContent = "";
-      let parsed = [];
-      try {
-        parsed = links ? JSON.parse(links) : [];
-      } catch (error) {
-        parsed = [];
-      }
-      parsed.forEach((entry) => {
-        if (!entry || !entry.href || !entry.label) return;
-        const a = document.createElement("a");
-        a.href = entry.href;
-        a.textContent = entry.label;
-        if (/^https?:/i.test(entry.href)) {
-          a.target = "_blank";
-          a.rel = "noopener";
-        }
-        meta.appendChild(a);
-      });
-      if (hd) {
-        const a = document.createElement("a");
-        a.href = hd;
-        a.textContent = "Full HD (MP4)";
-        a.setAttribute("download", "");
-        meta.appendChild(a);
-      }
-    }
-
-    if (autoplay) {
-      const attempt = player.play();
-      if (attempt && typeof attempt.catch === "function") attempt.catch(() => {});
-    }
-  };
-
-  items.forEach((item, index) => {
-    item.addEventListener("click", () => {
-      userPaused = false;
-      load(index, { autoplay: true });
-    });
-  });
-
-  player.addEventListener("timeupdate", () => {
-    const item = items[current];
-    if (!item || !player.duration) return;
-    setProgress(item, player.currentTime / player.duration);
-  });
-
-  player.addEventListener("ended", () => {
-    const item = items[current];
-    if (item) setProgress(item, 1);
-    if (userPaused) return;
-    const next = (current + 1) % items.length;
-    window.setTimeout(() => load(next, { autoplay: true }), reducedMotion ? 0 : 500);
-  });
-
-  player.addEventListener("pause", () => {
-    if (programmaticPause) {
-      programmaticPause = false;
-      return;
-    }
-    if (!player.ended && !player.seeking) userPaused = true;
-  });
-  player.addEventListener("play", () => {
-    userPaused = false;
-  });
-
-  attachCaptions();
-
-  // Hero and project-card links jump to a specific film.
-  document.querySelectorAll("[data-film-link]").forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const id = link.getAttribute("data-film-link");
-      const index = items.findIndex((item) => item.dataset.film === id);
-      if (index < 0) return;
-      event.preventDefault();
-      const section = document.getElementById("films");
-      if (section) section.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
-      userPaused = false;
-      load(index, { autoplay: true });
-      if (window.history && window.history.replaceState) window.history.replaceState(null, "", "#films");
-    });
-  });
-
-  // Start the first film silently once the theater scrolls into view.
-  if (!reducedMotion && "IntersectionObserver" in window) {
-    let started = false;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !started && !userPaused && player.paused) {
-            started = true;
-            const attempt = player.play();
-            if (attempt && typeof attempt.catch === "function") attempt.catch(() => {});
-          }
-          if (!entry.isIntersecting && !player.paused) {
-            programmaticPause = true;
-            player.pause();
-            started = false;
-          }
-        });
-      },
-      { threshold: 0.45 }
-    );
-    observer.observe(player);
-  }
-}
 
 function initSectionSpy() {
   const links = Array.from(document.querySelectorAll('.site-nav a[href^="#"]'));
@@ -260,4 +81,121 @@ function initSectionSpy() {
   );
 
   sections.forEach((section) => observer.observe(section));
+}
+
+function initAnimations() {
+  const dialog = document.getElementById("animation-dialog");
+  const player = document.getElementById("animation-player");
+  const tiles = Array.from(document.querySelectorAll(".anim-tile[data-animation]"));
+  if (!(dialog instanceof HTMLDialogElement) || !(player instanceof HTMLVideoElement) || !tiles.length) return;
+
+  const narration = document.getElementById("animation-narration");
+  const title = document.getElementById("animation-title");
+  const sub = document.getElementById("animation-sub");
+  const links = document.getElementById("animation-links");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let opener = null;
+
+  const setNarration = (text) => {
+    if (!narration) return;
+    if (narration.textContent.trim() === text.trim()) return;
+    narration.classList.add("is-fading");
+    window.setTimeout(() => {
+      narration.textContent = text;
+      narration.classList.remove("is-fading");
+    }, reducedMotion ? 0 : 160);
+  };
+
+  const attachCaptions = () => {
+    const track = player.textTracks && player.textTracks[0];
+    if (!track) return;
+    track.mode = "hidden";
+    track.oncuechange = () => {
+      const cue = track.activeCues && track.activeCues[0];
+      if (cue && "text" in cue) setNarration(String(cue.text));
+    };
+  };
+
+  const open = (tile) => {
+    const { src, vtt, poster, title: animTitle, sub: animSub, links: linkJson, hd } = tile.dataset;
+    opener = tile;
+
+    const source = player.querySelector("source");
+    if (source && src) source.setAttribute("src", src);
+    const track = player.querySelector("track");
+    if (track && vtt) track.setAttribute("src", vtt);
+    player.poster = poster || "";
+    player.setAttribute("aria-label", animTitle || "Research animation");
+    player.load();
+    attachCaptions();
+
+    if (title) title.textContent = animTitle || "";
+    if (sub) sub.textContent = animSub || "";
+    if (narration) narration.textContent = animSub || "";
+
+    if (links) {
+      links.textContent = "";
+      let parsed = [];
+      try {
+        parsed = linkJson ? JSON.parse(linkJson) : [];
+      } catch (error) {
+        parsed = [];
+      }
+      parsed.forEach((entry) => {
+        if (!entry || !entry.href || !entry.label) return;
+        const a = document.createElement("a");
+        a.href = entry.href;
+        a.textContent = entry.label;
+        a.target = "_blank";
+        a.rel = "noopener";
+        links.appendChild(a);
+      });
+      if (hd) {
+        const a = document.createElement("a");
+        a.href = hd;
+        a.textContent = "Download full HD (MP4)";
+        a.setAttribute("download", "");
+        links.appendChild(a);
+      }
+    }
+
+    if (!dialog.open) dialog.showModal();
+    document.documentElement.style.overflow = "hidden";
+    const attempt = player.play();
+    if (attempt && typeof attempt.catch === "function") attempt.catch(() => {});
+  };
+
+  const close = () => {
+    if (dialog.open) dialog.close();
+  };
+
+  dialog.addEventListener("close", () => {
+    player.pause();
+    document.documentElement.style.overflow = "";
+    if (opener && typeof opener.focus === "function") opener.focus({ preventScroll: true });
+  });
+
+  dialog.addEventListener("click", (event) => {
+    // Clicks on the backdrop land on the <dialog> itself, not on its children.
+    if (event.target === dialog) close();
+  });
+
+  dialog.querySelectorAll("[data-anim-close]").forEach((button) => {
+    button.addEventListener("click", close);
+  });
+
+  tiles.forEach((tile) => {
+    tile.addEventListener("click", () => open(tile));
+  });
+
+  // "View animation" links on the project cards open the matching tile.
+  document.querySelectorAll("a[data-animation]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const id = link.getAttribute("data-animation");
+      const tile = tiles.find((candidate) => candidate.dataset.animation === id);
+      if (!tile) return;
+      event.preventDefault();
+      open(tile);
+    });
+  });
 }

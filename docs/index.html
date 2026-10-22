@@ -94,7 +94,7 @@
       {
         "@context": "https://schema.org",
         "@type": "ItemList",
-        "name": "Research films by Muhammad Hasnain",
+        "name": "Research animations by Muhammad Hasnain",
         "itemListElement": [
           {
             "@type": "VideoObject",
@@ -157,7 +157,6 @@
           <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#research">Research</a></li>
-            <li><a href="#films">Films</a></li>
             <li><a href="#publications">Publications</a></li>
             <li><a href="#teaching">Teaching</a></li>
             <li><a href="#talks">Talks</a></li>
@@ -196,7 +195,6 @@
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="assets/cv/Muhammad_Hasnain_CV.pdf" target="_blank" rel="noopener">Download CV (PDF)</a>
-              <a class="button button-secondary" href="#films" data-film-link="bfs">Watch the research films</a>
               <a class="button button-secondary" href="mailto:mhasnain5924117@tamu.edu">mhasnain5924117@tamu.edu</a>
             </div>
             <ul class="profile-links" aria-label="Academic profiles">
@@ -427,7 +425,7 @@
                 support prescribed-burn planning and post-fire mortality assessment.
               </p>
               <p class="pub-why"><a href="https://doi.org/10.1016/j.icheatmasstransfer.2026.112653" target="_blank" rel="noopener">Int. Commun. Heat Mass Transfer 180, 112653 (2026)</a> · ESSCI 2024 presentation.</p>
-              <a class="project-film-link" href="#films" data-film-link="tree">Watch the film</a>
+              <a class="project-anim-link" href="#animations" data-animation="tree">View animation</a>
             </article>
             <article class="project-card">
               <h4>Geometry optimization with geometry-generalizable surrogates</h4>
@@ -438,7 +436,7 @@
                 making shape sweeps and geometry optimization loops feasible at a fraction of CFD cost.
               </p>
               <p class="pub-why"><a href="https://dx.doi.org/10.2139/ssrn.6446623" target="_blank" rel="noopener">Preprint (SSRN)</a> · under review, <em>Physics of Fluids</em>; WCCM-ECCOMAS 2026 talk.</p>
-              <a class="project-film-link" href="#films" data-film-link="bfs">Watch the film</a>
+              <a class="project-anim-link" href="#animations" data-animation="bfs">View animation</a>
             </article>
             <article class="project-card">
               <h4>Gypsum board under non-uniform fire exposure</h4>
@@ -450,7 +448,7 @@
                 and intensity of the exposure.
               </p>
               <p class="pub-why"><a href="https://doi.org/10.1016/j.ijthermalsci.2025.110457" target="_blank" rel="noopener">Int. J. Thermal Sciences 221, 110457 (2026)</a> · Top Eagle Award poster, 2024.</p>
-              <a class="project-film-link" href="#films" data-film-link="gypsum">Watch the film</a>
+              <a class="project-anim-link" href="#animations" data-animation="gypsum">View animation</a>
             </article>
             <article class="project-card">
               <h4>Parametric extrapolation with ResMLP-GCN</h4>
@@ -471,7 +469,7 @@
                 the reactor dimensions set charging time, informing safer and faster hydrogen storage design.
               </p>
               <p class="pub-why"><a href="https://doi.org/10.1016/j.ijhydene.2024.05.311" target="_blank" rel="noopener">Int. J. Hydrogen Energy 71 (2024)</a> · <a href="https://doi.org/10.1115/IMECE2023-112874" target="_blank" rel="noopener">IMECE 2023</a> · <a href="https://doi.org/10.1016/j.rser.2025.116294" target="_blank" rel="noopener">RSER review (2026)</a></p>
-              <a class="project-film-link" href="#films" data-film-link="hydride">Watch the film</a>
+              <a class="project-anim-link" href="#animations" data-animation="hydride">View animation</a>
             </article>
             <article class="project-card">
               <h4>Thermal runaway in lithium-ion batteries</h4>
@@ -485,6 +483,100 @@
               <p class="pub-why"><a href="https://doi.org/10.1115/IMECE2023-113787" target="_blank" rel="noopener">ASME IMECE 2023</a> · ESSCI 2024 and U.S. National Combustion Meeting 2023 presentations.</p>
             </article>
           </div>
+
+          <div class="anim-head" id="animations">
+            <h3 class="subheading">Animated summaries</h3>
+            <p class="anim-intro">
+              Thirty-second animated overviews of four studies, from problem setting to key result. Illustrative,
+              not reported data; captions included.
+            </p>
+          </div>
+          <ul class="anim-grid" aria-label="Animated research summaries">
+            <li>
+              <button
+                type="button"
+                class="anim-tile"
+                data-animation="bfs"
+                data-src="assets/videos/bfs-geometry-generalization-720p.mp4"
+                data-hd="assets/videos/bfs-geometry-generalization-1080p.mp4"
+                data-poster="assets/videos/bfs-geometry-generalization-poster.jpg"
+                data-vtt="assets/videos/bfs-geometry-generalization.vtt"
+                data-title="Generalizing beyond a single geometry"
+                data-sub="A physics-regularized graph neural surrogate trained on one step height predicts recirculation and reattachment as the step is swept 40% smaller and larger than anything seen in training."
+                data-links='[{"label":"Preprint (SSRN)","href":"https://dx.doi.org/10.2139/ssrn.6446623"}]'
+              >
+                <span class="anim-thumb">
+                  <img src="assets/videos/bfs-geometry-generalization-thumb.jpg" alt="" width="640" height="360" loading="lazy" />
+                  <span class="anim-duration">0:36</span>
+                </span>
+                <span class="anim-kicker">Scientific machine learning</span>
+                <span class="anim-title">Generalizing beyond a single geometry</span>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="anim-tile"
+                data-animation="gypsum"
+                data-src="assets/videos/gypsum-fire-response-720p.mp4"
+                data-hd="assets/videos/gypsum-fire-response-1080p.mp4"
+                data-poster="assets/videos/gypsum-fire-response-poster.jpg"
+                data-vtt="assets/videos/gypsum-fire-response.vtt"
+                data-title="Reading a fire from the wall it heated"
+                data-sub="A localized fire drives three-dimensional conduction and dehydration through a 12 mm gypsum board; the calcined footprint records the heat-flux history that fire investigators need."
+                data-links='[{"label":"Int. J. Thermal Sciences 221 (2026)","href":"https://doi.org/10.1016/j.ijthermalsci.2025.110457"},{"label":"NIJ library record","href":"https://nij.ojp.gov/library/publications/predicting-thermal-response-gypsum-board-under-various-heat-flux"}]'
+              >
+                <span class="anim-thumb">
+                  <img src="assets/videos/gypsum-fire-response-thumb.jpg" alt="" width="640" height="360" loading="lazy" />
+                  <span class="anim-duration">0:32</span>
+                </span>
+                <span class="anim-kicker">Fire safety</span>
+                <span class="anim-title">Reading a fire from the wall it heated</span>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="anim-tile"
+                data-animation="tree"
+                data-src="assets/videos/tree-stem-fire-injury-720p.mp4"
+                data-hd="assets/videos/tree-stem-fire-injury-1080p.mp4"
+                data-poster="assets/videos/tree-stem-fire-injury-poster.jpg"
+                data-vtt="assets/videos/tree-stem-fire-injury.vtt"
+                data-title="From surface fire to injury inside a tree stem"
+                data-sub="A one-sided surface fire heats the bark; heat keeps diffusing inward after the flames pass, and tissue that exceeds 60 °C dies. The necrotic depth decides whether the stem survives."
+                data-links='[{"label":"Int. Commun. Heat Mass Transfer 180 (2026)","href":"https://doi.org/10.1016/j.icheatmasstransfer.2026.112653"}]'
+              >
+                <span class="anim-thumb">
+                  <img src="assets/videos/tree-stem-fire-injury-thumb.jpg" alt="" width="640" height="360" loading="lazy" />
+                  <span class="anim-duration">0:32</span>
+                </span>
+                <span class="anim-kicker">Fire and vegetation</span>
+                <span class="anim-title">From surface fire to injury inside a tree stem</span>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                class="anim-tile"
+                data-animation="hydride"
+                data-src="assets/videos/hydrogen-storage-720p.mp4"
+                data-hd="assets/videos/hydrogen-storage-1080p.mp4"
+                data-poster="assets/videos/hydrogen-storage-poster.jpg"
+                data-vtt="assets/videos/hydrogen-storage.vtt"
+                data-title="Hydrogen storage begins with heat management"
+                data-sub="Absorbing hydrogen into a metal-hydride bed releases heat that stalls charging until the cooled wall removes it. Supply pressure and coolant temperature set the charging time."
+                data-links='[{"label":"Int. J. Hydrogen Energy 71 (2024)","href":"https://doi.org/10.1016/j.ijhydene.2024.05.311"},{"label":"Review, RSER 226 (2026)","href":"https://doi.org/10.1016/j.rser.2025.116294"}]'
+              >
+                <span class="anim-thumb">
+                  <img src="assets/videos/hydrogen-storage-thumb.jpg" alt="" width="640" height="360" loading="lazy" />
+                  <span class="anim-duration">0:32</span>
+                </span>
+                <span class="anim-kicker">Energy storage</span>
+                <span class="anim-title">Hydrogen storage begins with heat management</span>
+              </button>
+            </li>
+          </ul>
 
           <div class="two-col">
             <article class="panel">
@@ -532,158 +624,6 @@
         </div>
       </section>
 
-      <!-- ============================ RESEARCH FILMS ============================ -->
-      <section class="section films" id="films" aria-labelledby="films-heading">
-        <div class="container">
-          <p class="eyebrow">Research in motion</p>
-          <h2 id="films-heading">Four short films, four research questions</h2>
-          <p class="section-intro">
-            Each 30-second silent film follows one problem from its real-world setting through the transport
-            physics to the result that matters: a flow surrogate generalizing to unseen geometries, heat moving
-            through a tree stem or a gypsum wall, and a hydrogen reactor charging against its own reaction heat.
-            Fields and curves are computed from simplified models for presentation; the papers hold the reported results.
-          </p>
-
-          <div class="film-theater">
-            <figure class="film-stage">
-              <div class="film-frame">
-                <video
-                  id="film-player"
-                  controls
-                  muted
-                  playsinline
-                  preload="metadata"
-                  poster="assets/videos/bfs-geometry-generalization-poster.jpg"
-                  width="1280"
-                  height="720"
-                  aria-label="Research film: Generalizing beyond a single geometry"
-                >
-                  <source src="assets/videos/bfs-geometry-generalization-720p.mp4" type="video/mp4" />
-                  <track kind="captions" src="assets/videos/bfs-geometry-generalization.vtt" srclang="en" label="English" default />
-                  Your browser does not support embedded video.
-                  <a href="assets/videos/bfs-geometry-generalization-720p.mp4">Download the film (MP4)</a>.
-                </video>
-              </div>
-              <figcaption class="film-caption">
-                <p class="film-narration" id="film-narration" aria-live="polite">
-                  A graph neural surrogate trained on a single backward-facing step height, at Reynolds number 125.
-                </p>
-                <h3 class="film-title" id="film-title">Generalizing beyond a single geometry</h3>
-                <p class="film-sub" id="film-sub">
-                  A physics-regularized graph neural surrogate trained on one step height predicts recirculation and
-                  reattachment as the step is swept 40% smaller and larger than anything seen in training.
-                </p>
-                <p class="film-meta" id="film-meta">
-                  <a href="https://dx.doi.org/10.2139/ssrn.6446623" target="_blank" rel="noopener">Preprint (SSRN)</a>
-                  <a href="#research">Research area 1</a>
-                  <a href="assets/videos/bfs-geometry-generalization-1080p.mp4" download>Full HD (MP4)</a>
-                </p>
-              </figcaption>
-            </figure>
-
-            <ol class="film-list" aria-label="Film playlist">
-              <li>
-                <button
-                  type="button"
-                  class="film-item is-active"
-                  data-film="bfs"
-                  data-src="assets/videos/bfs-geometry-generalization-720p.mp4"
-                  data-hd="assets/videos/bfs-geometry-generalization-1080p.mp4"
-                  data-poster="assets/videos/bfs-geometry-generalization-poster.jpg"
-                  data-vtt="assets/videos/bfs-geometry-generalization.vtt"
-                  data-title="Generalizing beyond a single geometry"
-                  data-sub="A physics-regularized graph neural surrogate trained on one step height predicts recirculation and reattachment as the step is swept 40% smaller and larger than anything seen in training."
-                  data-links='[{"label":"Preprint (SSRN)","href":"https://dx.doi.org/10.2139/ssrn.6446623"},{"label":"Research area 1","href":"#research"}]'
-                  aria-pressed="true"
-                >
-                  <img src="assets/videos/bfs-geometry-generalization-thumb.jpg" alt="" width="640" height="360" loading="lazy" />
-                  <span class="film-item-text">
-                    <span class="film-item-index">01 · Scientific machine learning · 0:36</span>
-                    <span class="film-item-title">Generalizing beyond a single geometry</span>
-                    <span class="film-item-sub">Graph neural surrogate for backward-facing step flow</span>
-                    <span class="film-item-progress" aria-hidden="true"><span></span></span>
-                  </span>
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  class="film-item"
-                  data-film="gypsum"
-                  data-src="assets/videos/gypsum-fire-response-720p.mp4"
-                  data-hd="assets/videos/gypsum-fire-response-1080p.mp4"
-                  data-poster="assets/videos/gypsum-fire-response-poster.jpg"
-                  data-vtt="assets/videos/gypsum-fire-response.vtt"
-                  data-title="Reading a fire from the wall it heated"
-                  data-sub="A localized fire drives three-dimensional conduction and dehydration through a 12 mm gypsum board; the calcined footprint records the heat-flux history that fire investigators need."
-                  data-links='[{"label":"Int. J. Thermal Sciences 221 (2026)","href":"https://doi.org/10.1016/j.ijthermalsci.2025.110457"},{"label":"NIJ library record","href":"https://nij.ojp.gov/library/publications/predicting-thermal-response-gypsum-board-under-various-heat-flux"},{"label":"Research area 2","href":"#research"}]'
-                  aria-pressed="false"
-                >
-                  <img src="assets/videos/gypsum-fire-response-thumb.jpg" alt="" width="640" height="360" loading="lazy" />
-                  <span class="film-item-text">
-                    <span class="film-item-index">02 · Fire safety · 0:32</span>
-                    <span class="film-item-title">Reading a fire from the wall it heated</span>
-                    <span class="film-item-sub">3D heat and mass transfer in gypsum board</span>
-                    <span class="film-item-progress" aria-hidden="true"><span></span></span>
-                  </span>
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  class="film-item"
-                  data-film="tree"
-                  data-src="assets/videos/tree-stem-fire-injury-720p.mp4"
-                  data-hd="assets/videos/tree-stem-fire-injury-1080p.mp4"
-                  data-poster="assets/videos/tree-stem-fire-injury-poster.jpg"
-                  data-vtt="assets/videos/tree-stem-fire-injury.vtt"
-                  data-title="From surface fire to injury inside a tree stem"
-                  data-sub="A one-sided surface fire heats the bark; heat keeps diffusing inward after the flames pass, and tissue that exceeds 60 °C dies. The necrotic depth decides whether the stem survives."
-                  data-links='[{"label":"Int. Commun. Heat Mass Transfer 180 (2026)","href":"https://doi.org/10.1016/j.icheatmasstransfer.2026.112653"},{"label":"Research area 2","href":"#research"}]'
-                  aria-pressed="false"
-                >
-                  <img src="assets/videos/tree-stem-fire-injury-thumb.jpg" alt="" width="640" height="360" loading="lazy" />
-                  <span class="film-item-text">
-                    <span class="film-item-index">03 · Fire and vegetation · 0:32</span>
-                    <span class="film-item-title">From surface fire to injury inside a tree stem</span>
-                    <span class="film-item-sub">Transient heat transfer through bark and wood</span>
-                    <span class="film-item-progress" aria-hidden="true"><span></span></span>
-                  </span>
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  class="film-item"
-                  data-film="hydride"
-                  data-src="assets/videos/hydrogen-storage-720p.mp4"
-                  data-hd="assets/videos/hydrogen-storage-1080p.mp4"
-                  data-poster="assets/videos/hydrogen-storage-poster.jpg"
-                  data-vtt="assets/videos/hydrogen-storage.vtt"
-                  data-title="Hydrogen storage begins with heat management"
-                  data-sub="Absorbing hydrogen into a metal-hydride bed releases heat that stalls charging until the cooled wall removes it. Supply pressure and coolant temperature set the charging time."
-                  data-links='[{"label":"Int. J. Hydrogen Energy 71 (2024)","href":"https://doi.org/10.1016/j.ijhydene.2024.05.311"},{"label":"Review, RSER 226 (2026)","href":"https://doi.org/10.1016/j.rser.2025.116294"},{"label":"Research area 3","href":"#research"}]'
-                  aria-pressed="false"
-                >
-                  <img src="assets/videos/hydrogen-storage-thumb.jpg" alt="" width="640" height="360" loading="lazy" />
-                  <span class="film-item-text">
-                    <span class="film-item-index">04 · Energy storage · 0:32</span>
-                    <span class="film-item-title">Hydrogen storage begins with heat management</span>
-                    <span class="film-item-sub">Coupled heat and mass transfer in a cooled reactor</span>
-                    <span class="film-item-progress" aria-hidden="true"><span></span></span>
-                  </span>
-                </button>
-              </li>
-            </ol>
-          </div>
-          <p class="film-note">
-            Silent films with English captions. Playback moves to the next film automatically; use the playlist to
-            jump between them. Each film is also available in full HD for presentations.
-          </p>
-        </div>
-      </section>
-
-      <!-- ============================ PUBLICATIONS ============================ -->
       <section class="section section-alt" id="publications">
         <div class="container">
           <h2>Publications</h2>
@@ -1279,5 +1219,26 @@
         <p>Last updated <time datetime="2026-10-21">October 2026</time></p>
       </div>
     </footer>
+
+    <dialog class="anim-dialog" id="animation-dialog" aria-labelledby="animation-title">
+      <div class="anim-dialog-inner">
+        <button type="button" class="anim-close" data-anim-close aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="anim-player">
+          <video id="animation-player" controls muted playsinline preload="none" width="1280" height="720">
+            <source src="" type="video/mp4" />
+            <track kind="captions" src="" srclang="en" label="English" default />
+          </video>
+        </div>
+        <div class="anim-dialog-text">
+          <p class="anim-narration" id="animation-narration" aria-live="polite"></p>
+          <h3 class="anim-dialog-title" id="animation-title"></h3>
+          <p class="anim-dialog-sub" id="animation-sub"></p>
+          <p class="anim-dialog-links" id="animation-links"></p>
+          <p class="anim-dialog-note">Illustrative animation based on a simplified model; reported results are in the linked paper.</p>
+        </div>
+      </div>
+    </dialog>
   </body>
 </html>
