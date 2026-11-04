@@ -15,6 +15,8 @@ items:
   # ---------------- Journal articles ----------------
   - category: journal
     status: in print
+    selected: true
+    highlight: A graph neural operator that takes several input fields at once and learns entirely from manufactured solutions, so no numerical solver is needed to produce its training data.
     authors: M. Hasnain, N. K. Anand, A. Srinivasa
     title: "MIGONet: A multiple-input graph neural operator with solver-free discrete manufactured-solution training"
     venue: Transport Phenomena

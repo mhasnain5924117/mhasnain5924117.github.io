@@ -260,3 +260,20 @@ window.addEventListener("afterprint", () => {
     block.open = block.dataset.wasOpen === "1";
   });
 });
+
+// "Back to top" button that appears after scrolling down.
+(() => {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "to-top";
+  button.setAttribute("aria-label", "Back to top");
+  button.textContent = "↑";
+  button.addEventListener("click", () => {
+    const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
+  });
+  document.body.appendChild(button);
+  const update = () => button.classList.toggle("is-visible", window.scrollY > 900);
+  window.addEventListener("scroll", update, { passive: true });
+  update();
+})();

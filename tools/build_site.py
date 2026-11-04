@@ -135,6 +135,10 @@ def publication_counts(items: list[dict]) -> str:
 def check(content: dict) -> list[str]:
     """Catch the mistakes that are easy to make when editing by hand."""
     problems = []
+    areas = len(content["research"].get("areas") or [])
+    for f in content["profile"].get("research_focus") or []:
+        if not isinstance(f.get("area"), int) or not 1 <= f["area"] <= areas:
+            problems.append(f"profile.yml: research focus '{f.get('label')}' should point to an area number from 1 to {areas}")
     groups = {g for g, _, _ in PUB_GROUPS}
     for i, p in enumerate(content["publications"]["items"], 1):
         label = f'publication #{i} ("{str(p.get("title", "?"))[:50]}")'
@@ -149,7 +153,7 @@ def check(content: dict) -> list[str]:
         for item in content[file].get(key) or []:
             if not re.fullmatch(r"\d{4}-\d{1,2}", str(item.get("date", ""))):
                 problems.append(f"{file}.yml: date '{item.get('date')}' should look like 2026-04")
-    for path in re.findall(r'(assets/[^\s"\')]+)', json.dumps(content)):
+    for path in re.findall(r'(assets/[^\s"\')]+)', json.dumps(content, default=str)):
         if not (ROOT / "docs" / path).exists():
             problems.append(f"file not found: docs/{path}")
     for project in content["research"]["selected_projects"]:
@@ -241,7 +245,9 @@ def build(today: dt.date | None = None) -> str:
     journals = sum(1 for p in pubs if p["category"] == "journal" and p.get("status") in ("published", "in print"))
     tokens = {"[[publication counts]]": counts, "[[journal articles]]": str(journals),
               "[[total publications]]": str(sum(1 for p in pubs if p["category"] in ("journal", "conference")
-                                                and p.get("status") in ("published", "in print")))}
+                                                and p.get("status") in ("published", "in print"))),
+              "[[citations]]": str(c.get("metrics", {}).get("citations", "")),
+              "[[h-index]]": str(c.get("metrics", {}).get("h_index", ""))}
 
     def fill(text) -> Markup:
         text = str(text)

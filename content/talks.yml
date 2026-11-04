@@ -35,6 +35,11 @@ main_photo:
   alt: "Opening slide of Muhammad Hasnain's WCCM-ECCOMAS 2026 talk: High-fidelity CFD is accurate and prohibitively slow to repeat"
   caption: "WCCM-ECCOMAS 2026, Munich: motivating physics-regularized graph surrogates."
 photos:
+  - image: assets/images/photos/hero-wccm-2026.jpg
+    width: 862
+    height: 831
+    alt: Muhammad Hasnain in front of the WCCM-ECCOMAS 2026 banner in Munich
+    caption: At WCCM-ECCOMAS 2026, Munich.
   - image: assets/images/photos/talk-wccm-2026-podium.jpg
     width: 825
     height: 1100

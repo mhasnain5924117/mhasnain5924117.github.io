@@ -87,6 +87,17 @@ content:
           - { name: date, label: Month (YYYY-MM, for example 2026-11), type: string }
           - { name: text, label: Text, type: text }
 
+  # ------------------------------------------------------------------ Citation numbers
+  - name: metrics
+    label: Citation numbers (updated automatically)
+    type: file
+    path: content/metrics.yml
+    fields:
+      - { name: citations, label: Total citations, type: number }
+      - { name: h_index, label: h-index, type: number }
+      - { name: source, label: Source, type: string }
+      - { name: updated, label: Last updated (YYYY-MM-DD), type: string }
+
   # ------------------------------------------------------------------ Talks
   - name: talks
     label: Talks
@@ -152,7 +163,15 @@ content:
       - { name: department, label: Small line above your name, type: string }
       - { name: email, label: Email, type: string }
       - { name: cv, label: CV file, type: file, options: { input: docs/assets/cv, output: assets/cv } }
-      - { name: hero_text, label: Introduction at the top of the page, type: text }
+      - { name: tagline, label: Short line under your title, type: string }
+      - { name: hero_text, label: Introduction at the top (two or three sentences), type: text }
+      - name: research_focus
+        label: Research focus list (area = number of the research area it links to)
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Text, type: string }
+          - { name: area, label: Research area number, type: number }
       - { name: availability, label: Availability note, type: text }
       - name: photo
         label: Main photo

@@ -1,17 +1,22 @@
 # Rebuilds docs/index.html from content/ and publishes the site whenever main changes
-# (including edits saved from Pages CMS). Requires Settings -> Pages -> Source: "GitHub Actions".
+# (including edits saved from Pages CMS). On the 1st and 15th of each month it also refreshes the
+# citation numbers from Google Scholar and opens an issue if ORCID lists papers missing from the site.
+# Requires Settings -> Pages -> Source: "GitHub Actions".
 name: Build and publish site
 
 on:
   push:
     branches: [main]
   pull_request:
+  schedule:
+    - cron: "0 13 1,15 * *"
   workflow_dispatch:
 
 permissions:
   contents: write
   pages: write
   id-token: write
+  issues: write
 
 concurrency:
   group: pages-${{ github.ref }}
@@ -27,18 +32,33 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Build the page from content/
+      - name: Install
+        run: pip install -r tools/requirements.txt
+
+      - name: Refresh citations and check ORCID for new papers
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: python tools/update_metrics.py
+
+      - name: Open an issue for papers missing from the site
+        if: (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') && hashFiles('new-publications.md') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          pip install -r tools/requirements.txt
-          python tools/build_site.py
+          title="New publications found on ORCID"
+          if [ -z "$(gh issue list --state open --search "$title in:title" --json number --jq '.[].number')" ]; then
+            gh issue create --title "$title" --body-file new-publications.md
+          fi
+
+      - name: Build the page from content/
+        run: python tools/build_site.py
 
       - name: Save the rebuilt page in the repository
         if: github.event_name != 'pull_request'
         run: |
-          if git diff --quiet docs/index.html; then exit 0; fi
+          git add docs/index.html content/metrics.yml
+          if git diff --cached --quiet; then exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/index.html
           git commit -m "Rebuild site from content"
           git push
 

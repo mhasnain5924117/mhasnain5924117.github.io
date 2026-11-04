@@ -3,30 +3,40 @@
 
 name: Muhammad Hasnain
 title: PhD Candidate, Mechanical Engineering, Texas A&M University
-department: J. Mike Walker '66 Department of Mechanical Engineering · Texas A&M University
+department: Computational Heat Transfer Laboratory · J. Mike Walker '66 Department of Mechanical Engineering
 email: mhasnain5924117@tamu.edu
 cv: assets/cv/Muhammad_Hasnain_CV.pdf
 
+# One short line under your title
+tagline: Scientific machine learning for fluid flow and heat transfer
+
+# Two or three sentences: what you do and why it matters
 hero_text: >-
-  I develop physics-consistent scientific machine learning and finite-volume multiphysics models for
-  fluid flow, heat transfer, and reactive transport. My recent work includes a residual graph
-  convolutional surrogate for thermal-fluid fields (*Physics of Fluids*, 2025), a
-  physics-regularized graph surrogate that extrapolates in Reynolds number and to unseen step
-  geometries after training on a single geometry (under review, *Physics of Fluids*), a
-  multiple-input graph neural operator trained on solver-free manufactured solutions (MIGONet,
-  *Transport Phenomena*, 2026), and experimentally validated finite-volume models of fire-exposed
-  gypsum board and tree stems and of metal hydride hydrogen storage reactors.
+  I develop machine learning models that predict fluid flow and heat transfer directly on engineering
+  meshes and stay accurate when the geometry or operating conditions change. Paired with validated
+  finite-volume solvers, they make design studies, optimization, and safety analysis practical at a
+  fraction of the cost of repeated CFD, with applications in energy storage and fire safety.
 
 availability: >-
-  **Availability:** I expect to complete my PhD in May 2027 and am applying for tenure-track faculty
+  **On the faculty job market.** I expect to complete my PhD in May 2027 and am applying for tenure-track
   positions in computational mechanics, thermal-fluid sciences, and scientific machine learning.
 
+# The short list beside the introduction. "area" is the number of the research area it links to.
+research_focus:
+  - label: Geometry-aware graph neural surrogates
+    area: 1
+  - label: Fire response of materials and vegetation
+    area: 2
+  - label: Hydrogen storage and battery safety
+    area: 3
+  - label: Neural operators and solver-free training data
+    area: 4
+
 photo:
-  image: assets/images/photos/hero-wccm-2026.jpg
+  image: assets/images/photos/headshot.jpg
   alt: Portrait of Muhammad Hasnain
-  width: 862
-  height: 831
-  caption: At the 17th World Congress on Computational Mechanics (WCCM-ECCOMAS 2026), Munich.
+  width: 552
+  height: 800
 
 # Links shown under your name at the top of the page
 hero_links:
@@ -41,15 +51,16 @@ hero_links:
   - label: ResearchGate
     url: https://www.researchgate.net/profile/Muhammad-Hasnain-40
 
-# The row of key numbers under your links. [[journal articles]] is counted automatically
-# from your publications list.
+# The row of key numbers under your links. These fill in automatically:
+#   [[journal articles]] from your publications list,
+#   [[citations]] and [[h-index]] from content/metrics.yml (refreshed from Google Scholar every two weeks).
 highlights:
   - value: "[[journal articles]]"
     label: Journal articles
-  - value: ICLR
-    label: 2026 conference paper
-  - value: "92+"
-    label: Citations, h-index 4
+  - value: "[[citations]]"
+    label: Citations
+  - value: "[[h-index]]"
+    label: h-index
   - value: "18"
     label: Manuscript reviews
 
@@ -100,7 +111,7 @@ at_a_glance:
   - label: Advisor
     text: Prof. N. K. Anand, Computational Heat Transfer Laboratory
   - label: Publications
-    text: "[[publication counts]]; 92+ citations, h-index 4 ([list](#publications))"
+    text: "[[publication counts]]; [[citations]] citations, h-index [[h-index]] ([list](#publications))"
   - label: Teaching
     text: Teaching assistant for 5 courses across Texas A&M and Georgia Southern, including MEEN 344 Fluid Mechanics (90+ students)
   - label: Peer review
