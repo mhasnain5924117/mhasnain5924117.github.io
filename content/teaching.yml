@@ -1,0 +1,75 @@
+# The Teaching and Mentoring section.
+# Formatting you can use in any text: *italic*, **bold**, [link text](https://address)
+
+intro: >-
+  I teach the way I was taught best: by meeting students where they are, connecting every derivation to
+  a physical consequence they can picture, and building a classroom in which asking a basic question is
+  normal. My goal is for students to leave a course able to set up a problem from first principles,
+  choose a numerical method deliberately, and check whether the answer makes physical sense.
+
+training:
+  - >-
+    **Academy for Future Faculty Fellow**, Texas A&M Center for Teaching Excellence, 2026–2027 (in
+    progress). Year-long program on evidence-based teaching, course design, and a teaching portfolio with
+    philosophy statement, sample syllabus, and course blueprint.
+  - >-
+    **Teaching Assistant Institute**, Texas A&M Center for Teaching Excellence, August 2024. Classroom
+    management, inclusive instruction, and academic-integrity protocols.
+  - Center for the Integration of Research, Teaching and Learning (CIRTL) Network programming.
+
+photo:
+  image: assets/images/photos/aff-erukhimova.jpg
+  width: 1080
+  height: 659
+  alt: Muhammad Hasnain with Dr. Tatiana Erukhimova after her Academy for Future Faculty seminar on student engagement
+  caption: >-
+    With Dr. Tatiana Erukhimova after her Academy for Future Faculty seminar on student engagement, whose
+    approach to active lecturing informs how I plan my own classes.
+
+courses:
+  - course: MEEN 344 Fluid Mechanics
+    role: Graduate Teaching Assistant for 90+ undergraduates; delivered lectures in the professor's absence, held office hours, and managed grading for all assignments and examinations
+    where: Texas A&M University, Fall 2024
+  - course: MENG 7136 Mechatronics I Laboratory
+    role: Laboratory Instructor; supervised graduate lab sessions on sensors, actuators, instrumentation, and data acquisition
+    where: Georgia Southern University, 2023–2024
+  - course: MENG 4210 Energy Science Laboratory
+    role: Laboratory Instructor; experiments reinforcing fluid mechanics, thermodynamics, and heat transfer; data analysis and report writing
+    where: Georgia Southern University, 2023–2024
+  - course: ENGR 2139 Numerical Methods in Engineering
+    role: Graduate Teaching Assistant; linear systems, regression, error analysis, and MATLAB implementations
+    where: Georgia Southern University, 2023–2024
+  - course: ENGR 2112 Solid Modeling and Analysis
+    role: Graduate Teaching Assistant; SolidWorks modeling, assemblies, basic structural and flow simulation, design for manufacturing
+    where: Georgia Southern University, 2023–2024
+  - course: Pre-engineering entrance examination program
+    role: Instructor; taught physics and mathematics preparation for Pakistan's ETEA engineering entrance examination
+    where: Orbit Coaching Academy, Pakistan, Summer 2022
+
+mentoring:
+  - >-
+    **Research mentor, FireGY Laboratory, Georgia Southern (2022–2024).** Trained undergraduate and
+    graduate researchers in finite-volume modeling, running a hands-on workshop series with the open-source
+    [FVTool](https://github.com/simulkade/FVTool) toolbox to solve diffusion and diffusion-advection
+    problems before moving to in-house solvers. Mentees co-authored four posters at the 2024 Student
+    Research Symposium and two conference abstracts.
+  - >-
+    **Student mentor, Mentor Collective, Georgia Southern (2023–2024).** Guided new university students
+    through academic planning, research opportunities, and campus engagement.
+
+photos:
+  - image: assets/images/photos/ms-defense-committee-2024.jpg
+    width: 800
+    height: 600
+    alt: Muhammad Hasnain with his master's thesis committee after his defense at Georgia Southern University
+    caption: With my MS thesis committee after the defense, Georgia Southern, June 2024.
+  - image: assets/images/photos/firegy-lab-symposium-2023.jpg
+    width: 800
+    height: 600
+    alt: FireGY Laboratory members with Dr. Hayri Sezer in front of their posters at the 2023 Georgia Southern Student Research Symposium
+    caption: FireGY Laboratory at the 2023 Student Research Symposium.
+  - image: assets/images/photos/firegy-ncm-2023.jpg
+    width: 800
+    height: 800
+    alt: FireGY Laboratory members at the 13th U.S. National Combustion Meeting in College Station
+    caption: FireGY Laboratory at the 13th U.S. National Combustion Meeting, March 2023.

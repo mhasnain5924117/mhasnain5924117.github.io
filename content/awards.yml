@@ -1,0 +1,59 @@
+# Awards and funding. Put new awards at the TOP.
+# Formatting you can use in any text: *italic*, **bold**, [link text](https://address)
+
+awards:
+  - year: "2026"
+    text: Research and Presentation Travel Award ($1,000) and Child Care Travel Award ($750), Graduate and Professional School, Texas A&M University, for WCCM-ECCOMAS 2026, Munich.
+  - year: "2025"
+    text: Graduate Student Travel Award ($750), J. Mike Walker '66 Department of Mechanical Engineering, Texas A&M University, for ASME IMECE 2025.
+  - year: "2024"
+    text: "Top Eagle Award and Best Graduate Student Award ($500), Georgia Center of Innovation, Georgia Southern University Student Research Symposium: first place in the graduate research category among 176 posters."
+  - year: "2024"
+    text: Innovation Award, second place ($350), Georgia Power, Georgia Southern University Student Research Symposium.
+  - year: "2023"
+    text: Graduate Student Organization Research Award ($750) and Travel Grant for IMECE 2023, Georgia Southern University.
+  - year: "2023"
+    text: SALT Research Awards (second and third place) and Gulfstream Aerospace Research Award (third place), Georgia Southern University Student Research Symposium.
+  - year: "2020"
+    text: Global Undergraduate Exchange Program (Global UGRAD) Scholar, U.S. Department of State; Leadership, Engagement, and Action for Pakistan (LEAP) Institute, George Mason University.
+  - year: 2017–2021
+    text: Khyber Pakhtunkhwa Chief Minister Merit Scholarship and Dean's Honor Roll in all eight semesters, GIKI.
+  - year: "2017"
+    text: 7th position nationally in the ETEA engineering entrance examination, Pakistan, with merit prizes from Orbit Coaching Academy and Quaid-e-Azam Group of Schools and Colleges.
+
+proposals_intro: Proposals I helped conceive and write. Full titles and amounts are shown only for awarded projects.
+proposals:
+  - >-
+    **Awarded (2023).** National Institute of Justice, U.S. Department of Justice. *Experimental and Numerical
+    Investigations for the Development and Validation of Thermo-chemistry Models and Property Databases for Selected Wall
+    Lining Materials under Fire Exposure* ($290,289). PI: Hayri Sezer. My role: concept development, mathematical
+    modeling, and proposal writing. Resulting outputs:
+    [Int. J. Thermal Sciences 221 (2026)](https://doi.org/10.1016/j.ijthermalsci.2025.110457) and two
+    [NIJ library records](https://nij.ojp.gov/library/publications/predicting-thermal-response-gypsum-board-under-various-heat-flux).
+  - >-
+    **Under review (2026).** U.S. Department of Energy, Consolidated Innovative Nuclear Research (CINR).
+    Geometry-generalizable graph neural network framework for thermal-hydraulic design optimization. PI: N. K. Anand.
+    My role: concept development, methodology formulation, and proposal writing.
+  - >-
+    **Under review (2026).** U.S. Department of Energy, CINR. Efficient large eddy simulation framework.
+    PI: N. K. Anand. My role: literature review, conceptual development, and proposal writing.
+  - >-
+    **Submitted (2024).** NASA. Multiphysics, multiscale modeling of in-space welding and additive
+    manufacturing. PI: Hayri Sezer. My role: proposal draft preparation and conceptualization.
+
+photos:
+  - image: assets/images/photos/award-2024-top-eagle-sezer.jpg
+    width: 618
+    height: 1100
+    alt: Muhammad Hasnain and Dr. Hayri Sezer holding the Top Eagle Award certificate and ribbon at Georgia Southern University
+    caption: Top Eagle Award with Dr. Hayri Sezer, April 2024.
+  - image: assets/images/photos/award-2024-symposium.jpg
+    width: 800
+    height: 533
+    alt: Muhammad Hasnain receiving research awards on stage at the 2024 Georgia Southern Student Research Symposium
+    caption: Award ceremony, 2024 Student Research Symposium.
+  - image: assets/images/photos/award-2023-symposium.jpg
+    width: 800
+    height: 450
+    alt: Muhammad Hasnain holding two award certificates and ribbons at the 2023 Georgia Southern Student Research Symposium
+    caption: SALT and Gulfstream Aerospace research awards, April 2023.

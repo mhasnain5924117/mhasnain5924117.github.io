@@ -1,0 +1,288 @@
+# The Research section.
+# Formatting you can use in any text: *italic*, **bold**, [link text](https://address)
+
+intro: >-
+  High-fidelity simulation of transport phenomena is accurate but too slow to repeat across the many
+  geometries and operating conditions that design, optimization, and safety analysis demand. My work makes
+  physics-consistent learned models a trusted complement to numerical solvers, and applies validated
+  finite-volume multiphysics models to fire safety and energy storage problems. It is organized in four
+  areas; all figures below are taken from my own papers and presentations, and each opens at full size when clicked.
+
+areas:
+  - title: Geometry-aware, physics-regularized graph learning for thermal-fluid systems
+    text: >-
+      I designed graph neural network surrogates that operate directly on unstructured CFD meshes. The
+      residual multilayer-perceptron graph convolutional network (ResMLP-GCN), published in
+      *Physics of Fluids* (2025), takes Reynolds number and geometric descriptors as inputs and
+      predicts coupled velocity fields for the double lid-driven cavity and backward-facing step. Trained
+      on Re 100–2000, it reproduced the dominant flow structures at Re 3000, well beyond the training
+      range. I then developed a physics-regularized surrogate, now under review in
+      *Physics of Fluids*, that was trained on a single step height and predicted reattachment
+      lengths and velocity fields for step heights varied by ±40%, the property required for geometry
+      optimization and rapid design screening. I presented this work at WCCM-ECCOMAS 2026 and ASME IMECE
+      2025.
+    links:
+      - "[Physics of Fluids 37, 107138 (2025)](https://doi.org/10.1063/5.0292956) · [SSRN preprint (under review)](https://dx.doi.org/10.2139/ssrn.6446623)"
+    figure:
+      image: assets/images/figures/fig-resmlp-gcn.jpg
+      width: 1400
+      height: 1197
+      alt: ResMLP-GCN architecture diagram above OpenFOAM versus GNN velocity fields and absolute error maps for a double lid-driven cavity at Re 2000 and a backward-facing step at Re 200
+      caption: >-
+        ResMLP-GCN message-passing architecture (top) and OpenFOAM vs. GNN velocity fields with absolute
+        error for the double lid-driven cavity (Re = 2000) and backward-facing step (Re = 200). From
+        [Hasnain et al., *Phys. Fluids* 2025](https://doi.org/10.1063/5.0292956).
+
+  - title: "Fire safety: thermal response of building materials and vegetation"
+    text: >-
+      In the Fire and Energy Laboratory at Georgia Southern, I built finite-volume models of coupled heat
+      and mass transfer with reaction kinetics in porous solids exposed to fire. For gypsum board, the most
+      common wall lining, I developed a three-dimensional dehydration and calcination model under
+      arbitrary heat-flux configurations, validated it against cone-calorimeter measurements at four
+      depths, and showed how calcination depth can be related to the heat-flux history a wall experienced,
+      which gives fire investigators a quantitative tool (*Int. J. Thermal Sciences*, 2026; project
+      funded by the National Institute of Justice). For vegetation, I co-developed a predictive heat
+      transfer model of tree stems under surface fire that resolves bark and wood layers with radially
+      varying moisture, matched Douglas-fir experiments more closely than FireStem2D, and converted the
+      temperature history into cell-death rate and necrotic depth for symmetric and one-sided exposures
+      and for several species and moisture contents (*Int. Commun. Heat Mass Transfer*, 2026).
+    links:
+      - "[Int. Commun. Heat Mass Transfer 180, 112653 (2026)](https://doi.org/10.1016/j.icheatmasstransfer.2026.112653)"
+      - "[Int. J. Thermal Sciences 221, 110457 (2026)](https://doi.org/10.1016/j.ijthermalsci.2025.110457)"
+    figure:
+      image: assets/images/figures/fig-fire-materials.jpg
+      width: 1430
+      height: 1050
+      alt: "Four panels: schematic of a gypsum slab with imposed heat flux and convective and radiative losses; predicted versus measured temperatures at four depths under 50 kilowatts per square metre; temperature field in a tree stem cross section after one-sided fire exposure; and predicted necrotic depth around the stem"
+      caption: >-
+        (a) Gypsum slab with imposed heat flux and convective and radiative losses; (b) predicted vs.
+        measured temperatures at 0, 4, 8, and 12 mm depth under 50 kW/m²
+        ([*Int. J. Therm. Sci.* 2026](https://doi.org/10.1016/j.ijthermalsci.2025.110457)); (c) tree stem
+        temperature at the end of a one-sided fire exposure and (d) the resulting necrotic depth
+        ([*Int. Commun. Heat Mass Transfer* 2026](https://doi.org/10.1016/j.icheatmasstransfer.2026.112653)).
+
+  - title: "Energy storage and conversion systems: hydrogen storage and lithium-ion safety"
+    text: >-
+      For metal hydride hydrogen storage, I formulated and solved coupled heat, mass, and momentum
+      transfer with absorption and desorption kinetics in finned and jacketed reactors, validated the
+      model against equilibrium-pressure, reacted-fraction, and temperature measurements from three
+      independent experiments, and quantified how supply pressure, coolant temperature, and reactor
+      dimensions set charging time (*Int. J. Hydrogen Energy*, 2024; MS thesis). I then wrote a
+      comprehensive review that consolidates two decades of reactor-scale modeling and identifies the
+      open problems in coupled kinetics, heat management, and reactor geometry (*Renewable and
+      Sustainable Energy Reviews*, 2026). For lithium-ion batteries, I co-developed a finite-volume
+      thermal runaway model with four-step decomposition kinetics and inter-cell contact resistance that
+      reproduced oven-test critical ambient temperatures for single cells and four-cell ensembles to
+      within 1 °C of experiment and extended it to a 16-cell module (ASME IMECE 2023).
+    links:
+      - "[Renew. Sustain. Energy Rev. 226, 116294 (2026)](https://doi.org/10.1016/j.rser.2025.116294)"
+      - "[Int. J. Hydrogen Energy 71, 1045–1055 (2024)](https://doi.org/10.1016/j.ijhydene.2024.05.311) · [IMECE2023-113787](https://doi.org/10.1115/IMECE2023-113787)"
+    figure:
+      image: assets/images/figures/fig-energy-storage.jpg
+      width: 1430
+      height: 1050
+      alt: "Four panels: cross-sectional schematic of a metal hydride reactor with heat-transfer-fluid jacket; average reacted fraction versus time compared with experiment; schematic of a stack of prismatic lithium-ion cells; and temperature profiles across a sixteen-cell module at successive times"
+      caption: >-
+        (a) Cross-section of a jacketed metal hydride reactor; (b) predicted vs. measured average reacted
+        fraction during charging ([*Int. J. Hydrogen Energy* 2024](https://doi.org/10.1016/j.ijhydene.2024.05.311));
+        (c) stack of prismatic lithium-ion cells; (d) temperature across a 16-cell module approaching
+        thermal runaway ([ASME IMECE 2023](https://doi.org/10.1115/IMECE2023-113787)).
+
+  - title: Scalable, physics-informed PDE learning and hybrid solver-ML workflows
+    text: >-
+      I work on the infrastructure that makes learned PDE models usable at scale. I developed a
+      solver-free, method-of-manufactured-solutions data-generation framework for training and
+      benchmarking neural operators across PDE classes, parameter ranges, and boundary conditions
+      (ASME IMECE 2026, to appear), and built on it to propose MIGONet, a multiple-input graph neural
+      operator trained on solver-free discrete manufactured solutions (*Transport Phenomena*, 2026). I
+      also studied stable autoregressive rollout of graph surrogates for transient advection-diffusion
+      systems. As part of the ShockCast team, I contributed to a two-phase framework that learns
+      adaptive time-step sizes for supersonic flows with shocks, published at ICLR 2026 with code in the
+      open-source AIRS library. Earlier, I implemented physics-informed neural networks in Julia SciML
+      for transient scalar transport and coupled learned models with OpenFOAM.
+    links:
+      - "[Transport Phenomena (2026)](https://doi.org/10.1515/tp-2026-0133)"
+      - "[ICLR 2026 (OpenReview)](https://openreview.net/forum?id=d4gzLgGl7I) · [arXiv:2506.07969](https://arxiv.org/abs/2506.07969)"
+      - "[AIRS library (ShockCast)](https://github.com/divelab/AIRS)"
+    figure:
+      image: assets/images/figures/fig-advection-diffusion-rollout.png
+      width: 952
+      height: 275
+      alt: Three plots of temperature versus time at different probe locations comparing finite-element solution and GNN autoregressive prediction, with the prediction zone extending beyond the training zone
+      caption: >-
+        Autoregressive GNN rollout of a transient advection-diffusion problem with nonlinear convective
+        and radiative sources; predictions remain accurate well past the training window.
+
+projects_intro: >-
+  Each project below opens with a thirty-second animated summary of the study (illustrative, from a
+  simplified model; captions included). Switch to *Paper figure* to see the reported result.
+
+# Projects with an animated summary. The video files are made by tools/research-animations.
+# "video" is the start of the file names in assets/videos (for example bfs-geometry-generalization).
+selected_projects:
+  - title: Geometry optimization with geometry-generalizable surrogates
+    video: bfs-geometry-generalization
+    video_title: Generalizing beyond a single geometry
+    video_summary: >-
+      A physics-regularized graph neural surrogate trained on one step height predicts recirculation and
+      reattachment as the step is swept 40% smaller and larger than anything seen in training.
+    video_description: >-
+      A physics-regularized graph neural surrogate for backward-facing step flow, trained on one step
+      height, predicts recirculation and reattachment across unseen geometries. Illustrative animation.
+    video_length_seconds: 36
+    figure:
+      image: assets/images/figures/fig-bfs-geometry-generalization.png
+      width: 1008
+      height: 438
+      alt: Scatter of GNN-predicted versus OpenFOAM reattachment length colored by step height, with most points inside a 10 percent band, and box plots of relative error versus Reynolds number
+    text: >-
+      A physics-regularized GNN trained on one backward-facing step geometry predicted reattachment lengths
+      across step heights varied by ±40% and Reynolds numbers 125–375, mostly within 10% of OpenFOAM,
+      making shape sweeps and geometry optimization loops feasible at a fraction of CFD cost.
+    sources: "[Preprint (SSRN)](https://dx.doi.org/10.2139/ssrn.6446623) · under review, *Physics of Fluids*; WCCM-ECCOMAS 2026 talk."
+    video_links:
+      - label: Preprint (SSRN)
+        url: https://dx.doi.org/10.2139/ssrn.6446623
+
+  - title: Gypsum board under non-uniform fire exposure
+    video: gypsum-fire-response
+    video_title: Reading a fire from the wall it heated
+    video_summary: >-
+      A localized fire drives three-dimensional conduction and dehydration through a 12 mm gypsum board;
+      the calcined footprint records the heat-flux history that fire investigators need.
+    video_description: >-
+      Three-dimensional heat and mass transfer in gypsum board under a localized fire, and the calcined
+      footprint it leaves behind. Illustrative animation.
+    video_length_seconds: 32
+    figure:
+      image: assets/images/figures/fig-gypsum-gaussian-flux.jpg
+      width: 1500
+      height: 366
+      alt: Gaussian heat flux distribution over a gypsum slab surface, schematic of the slab with probe depths at 0, 6, and 12 millimetres, and temperature histories at those depths
+    text: >-
+      The three-dimensional dehydration and calcination model applied to a Gaussian heat-flux footprint on a
+      12 mm board. Temperature histories at the exposed, middle, and unexposed surfaces show how localized
+      exposure produces steep in-plane gradients, the link between observed calcination patterns and the location
+      and intensity of the exposure.
+    sources: "[Int. J. Thermal Sciences 221, 110457 (2026)](https://doi.org/10.1016/j.ijthermalsci.2025.110457) · Top Eagle Award poster, 2024."
+    video_links:
+      - label: Int. J. Thermal Sciences 221 (2026)
+        url: https://doi.org/10.1016/j.ijthermalsci.2025.110457
+      - label: NIJ library record
+        url: https://nij.ojp.gov/library/publications/predicting-thermal-response-gypsum-board-under-various-heat-flux
+
+  - title: Fire-induced injury and mortality in tree stems
+    video: tree-stem-fire-injury
+    video_title: From surface fire to injury inside a tree stem
+    video_summary: >-
+      A one-sided surface fire heats the bark; heat keeps diffusing inward after the flames pass, and
+      tissue that exceeds 60 °C dies. The necrotic depth decides whether the stem survives.
+    video_description: >-
+      Transient heat transfer through bark and wood during a one-sided surface fire, and the necrotic
+      depth that decides the stem's fate. Illustrative animation.
+    video_length_seconds: 32
+    figure:
+      image: assets/images/figures/fig-tree-stem-temperature.png
+      width: 1600
+      height: 387
+      alt: Four polar temperature maps of a tree stem cross section at 400, 600, 800, and 1140 seconds under a one-sided fire heat flux, showing heat penetrating from the exposed bark toward the core
+    text: >-
+      A two-dimensional heat transfer model of a tree stem with bark and wood layers, radially varying
+      moisture, and a measured surface-fire heat flux. Temperature evolution under one-sided exposure
+      was converted into tissue death rate and necrotic depth, 9.5 mm for uniform
+      exposure and 4.4 mm for one-sided exposure, and compared across species and moisture contents to
+      support prescribed-burn planning and post-fire mortality assessment.
+    sources: "[Int. Commun. Heat Mass Transfer 180, 112653 (2026)](https://doi.org/10.1016/j.icheatmasstransfer.2026.112653) · ESSCI 2024 presentation."
+    video_links:
+      - label: Int. Commun. Heat Mass Transfer 180 (2026)
+        url: https://doi.org/10.1016/j.icheatmasstransfer.2026.112653
+
+  - title: Metal hydride hydrogen storage reactors
+    video: hydrogen-storage
+    video_title: Hydrogen storage begins with heat management
+    video_summary: >-
+      Absorbing hydrogen into a metal-hydride bed releases heat that stalls charging until the cooled wall
+      removes it. Supply pressure and coolant temperature set the charging time.
+    video_description: >-
+      Coupled heat and mass transfer in a cooled metal-hydride reactor during hydrogen charging.
+      Illustrative animation.
+    video_length_seconds: 32
+    figure:
+      image: assets/images/figures/fig-metal-hydride-results.jpg
+      width: 1400
+      height: 788
+      alt: Reacted fraction and temperature contours in a metal hydride reactor at 1000 and 2000 seconds of charging, with plots of average reacted fraction versus pressure and fluid temperature
+    text: >-
+      Reacted-fraction and temperature fields during charging of a finned reactor, with parametric sweeps
+      over supply pressure and coolant temperature. The study quantified how these operating parameters and
+      the reactor dimensions set charging time, informing safer and faster hydrogen storage design.
+    sources: "[Int. J. Hydrogen Energy 71 (2024)](https://doi.org/10.1016/j.ijhydene.2024.05.311) · [IMECE 2023](https://doi.org/10.1115/IMECE2023-112874) · [RSER review (2026)](https://doi.org/10.1016/j.rser.2025.116294)"
+    video_links:
+      - label: Int. J. Hydrogen Energy 71 (2024)
+        url: https://doi.org/10.1016/j.ijhydene.2024.05.311
+      - label: Review, RSER 226 (2026)
+        url: https://doi.org/10.1016/j.rser.2025.116294
+
+further_projects:
+  - title: Parametric extrapolation with ResMLP-GCN
+    figure:
+      image: assets/images/figures/fig-error-vs-reynolds.png
+      width: 967
+      height: 413
+      alt: Mean squared error and mean percentage error of the GNN versus Reynolds number, low in the interpolation range and rising smoothly in extrapolation
+    text: >-
+      Error growth of the ResMLP-GCN surrogate for the double lid-driven cavity as Reynolds number moves
+      from the training range (100–2000) into extrapolation (2000–3000). The surrogate degraded smoothly
+      rather than failing abruptly, a prerequisite for trustworthy use in design.
+    sources: "[Physics of Fluids 37, 107138 (2025)](https://doi.org/10.1063/5.0292956)"
+  - title: Thermal runaway in lithium-ion batteries
+    figure:
+      image: assets/images/figures/fig-liion-validation.jpg
+      width: 1144
+      height: 874
+      alt: Central cell temperature versus time for a lithium-ion cell in an oven test, comparing the current model with COMSOL, GPYRO, and experiment
+    text: >-
+      A finite-volume model with four-step decomposition kinetics and inter-cell contact resistance
+      reproduced oven-test critical ambient temperatures for single cells and four-cell ensembles to within
+      1 °C of experiment, matching or improving on COMSOL and GPYRO benchmarks, and predicted the onset
+      time and critical temperature of a 16-cell module.
+    sources: "[ASME IMECE 2023](https://doi.org/10.1115/IMECE2023-113787) · ESSCI 2024 and U.S. National Combustion Meeting 2023 presentations."
+
+future_directions:
+  - title: Graph neural operators with built-in conservation.
+    text: >-
+      Discretization-aware architectures whose message passing mirrors finite-volume flux balances, so
+      that learned surrogates conserve mass and energy by construction and can be embedded in geometry
+      optimization loops.
+  - title: Physics-informed digital twins for energy storage and thermal safety.
+    text: >-
+      Hybrid models for hydrogen storage reactors and battery packs that assimilate sparse sensor data and
+      flag thermal-runaway precursors in real time.
+  - title: Hybrid SciML-FVM solvers.
+    text: >-
+      Learned closures, preconditioners, and adaptive time-stepping coupled with OpenFOAM to accelerate,
+      rather than replace, trusted CFD workflows.
+
+software:
+  - Graph and CNN surrogate pipelines in PyTorch and PyTorch Geometric, with OpenFOAM mesh and field ingestion.
+  - Contributor to ShockCast in the [AIRS](https://github.com/divelab/AIRS) open-source library.
+  - In-house finite-volume solvers (Python, MATLAB) for coupled heat, mass, and momentum transfer with reaction kinetics in porous media; lattice Boltzmann wildfire models.
+  - Method-of-manufactured-solutions data generator for benchmarking neural operators.
+  - Physics-informed neural networks in Julia SciML; validation against thermogravimetric analysis (TGA), differential scanning calorimetry (DSC), and cone-calorimeter data.
+  - OpenFOAM Foundation, Advanced, Essential CFD, and Applied CFD certifications (CFD Direct, 2025).
+  - "Tools: OpenFOAM, ANSYS (structural and thermo-fluids), MATLAB, Python, Julia, C++; SolidWorks, Creo, and Fusion 360 for geometry; experimental familiarity with TGA, DSC, and PIV."
+
+collaborations_intro: Co-authors and proposal collaborators come from the following institutions.
+collaborations:
+  - name: Texas A&M University
+    detail: Mechanical Engineering; Computer Science and Engineering; Aerospace Engineering
+  - name: Georgia Southern University
+    detail: Fire and Energy (FireGY) Laboratory
+  - name: Worcester Polytechnic Institute
+    detail: Fire Protection Engineering
+  - name: Eastern Kentucky University
+    detail: Fire and forensic thermal modeling
+  - name: West Virginia University
+    detail: Mechanical and Aerospace Engineering
+  - name: Idaho National Laboratory and General Atomics
+    detail: DOE proposal collaborations

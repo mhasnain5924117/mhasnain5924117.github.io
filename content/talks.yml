@@ -1,0 +1,48 @@
+# Talks and presentations. Put new talks at the TOP of their list.
+# date: year and month as YYYY-MM (for example 2026-04). It is shown as "Apr 2026".
+# Formatting you can use in any text: *italic*, **bold**, [link text](https://address)
+
+invited:
+  - date: 2026-04
+    text: >-
+      **Invited workshop**, Research Excellence Series: Roadmap to Publication, Undergraduate Research Group
+      (UROG), GIKI, Pakistan. "The Blueprint: Methodology and Experimental Design."
+  - date: 2026-01
+    text: >-
+      **Use-Inspired Spotlight presentation**, RAISE AI Bridge Summit, Texas A&M University, College
+      Station, TX. Graph neural networks for CFD: domain challenges and AI-driven modeling opportunities.
+
+contributed:
+  - date: 2026-07
+    text: WCCM-ECCOMAS 2026, Munich, Germany. A physics-assisted geometry-generalizable graph convolutional network for fluid flow.
+  - date: 2025-11
+    text: ASME IMECE 2025, Memphis, TN. Application of graph neural networks for heat transfer and fluid flow problems.
+  - date: 2024-03
+    text: >-
+      ESSCI Spring Technical Meeting, Athens, GA. Three-dimensional modeling of gypsum board calcination
+      (presenter), plus three co-authored presentations on lithium-ion thermal runaway, tree-stem fire
+      injury, and coal stockpile self-ignition.
+  - date: 2023-11
+    text: ASME IMECE 2023, New Orleans, LA. Modeling heat and mass transfer in metal hydride-based hydrogen storage systems using the finite volume method.
+  - date: 2023-03
+    text: 13th U.S. National Combustion Meeting, College Station, TX. 3D mathematical model for heat and mass transfer mechanisms in gypsum board exposed to fire.
+
+# The large photo, then the two smaller photos below it
+main_photo:
+  image: assets/images/photos/talk-wccm-2026-slide.jpg
+  width: 1200
+  height: 900
+  alt: "Opening slide of Muhammad Hasnain's WCCM-ECCOMAS 2026 talk: High-fidelity CFD is accurate and prohibitively slow to repeat"
+  caption: "WCCM-ECCOMAS 2026, Munich: motivating physics-regularized graph surrogates."
+photos:
+  - image: assets/images/photos/talk-wccm-2026-podium.jpg
+    width: 825
+    height: 1100
+    alt: Muhammad Hasnain presenting at the podium at WCCM-ECCOMAS 2026
+    caption: Presenting at WCCM-ECCOMAS 2026.
+    crop: podium
+  - image: assets/images/photos/talk-essci-2024.jpg
+    width: 800
+    height: 600
+    alt: Muhammad Hasnain presenting the gypsum board calcination model at the 2024 ESSCI Spring Technical Meeting
+    caption: ESSCI Spring Technical Meeting, Athens, GA, March 2024.
