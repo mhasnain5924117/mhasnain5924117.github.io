@@ -1,0 +1,141 @@
+# Your name, title, links, and the top of the page.
+# Formatting you can use in any text: *italic*, **bold**, [link text](https://address)
+
+name: Muhammad Hasnain
+title: PhD Candidate, Mechanical Engineering, Texas A&M University
+department: Computational Heat Transfer Laboratory · J. Mike Walker '66 Department of Mechanical Engineering
+email: mhasnain5924117@tamu.edu
+cv: assets/cv/Muhammad_Hasnain_CV.pdf
+
+# One short line under your title
+tagline: Scientific machine learning for fluid flow and heat transfer
+
+# Two or three sentences: what you do and why it matters
+hero_text: >-
+  I develop machine learning models that predict fluid flow and heat transfer directly on engineering
+  meshes and stay accurate when the geometry or operating conditions change. Paired with validated
+  finite-volume solvers, they make design studies, optimization, and safety analysis practical at a
+  fraction of the cost of repeated CFD, with applications in energy storage and fire safety.
+
+availability: >-
+  **On the faculty job market.** I expect to complete my PhD in May 2027 and am applying for tenure-track
+  positions in computational mechanics, thermal-fluid sciences, and scientific machine learning.
+
+# The short list beside the introduction. "area" is the number of the research area it links to.
+research_focus:
+  - label: Geometry-aware graph neural surrogates
+    area: 1
+  - label: Fire response of materials and vegetation
+    area: 2
+  - label: Hydrogen storage and battery safety
+    area: 3
+  - label: Neural operators and solver-free training data
+    area: 4
+
+photo:
+  image: assets/images/photos/headshot.jpg
+  alt: Portrait of Muhammad Hasnain
+  width: 552
+  height: 800
+
+# Links shown under your name at the top of the page
+hero_links:
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=YYpAj5AAAAAJ&hl=en
+  - label: ORCID 0009-0004-6871-9713
+    url: https://orcid.org/0009-0004-6871-9713
+  - label: GitHub
+    url: https://github.com/mhasnain5924117
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/mhasnain1/
+  - label: ResearchGate
+    url: https://www.researchgate.net/profile/Muhammad-Hasnain-40
+
+# The row of key numbers under your links. These fill in automatically:
+#   [[journal articles]] from your publications list,
+#   [[citations]] and [[h-index]] from content/metrics.yml (refreshed from Google Scholar every two weeks),
+#   [[reviews]] from content/metrics.yml (change it there by hand).
+highlights:
+  - value: "[[journal articles]]"
+    label: Journal articles
+  - value: "[[citations]]"
+    label: Citations
+  - value: "[[h-index]]"
+    label: h-index
+  - value: "[[reviews]]"
+    label: Manuscript reviews
+
+about:
+  - >-
+    I am a PhD candidate in the J. Mike Walker '66 Department of Mechanical Engineering at Texas A&M
+    University, working with Prof. N. K. Anand in the Computational Heat Transfer Laboratory. My research
+    sits at the intersection of scientific machine learning and computational transport phenomena: I build
+    graph-based neural surrogates that respect conservation laws, learn from unstructured CFD meshes, and
+    generalize across geometries and operating conditions, and I use them to accelerate design and analysis
+    of thermal-fluid systems without giving up the reliability of first-principles solvers.
+  - >-
+    Before Texas A&M, I completed an MS in Mechanical Engineering at Georgia Southern University with
+    Dr. Hayri Sezer in the Fire and Energy (FireGY) Laboratory, where I developed finite-volume models of
+    coupled heat and mass transfer in metal hydride hydrogen storage reactors and fire-response models of
+    gypsum board and tree stems that were validated against experiments and supported a National
+    Institute of Justice-funded project. I am a first-generation college graduate, and mentoring
+    students who are new to research is a central part of how I work.
+
+education:
+  - years: 2024–2027 (expected)
+    degree: PhD, Mechanical Engineering
+    school: Texas A&M University (GPA 4.0/4.0)
+    details:
+      - "Advisor: Prof. N. K. Anand. Committee: Profs. Arun Srinivasa, Shuiwang Ji, and Dorrin Jarrahbashi"
+      - >-
+        Dissertation (anticipated): *Development of Generalizable Graph-Based Deep Learning Models for
+        Geometry-Aware Fluid Flow and Heat Transfer Applications*
+  - years: 2022–2024
+    degree: MS, Mechanical Engineering
+    school: Georgia Southern University (GPA 4.0/4.0)
+    details:
+      - "Advisor: Dr. Hayri Sezer. Committee: Drs. David Calamas, Hossain Ahmed, and Jerry Hunter Mason"
+      - >-
+        Thesis: [*Mathematical Modeling of Coupled Heat and Mass Transfer in Metal-Hydride Hydrogen
+        Storage Systems*](https://digitalcommons.georgiasouthern.edu/etd/2802/)
+  - years: 2017–2021
+    degree: BS, Mechanical Engineering
+    school: Ghulam Ishaq Khan Institute of Engineering Sciences and Technology (GIKI), Pakistan
+    details:
+      - Exchange semester at Western Carolina University (Spring 2020) as a U.S. Department of State Global UGRAD scholar
+
+# The "At a glance" box. Write [[publication counts]] to insert counts that update automatically
+# from your publications list.
+at_a_glance:
+  - label: Research areas
+    text: Scientific machine learning; graph neural surrogates; CFD and heat transfer; reactive porous media; hydrogen storage; fire safety
+  - label: Advisor
+    text: Prof. N. K. Anand, Computational Heat Transfer Laboratory
+  - label: Publications
+    text: "[[publication counts]]; [[citations]] citations, h-index [[h-index]] ([list](#publications))"
+  - label: Teaching
+    text: Teaching assistant for 5 courses across Texas A&M and Georgia Southern, including MEEN 344 Fluid Mechanics (90+ students)
+  - label: Peer review
+    text: >-
+      [[reviews]] reviews for *Int. J. Hydrogen Energy*, *Physics of Fluids*, *ASME J. Thermal Sci. Eng. Appl.*,
+      *Int. J. Thermal Sciences*, and *Computers & Fluids*
+  - label: Email
+    text: "[mhasnain5924117@tamu.edu](mailto:mhasnain5924117@tamu.edu)"
+
+# Search engines and link previews (LinkedIn, X, etc.)
+seo:
+  description: >-
+    Muhammad Hasnain is a PhD candidate in Mechanical Engineering at Texas A&M University developing
+    physics-consistent scientific machine learning and finite-volume multiphysics models for fluid flow,
+    heat transfer, and reactive transport in energy and fire-safety systems.
+  keywords: Muhammad Hasnain, Texas A&M, mechanical engineering, scientific machine learning, graph neural networks, CFD, heat transfer, hydrogen storage, fire safety, faculty candidate
+  share_text: Scientific machine learning and multiphysics transport modeling for energy and fire-safety systems. Publications, teaching, talks, and CV.
+  share_image_alt: Muhammad Hasnain presenting at WCCM-ECCOMAS 2026, the ESSCI Spring Technical Meeting, and the Texas A&M Conference on Energy
+  topics:
+    - Scientific Machine Learning
+    - Graph Neural Networks
+    - Computational Fluid Dynamics
+    - Heat Transfer
+    - Finite Volume Method
+    - Hydrogen Storage
+    - Fire Safety Engineering

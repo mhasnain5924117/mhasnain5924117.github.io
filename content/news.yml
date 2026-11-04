@@ -1,0 +1,43 @@
+# News. Put new items at the TOP.
+# date: year and month as YYYY-MM (for example 2026-11). It is shown as "Nov 2026".
+# Formatting you can use in any text: *italic*, **bold**, [link text](https://address)
+
+# How many of the newest items to show; the rest sit under "Earlier news".
+show_latest: 6
+
+items:
+  - date: 2026-11
+    text: MIGONet, a multiple-input graph neural operator trained on solver-free manufactured solutions, accepted in *Transport Phenomena*.
+  - date: 2026-09
+    text: Tree-stem fire-injury heat transfer model published in *International Communications in Heat and Mass Transfer* (vol. 180, article 112653).
+  - date: 2026-07
+    text: Presented "A physics-assisted geometry-generalizable graph convolutional network for fluid flow" at WCCM-ECCOMAS 2026 in Munich, supported by Texas A&M Graduate and Professional School travel awards.
+  - date: 2026-04
+    text: >-
+      Invited workshop "The Blueprint: Methodology and Experimental Design" for the Undergraduate Research Group at GIKI.
+  - date: 2026-03
+    text: Volunteered at the Texas Science and Engineering Fair through Spark! PK–12 outreach; three-dimensional gypsum board thermal response model published in *International Journal of Thermal Sciences*.
+  - date: 2026-01
+    text: ShockCast accepted at ICLR 2026; Use-Inspired Spotlight presentation at the RAISE AI Bridge Summit, Texas A&M; metal hydride modeling review published in *Renewable and Sustainable Energy Reviews*.
+  - date: 2025-11
+    text: Presented graph neural networks for heat transfer and fluid flow at ASME IMECE 2025, Memphis, with a departmental Graduate Student Travel Award.
+  - date: 2025-10
+    text: ResMLP-GCN paper published in *Physics of Fluids*.
+  - date: 2025-09
+    text: Poster on heat and mass transfer in metal hydride reactors at the 9th Annual Texas A&M Conference on Energy.
+  - date: 2025-08
+    text: Selected for the Summer PACES Research Training Workshop on HPC and AI/ML workflows, Albuquerque, NM.
+  - date: 2024-08
+    text: Began PhD at Texas A&M University in the Computational Heat Transfer Laboratory with Prof. N. K. Anand; completed the Teaching Assistant Institute.
+  - date: 2024-06
+    text: Defended MS thesis at Georgia Southern; metal hydride reactor paper published in *International Journal of Hydrogen Energy*.
+  - date: 2024-04
+    text: Top Eagle Award (first among 176 posters) and Georgia Power Innovation Award at the Georgia Southern Student Research Symposium.
+  - date: 2024-03
+    text: Four fire and combustion modeling presentations at the ESSCI Spring Technical Meeting, Athens, GA.
+  - date: 2023-11
+    text: Two papers presented at ASME IMECE 2023, New Orleans, with a Graduate Student Organization travel grant.
+  - date: 2023-04
+    text: SALT and Gulfstream Aerospace research awards at the Georgia Southern Student Research Symposium.
+  - date: 2023-03
+    text: Presented the 3D gypsum board model at the 13th U.S. National Combustion Meeting, College Station.

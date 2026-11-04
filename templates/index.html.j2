@@ -1,0 +1,611 @@
+{#- Page layout. The words on the page come from the files in content/; this file only arranges them.
+    Built into docs/index.html by tools/build_site.py. -#}
+{%- macro photo_figure(p, extra_class="") -%}
+<figure{% if extra_class %} class="{{ extra_class }}"{% endif %}>
+  <img{% if p.crop %} class="pos-{{ p.crop }}"{% endif %} src="{{ p.image }}" alt="{{ p.alt }}" loading="lazy"{% if p.width %} width="{{ p.width }}"{% endif %}{% if p.height %} height="{{ p.height }}"{% endif %} />
+  {%- if p.caption %}
+  <figcaption>{{ p.caption | md }}</figcaption>
+  {%- endif %}
+</figure>
+{%- endmacro -%}
+{%- macro photo_strip(photos, label, wide=False) -%}
+{%- if photos %}
+<div class="photo-strip{% if wide %} photo-strip-wide{% endif %}" aria-label="{{ label }}">
+  {%- for p in photos %}
+  {{ photo_figure(p) | indent(2) }}
+  {%- endfor %}
+</div>
+{%- endif %}
+{%- endmacro -%}
+{%- macro figure_link(f) -%}
+<a class="figure-link" href="{{ f.image }}" target="_blank" rel="noopener"><img src="{{ f.image }}" alt="{{ f.alt }}"{% if f.width %} width="{{ f.width }}"{% endif %}{% if f.height %} height="{{ f.height }}"{% endif %} loading="lazy" /></a>
+{%- endmacro -%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ page_title }}</title>
+    <meta name="description" content="{{ profile.seo.description }}" />
+    <meta name="keywords" content="{{ profile.seo.keywords }}" />
+    <meta name="author" content="{{ profile.name }}" />
+    <meta name="theme-color" content="#0b1f33" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="canonical" href="{{ site_url }}" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="{{ page_title }}" />
+    <meta property="og:description" content="{{ profile.seo.share_text }}" />
+    <meta property="og:url" content="{{ site_url }}" />
+    <meta property="og:site_name" content="{{ profile.name }}" />
+    <meta property="og:image" content="{{ site_url }}assets/images/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="{{ profile.seo.share_image_alt }}" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ page_title }}" />
+    <meta name="twitter:description" content="{{ profile.seo.share_text }}" />
+    <meta name="twitter:image" content="{{ site_url }}assets/images/og-image.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Inter:wght@400;500;600;700;800&amp;family=Newsreader:opsz,wght@6..72,500;6..72,700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script defer src="assets/js/main.js"></script>
+
+    <script type="application/ld+json">
+{{ person_json | indent(6, true) }}
+    </script>
+    <script type="application/ld+json">
+{{ videos_json | indent(6, true) }}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a class="brand" href="#top">{{ profile.name }}</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+          Menu
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#teaching">Teaching</a></li>
+            <li><a href="#talks">Talks</a></li>
+            <li><a href="#awards">Awards</a></li>
+            <li><a href="#service">Service</a></li>
+            <li><a href="{{ profile.cv }}" target="_blank" rel="noopener">CV</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a class="button button-primary header-cv" href="{{ profile.cv }}" target="_blank" rel="noopener">CV (PDF)</a>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- ============================ HERO ============================ -->
+      <section class="hero section">
+        <div class="hero-flow" aria-hidden="true"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">{{ profile.department }}</p>
+            <h1>{{ profile.name }}</h1>
+            <p class="hero-subtitle">{{ profile.title }}</p>
+            {%- if profile.tagline %}
+            <p class="hero-tagline">{{ profile.tagline | md }}</p>
+            {%- endif %}
+            <p class="lead">{{ profile.hero_text | md }}</p>
+            {%- if profile.research_focus %}
+            <div class="hero-focus">
+              <p class="hero-focus-label">Research focus</p>
+              <ul>
+                {%- for f in profile.research_focus %}
+                <li><a href="#area-{{ f.area }}">{{ f.label }}</a></li>
+                {%- endfor %}
+              </ul>
+            </div>
+            {%- endif %}
+            {%- if profile.availability %}
+            <p class="availability">{{ profile.availability | md }}</p>
+            {%- endif %}
+            <div class="hero-actions">
+              <a class="button button-primary" href="{{ profile.cv }}" target="_blank" rel="noopener">Download CV (PDF)</a>
+              <a class="button button-secondary" href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+            </div>
+            <ul class="profile-links" aria-label="Academic profiles">
+              {%- for l in profile.hero_links %}
+              <li><a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a></li>
+              {%- endfor %}
+            </ul>
+            {%- if profile.highlights %}
+            <ul class="hero-highlights" aria-label="Highlights">
+              {%- for h in profile.highlights %}
+              <li><span class="hl-value">{{ h.value | tokens }}</span><span class="hl-label">{{ h.label | tokens }}</span></li>
+              {%- endfor %}
+            </ul>
+            {%- endif %}
+          </div>
+          <figure class="hero-media hero-portrait">
+            <img
+              src="{{ profile.photo.image }}"
+              alt="{{ profile.photo.alt }}"
+              {%- if profile.photo.width %}
+              width="{{ profile.photo.width }}"
+              height="{{ profile.photo.height }}"
+              {%- endif %}
+              fetchpriority="high"
+            />
+            {%- if profile.photo.caption %}
+            <figcaption>{{ profile.photo.caption | md }}</figcaption>
+            {%- endif %}
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============================ ABOUT ============================ -->
+      <section class="section section-alt" id="about">
+        <div class="container about-grid">
+          <div>
+            <h2>About</h2>
+            {%- for para in profile.about %}
+            <p>{{ para | md }}</p>
+            {%- endfor %}
+            <h3 class="subheading">Education</h3>
+            <ol class="edu-list">
+              {%- for e in profile.education %}
+              <li>
+                <span class="edu-years">{{ e.years }}</span>
+                <div>
+                  <strong>{{ e.degree }}</strong>, {{ e.school | md }}
+                  {%- for d in e.details or [] %}<br />
+                  {{ d | md }}
+                  {%- endfor %}
+                </div>
+              </li>
+              {%- endfor %}
+            </ol>
+          </div>
+          <aside class="about-aside">
+            <h3>At a glance</h3>
+            <dl class="glance">
+              {%- for g in profile.at_a_glance %}
+              <dt>{{ g.label }}</dt>
+              <dd>{{ g.text | glance }}</dd>
+              {%- endfor %}
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ============================ RESEARCH ============================ -->
+      <section class="section" id="research">
+        <div class="container">
+          <h2>Research</h2>
+          <p class="section-intro">{{ research.intro | md }}</p>
+
+          <div class="area-list">
+            {%- for a in research.areas %}
+            <article class="area" id="area-{{ loop.index }}">
+              <div class="area-body">
+                <p class="area-index">Area {{ loop.index }}</p>
+                <h3>{{ a.title }}</h3>
+                <p>{{ a.text | md }}</p>
+                {%- if a.links %}
+                <ul class="area-links">
+                  {%- for l in a.links %}
+                  <li>{{ l | md }}</li>
+                  {%- endfor %}
+                </ul>
+                {%- endif %}
+              </div>
+              {%- if a.figure %}
+              <figure class="area-figure">
+                {{ figure_link(a.figure) }}
+                {%- if a.figure.caption %}
+                <figcaption>{{ a.figure.caption | md }}</figcaption>
+                {%- endif %}
+              </figure>
+              {%- endif %}
+            </article>
+            {%- endfor %}
+          </div>
+
+          <h3 class="subheading">Selected projects</h3>
+          <p class="section-intro projects-intro">{{ research.projects_intro | md }}</p>
+          <div class="project-grid">
+            {%- for p in research.selected_projects %}
+            {%- set v = "assets/videos/" ~ p.video %}
+            <article class="project-card project-card-media">
+              <h4>{{ p.title }}</h4>
+              <div class="media-switch" role="group" aria-label="Media for {{ p.title | lower_first }}">
+                <button type="button" class="is-active" data-media="animation" aria-pressed="true">Animation</button>
+                <button type="button" data-media="figure" aria-pressed="false">Paper figure</button>
+              </div>
+              <div class="project-media">
+                <video class="project-video" controls muted playsinline preload="none" poster="{{ v }}-poster.jpg" width="1280" height="720" aria-label="Animated summary: {{ p.video_title | lower_first }}">
+                  <source src="{{ v }}-720p.mp4" type="video/mp4" />
+                  <track kind="captions" src="{{ v }}.vtt" srclang="en" label="English" default />
+                </video>
+                <p class="project-narration" aria-live="polite"></p>
+                <a class="figure-link project-figure" hidden href="{{ p.figure.image }}" target="_blank" rel="noopener"><img src="{{ p.figure.image }}" alt="{{ p.figure.alt }}"{% if p.figure.width %} width="{{ p.figure.width }}"{% endif %}{% if p.figure.height %} height="{{ p.figure.height }}"{% endif %} loading="lazy" /></a>
+              </div>
+              <p>{{ p.text | md }}</p>
+              <p class="pub-why">{{ p.sources | md }}</p>
+              <p class="project-actions">
+                <button
+                  type="button"
+                  class="link-button"
+                  data-animation-open="{{ p.video }}"
+                  data-src="{{ v }}-720p.mp4"
+                  data-hd="{{ v }}-1080p.mp4"
+                  data-poster="{{ v }}-poster.jpg"
+                  data-vtt="{{ v }}.vtt"
+                  data-title="{{ p.video_title }}"
+                  data-sub="{{ p.video_summary }}"
+                  data-links="{{ p.video_links | links_json }}"
+                >Enlarge animation</button>
+                <span aria-hidden="true">·</span>
+                <a href="{{ v }}-1080p.mp4" download>Full HD (MP4)</a>
+              </p>
+            </article>
+            {%- endfor %}
+          </div>
+
+          {%- if research.further_projects %}
+
+          <h3 class="subheading">Further projects</h3>
+          <div class="project-grid">
+            {%- for p in research.further_projects %}
+            <article class="project-card">
+              <h4>{{ p.title }}</h4>
+              {%- if p.figure %}
+              {{ figure_link(p.figure) }}
+              {%- endif %}
+              <p>{{ p.text | md }}</p>
+              {%- if p.sources %}
+              <p class="pub-why">{{ p.sources | md }}</p>
+              {%- endif %}
+            </article>
+            {%- endfor %}
+          </div>
+          {%- endif %}
+
+          <div class="two-col">
+            <article class="panel">
+              <h3>Future directions</h3>
+              <ul class="tight">
+                {%- for f in research.future_directions %}
+                <li><strong>{{ f.title }}</strong> {{ f.text | md }}</li>
+                {%- endfor %}
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>Software and methods</h3>
+              <ul class="tight">
+                {%- for s in research.software %}
+                <li>{{ s | md }}</li>
+                {%- endfor %}
+              </ul>
+            </article>
+          </div>
+
+          <h3 class="subheading">Collaborations</h3>
+          <p class="section-intro">{{ research.collaborations_intro | md }}</p>
+          <ul class="collab-grid">
+            {%- for c in research.collaborations %}
+            <li><span class="collab-name">{{ c.name }}</span><span class="collab-detail">{{ c.detail }}</span></li>
+            {%- endfor %}
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============================ PUBLICATIONS ============================ -->
+      <section class="section section-alt" id="publications">
+        <div class="container">
+          <h2>Publications</h2>
+          <p class="section-intro">{{ publications.intro | md }}</p>
+
+          {%- if selected_pubs %}
+
+          <h3 class="subheading">Selected publications</h3>
+          <ol class="pub-list pub-selected">
+            {%- for p in selected_pubs %}
+            <li>
+              <p class="pub-cite">{{ p | citation }}</p>
+              {%- if p.highlight %}
+              <p class="pub-why">{{ p.highlight | md }}</p>
+              {%- endif %}
+            </li>
+            {%- endfor %}
+          </ol>
+          {%- endif %}
+          {%- for group in pub_groups %}
+
+          {%- if group.collapsed %}
+          <details class="more-block">
+            <summary><span class="more-title">{{ group.heading }}</span> <span class="more-count">{{ group['items'] | length }}</span></summary>
+            <ol class="pub-list">
+              {%- for p in group['items'] %}
+              <li>{{ p | citation }}</li>
+              {%- endfor %}
+            </ol>
+          </details>
+          {%- else %}
+          <h3 class="subheading">{{ group.heading }} <span class="heading-count">{{ group['items'] | length }}</span></h3>
+          <ol class="pub-list">
+            {%- for p in group['items'] %}
+            <li>{{ p | citation }}</li>
+            {%- endfor %}
+          </ol>
+          {%- endif %}
+          {%- endfor %}
+          {{ photo_strip(publications.photos, "Poster presentation photographs") | indent(10) }}
+        </div>
+      </section>
+
+      <!-- ============================ TEACHING ============================ -->
+      <section class="section" id="teaching">
+        <div class="container">
+          <h2>Teaching and Mentoring</h2>
+          <div class="teaching-grid">
+            <div>
+              <p class="section-intro">{{ teaching.intro | md }}</p>
+              <h3 class="subheading">Pedagogical training</h3>
+              <ul class="tight">
+                {%- for t in teaching.training %}
+                <li>{{ t | md }}</li>
+                {%- endfor %}
+              </ul>
+            </div>
+            {%- if teaching.photo %}
+            <figure class="teaching-figure">
+              <img src="{{ teaching.photo.image }}" alt="{{ teaching.photo.alt }}" loading="lazy"{% if teaching.photo.width %} width="{{ teaching.photo.width }}" height="{{ teaching.photo.height }}"{% endif %} />
+              <figcaption>{{ teaching.photo.caption | md }}</figcaption>
+            </figure>
+            {%- endif %}
+          </div>
+
+          <h3 class="subheading">Courses</h3>
+          <table class="course-table">
+            <thead>
+              <tr><th scope="col">Course</th><th scope="col">Role and scope</th><th scope="col">Institution, term</th></tr>
+            </thead>
+            <tbody>
+              {%- for c in teaching.courses %}
+              <tr>
+                <td>{{ c.course }}</td>
+                <td>{{ c.role | md }}</td>
+                <td>{{ c.where }}</td>
+              </tr>
+              {%- endfor %}
+            </tbody>
+          </table>
+
+          <h3 class="subheading">Mentoring</h3>
+          <ul class="tight mentoring-list">
+            {%- for m in teaching.mentoring %}
+            <li>{{ m | md }}</li>
+            {%- endfor %}
+          </ul>
+          {{ photo_strip(teaching.photos, "Research group photographs", wide=True) | indent(10) }}
+        </div>
+      </section>
+
+      <!-- ============================ TALKS ============================ -->
+      <section class="section section-alt" id="talks">
+        <div class="container">
+          <h2>Talks and Presentations</h2>
+          <div class="two-col">
+            <div>
+              {%- for heading, items in [("Invited", talks.invited), ("Contributed", talks.contributed)] if items %}
+              <h3 class="subheading">{{ heading }}</h3>
+              <ul class="talk-list">
+                {%- for t in items %}
+                <li>
+                  <span class="talk-date">{{ t.date | month }}</span>
+                  <div>{{ t.text | md }}</div>
+                </li>
+                {%- endfor %}
+              </ul>
+              {%- endfor %}
+            </div>
+            <div class="photo-stack">
+              {%- if talks.main_photo %}
+              {{ photo_figure(talks.main_photo) | indent(14) }}
+              {%- endif %}
+              {%- if talks.photos %}
+              <div class="photo-pair">
+                {%- for p in talks.photos %}
+                {{ photo_figure(p) | indent(16) }}
+                {%- endfor %}
+              </div>
+              {%- endif %}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ AWARDS ============================ -->
+      <section class="section" id="awards">
+        <div class="container">
+          <h2>Awards and Funding</h2>
+          <div class="two-col">
+            <article class="panel">
+              <h3>Honors and awards</h3>
+              <ul class="award-list">
+                {%- for a in awards.awards %}
+                <li><span class="award-year">{{ a.year }}</span><span>{{ a.text | md }}</span></li>
+                {%- endfor %}
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>Research proposals</h3>
+              {%- if awards.proposals_intro %}
+              <p class="pub-why">{{ awards.proposals_intro | md }}</p>
+              {%- endif %}
+              <ul class="tight">
+                {%- for p in awards.proposals %}
+                <li>{{ p | md }}</li>
+                {%- endfor %}
+              </ul>
+            </article>
+          </div>
+          {{ photo_strip(awards.photos, "Award photographs", wide=True) | indent(10) }}
+        </div>
+      </section>
+
+      <!-- ============================ SERVICE ============================ -->
+      <section class="section section-alt" id="service">
+        <div class="container">
+          <h2>Service and Professional Activities</h2>
+          <div class="two-col">
+            <article class="panel">
+              <h3>Peer review, memberships, and credentials</h3>
+              <ul class="tight">
+                {%- for s in service.peer_review_and_memberships %}
+                <li>{{ s | md }}</li>
+                {%- endfor %}
+              </ul>
+            </article>
+            <article class="panel">
+              <h3>Outreach and community</h3>
+              <ul class="tight">
+                {%- for s in service.outreach %}
+                <li>{{ s | md }}</li>
+                {%- endfor %}
+              </ul>
+            </article>
+          </div>
+          <h3 class="subheading">Professional development</h3>
+          <ul class="tight mentoring-list">
+            {%- for s in service.professional_development %}
+            <li>{{ s | md }}</li>
+            {%- endfor %}
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============================ EXPERIENCE ============================ -->
+      <section class="section" id="experience">
+        <div class="container">
+          <h2>Industry and Applied Experience</h2>
+          <p class="section-intro">{{ service.experience_intro | md }}</p>
+          <div class="experience-grid">
+            <ol class="tight experience-list">
+              {%- for e in service.experience %}
+              <li>{{ e | md }}</li>
+              {%- endfor %}
+            </ol>
+            {%- if service.experience_photos %}
+            <div class="experience-photos">
+              {%- for p in service.experience_photos %}
+              {{ photo_figure(p) | indent(14) }}
+              {%- endfor %}
+            </div>
+            {%- endif %}
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ NEWS ============================ -->
+      <section class="section section-alt" id="news">
+        <div class="container">
+          <h2>News</h2>
+          {%- set shown = news.get('show_latest', 6) %}
+          <ul class="news-list">
+            {%- for n in news['items'][:shown] %}
+            <li><time datetime="{{ n.date }}">{{ n.date | month }}</time><span>{{ n.text | md }}</span></li>
+            {%- endfor %}
+          </ul>
+          {%- if news['items'] | length > shown %}
+          <details class="more-block">
+            <summary><span class="more-title">Earlier news</span> <span class="more-count">{{ news['items'][shown:] | length }}</span></summary>
+            <ul class="news-list">
+              {%- for n in news['items'][shown:] %}
+              <li><time datetime="{{ n.date }}">{{ n.date | month }}</time><span>{{ n.text | md }}</span></li>
+              {%- endfor %}
+            </ul>
+          </details>
+          {%- endif %}
+        </div>
+      </section>
+
+      <!-- ============================ REFERENCES & CONTACT ============================ -->
+      <section class="section" id="contact">
+        <div class="container two-col">
+          <div>
+            <h2>Contact</h2>
+            <p class="section-intro">{{ contact.intro | md }}</p>
+            <ul class="contact-list">
+              <li><strong>Email:</strong> <a href="mailto:{{ profile.email }}">{{ profile.email }}</a></li>
+              {%- if contact.contact_form %}
+              <li><strong>Contact form:</strong> <a href="{{ contact.contact_form }}" target="_blank" rel="noopener">Send a message (Google Form)</a></li>
+              {%- endif %}
+              {%- if contact.office %}
+              <li><strong>Office:</strong> {{ contact.office }}</li>
+              {%- endif %}
+              <li><strong>Profiles:</strong>
+                {%- for l in contact.profiles %}
+                <a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a>{% if not loop.last %} ·{% endif %}
+                {%- endfor %}
+              </li>
+              <li><strong>CV:</strong> <a href="{{ profile.cv }}" target="_blank" rel="noopener">Download PDF</a></li>
+            </ul>
+          </div>
+          <div id="references">
+            <h2>References</h2>
+            <ul class="ref-list">
+              {%- for r in contact.references %}
+              <li>
+                <strong>{{ r.name }}</strong>{% if r.role %} ({{ r.role }}){% endif %}<br />
+                {{ r.affiliation }}
+              </li>
+              {%- endfor %}
+            </ul>
+            {%- if contact.references_note %}
+            <p class="pub-why">{{ contact.references_note | md }}</p>
+            {%- endif %}
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>© <span data-year></span> {{ profile.name }}</p>
+        <p>Last updated <time datetime="{{ updated_iso }}">{{ updated_label }}</time></p>
+      </div>
+    </footer>
+
+    <dialog class="anim-dialog" id="animation-dialog" aria-labelledby="animation-title">
+      <div class="anim-dialog-inner">
+        <button type="button" class="anim-close" data-anim-close aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="anim-player">
+          <video id="animation-player" controls muted playsinline preload="none" width="1280" height="720">
+            <source src="" type="video/mp4" />
+            <track kind="captions" src="" srclang="en" label="English" default />
+          </video>
+        </div>
+        <div class="anim-dialog-text">
+          <p class="anim-narration" id="animation-narration" aria-live="polite"></p>
+          <h3 class="anim-dialog-title" id="animation-title"></h3>
+          <p class="anim-dialog-sub" id="animation-sub"></p>
+          <p class="anim-dialog-links" id="animation-links"></p>
+          <p class="anim-dialog-note">Illustrative animation based on a simplified model; reported results are in the linked paper.</p>
+        </div>
+      </div>
+    </dialog>
+  </body>
+</html>

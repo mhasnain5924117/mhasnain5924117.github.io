@@ -1,0 +1,30 @@
+# Contact and references (the last section of the page).
+# Formatting you can use in any text: *italic*, **bold**, [link text](https://address)
+
+intro: I welcome conversations about faculty opportunities, collaborations, and speaking invitations.
+contact_form: https://forms.gle/WJociAceEAPAK1mk7
+office: J. Mike Walker '66 Department of Mechanical Engineering, Texas A&M University, College Station, TX
+
+# Profile links in the Contact section
+profiles:
+  - label: Google Scholar
+    url: https://scholar.google.com/citations?user=YYpAj5AAAAAJ&hl=en
+  - label: ORCID
+    url: https://orcid.org/0009-0004-6871-9713
+  - label: GitHub
+    url: https://github.com/mhasnain5924117
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/mhasnain1/
+  - label: OpenReview
+    url: https://openreview.net/profile?id=~Muhammad_Hasnain1
+  - label: ResearchGate
+    url: https://www.researchgate.net/profile/Muhammad-Hasnain-40
+
+references:
+  - name: Prof. N. K. Anand
+    role: PhD advisor
+    affiliation: J. Mike Walker '66 Department of Mechanical Engineering, Texas A&M University
+  - name: Dr. Hayri Sezer
+    role: MS advisor
+    affiliation: Department of Mechanical Engineering, Georgia Southern University
+references_note: Contact details for my advisors and additional professional references are included in my application materials.

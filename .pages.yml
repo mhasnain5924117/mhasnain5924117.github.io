@@ -1,0 +1,371 @@
+# Pages CMS (https://app.pagescms.org) reads this file to show friendly editing forms for content/.
+# Text fields accept *italic*, **bold**, and [link text](https://address).
+
+media:
+  input: docs/assets/images
+  output: assets/images
+
+content:
+  # ------------------------------------------------------------------ Publications
+  - name: publications
+    label: Publications
+    type: file
+    path: content/publications.yml
+    fields:
+      - name: intro
+        label: Introduction above the list
+        type: text
+      - name: items
+        label: Publications (newest at the top of each group)
+        type: object
+        list: true
+        fields:
+          - name: category
+            label: Group
+            type: select
+            options:
+              values: [journal, conference, preprint, presentation, poster]
+          - name: status
+            label: Status
+            type: select
+            options:
+              values: [published, in print, to appear, under review]
+          - name: selected
+            label: Show in "Selected publications"
+            type: boolean
+          - name: highlight
+            label: One-line note for Selected publications
+            type: text
+          - name: authors
+            label: Authors (write your name as M. Hasnain; it is made bold automatically)
+            type: string
+          - name: title
+            label: Title
+            type: string
+          - name: venue
+            label: Journal or conference
+            type: string
+          - name: details
+            label: Volume, pages, place, date (for example 221, 110457, 2026)
+            type: string
+          - name: award
+            label: Award (posters only, optional)
+            type: string
+          - name: links
+            label: Links (DOI, arXiv, etc.)
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Link text, type: string }
+              - { name: url, label: Web address, type: string }
+      - name: photos
+        label: Photos under the publications
+        type: object
+        list: true
+        fields: &photo_fields
+          - { name: image, label: Photo, type: image }
+          - { name: alt, label: Description for screen readers, type: string }
+          - { name: caption, label: Caption, type: string }
+          - { name: width, label: Width in pixels (optional), type: number }
+          - { name: height, label: Height in pixels (optional), type: number }
+          - { name: crop, label: Special crop (leave empty), type: string }
+
+  # ------------------------------------------------------------------ News
+  - name: news
+    label: News
+    type: file
+    path: content/news.yml
+    fields:
+      - name: show_latest
+        label: How many news items to show before "Earlier news"
+        type: number
+      - name: items
+        label: News items (newest at the top)
+        type: object
+        list: true
+        fields:
+          - { name: date, label: Month (YYYY-MM, for example 2026-11), type: string }
+          - { name: text, label: Text, type: text }
+
+  # ------------------------------------------------------------------ Citation numbers
+  - name: metrics
+    label: Citation numbers (updated automatically)
+    type: file
+    path: content/metrics.yml
+    fields:
+      - { name: citations, label: Total citations, type: number }
+      - { name: h_index, label: h-index, type: number }
+      - { name: reviews, label: Total manuscript reviews (update by hand), type: number }
+      - { name: source, label: Source, type: string }
+      - { name: updated, label: Last updated (YYYY-MM-DD), type: string }
+
+  # ------------------------------------------------------------------ Talks
+  - name: talks
+    label: Talks
+    type: file
+    path: content/talks.yml
+    fields:
+      - name: invited
+        label: Invited talks (newest at the top)
+        type: object
+        list: true
+        fields: &talk_fields
+          - { name: date, label: Month (YYYY-MM), type: string }
+          - { name: text, label: Text, type: text }
+      - name: contributed
+        label: Contributed talks (newest at the top)
+        type: object
+        list: true
+        fields: *talk_fields
+      - name: main_photo
+        label: Large photo
+        type: object
+        fields: *photo_fields
+      - name: photos
+        label: Smaller photos
+        type: object
+        list: true
+        fields: *photo_fields
+
+  # ------------------------------------------------------------------ Awards
+  - name: awards
+    label: Awards and proposals
+    type: file
+    path: content/awards.yml
+    fields:
+      - name: awards
+        label: Awards (newest at the top)
+        type: object
+        list: true
+        fields:
+          - { name: year, label: Year, type: string }
+          - { name: text, label: Text, type: text }
+      - name: proposals_intro
+        label: Note above the proposals
+        type: text
+      - name: proposals
+        label: Research proposals
+        type: text
+        list: true
+      - name: photos
+        label: Award photos
+        type: object
+        list: true
+        fields: *photo_fields
+
+  # ------------------------------------------------------------------ Profile and About
+  - name: profile
+    label: Profile, About, and Education
+    type: file
+    path: content/profile.yml
+    fields:
+      - { name: name, label: Name, type: string }
+      - { name: title, label: Title under your name, type: string }
+      - { name: department, label: Small line above your name, type: string }
+      - { name: email, label: Email, type: string }
+      - { name: cv, label: CV file, type: file, options: { input: docs/assets/cv, output: assets/cv } }
+      - { name: tagline, label: Short line under your title, type: string }
+      - { name: hero_text, label: Introduction at the top (two or three sentences), type: text }
+      - name: research_focus
+        label: Research focus list (area = number of the research area it links to)
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Text, type: string }
+          - { name: area, label: Research area number, type: number }
+      - { name: availability, label: Availability note, type: text }
+      - name: photo
+        label: Main photo
+        type: object
+        fields: *photo_fields
+      - name: hero_links
+        label: Profile links at the top
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Link text, type: string }
+          - { name: url, label: Web address, type: string }
+      - name: highlights
+        label: Key numbers at the top (write [[journal articles]] for an automatic count)
+        type: object
+        list: true
+        fields:
+          - { name: value, label: Number or short word, type: string }
+          - { name: label, label: Label, type: string }
+      - name: about
+        label: About paragraphs
+        type: text
+        list: true
+      - name: education
+        label: Education
+        type: object
+        list: true
+        fields:
+          - { name: years, label: Years, type: string }
+          - { name: degree, label: Degree, type: string }
+          - { name: school, label: School, type: string }
+          - { name: details, label: Detail lines, type: text, list: true }
+      - name: at_a_glance
+        label: At a glance box (write [[publication counts]] to insert automatic counts)
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Label, type: string }
+          - { name: text, label: Text, type: text }
+      - name: seo
+        label: Search engines and link previews
+        type: object
+        fields:
+          - { name: description, label: Description, type: text }
+          - { name: keywords, label: Keywords, type: string }
+          - { name: share_text, label: Text shown when the link is shared, type: text }
+          - { name: share_image_alt, label: Description of the preview image, type: string }
+          - { name: topics, label: Topics, type: string, list: true }
+
+  # ------------------------------------------------------------------ Research
+  - name: research
+    label: Research
+    type: file
+    path: content/research.yml
+    fields:
+      - { name: intro, label: Introduction, type: text }
+      - name: areas
+        label: Research areas
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Text, type: text }
+          - { name: links, label: Link lines, type: text, list: true }
+          - name: figure
+            label: Figure
+            type: object
+            fields: &figure_fields
+              - { name: image, label: Figure image, type: image }
+              - { name: alt, label: Description for screen readers, type: text }
+              - { name: caption, label: Caption, type: text }
+              - { name: width, label: Width in pixels (optional), type: number }
+              - { name: height, label: Height in pixels (optional), type: number }
+      - { name: projects_intro, label: Note above the animated projects, type: text }
+      - name: selected_projects
+        label: Projects with animations
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Text, type: text }
+          - { name: sources, label: Source line, type: text }
+          - name: figure
+            label: Paper figure
+            type: object
+            fields: *figure_fields
+          - { name: video, label: Video file name (do not change unless the video changes), type: string }
+          - { name: video_title, label: Animation title, type: string }
+          - { name: video_summary, label: Animation summary, type: text }
+          - { name: video_description, label: Animation description for search engines, type: text }
+          - { name: video_length_seconds, label: Animation length in seconds, type: number }
+          - name: video_links
+            label: Links shown with the enlarged animation
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Link text, type: string }
+              - { name: url, label: Web address, type: string }
+      - name: further_projects
+        label: Further projects
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Text, type: text }
+          - { name: sources, label: Source line, type: text }
+          - name: figure
+            label: Figure
+            type: object
+            fields: *figure_fields
+      - name: future_directions
+        label: Future directions
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Bold opening, type: string }
+          - { name: text, label: Text, type: text }
+      - { name: software, label: Software and methods, type: text, list: true }
+      - { name: collaborations_intro, label: Note above collaborations, type: text }
+      - name: collaborations
+        label: Collaborations
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Institution, type: string }
+          - { name: detail, label: Detail, type: string }
+
+  # ------------------------------------------------------------------ Teaching
+  - name: teaching
+    label: Teaching and mentoring
+    type: file
+    path: content/teaching.yml
+    fields:
+      - { name: intro, label: Teaching statement, type: text }
+      - { name: training, label: Pedagogical training, type: text, list: true }
+      - name: photo
+        label: Photo beside the statement
+        type: object
+        fields: *photo_fields
+      - name: courses
+        label: Courses
+        type: object
+        list: true
+        fields:
+          - { name: course, label: Course, type: string }
+          - { name: role, label: Role and scope, type: text }
+          - { name: where, label: Institution and term, type: string }
+      - { name: mentoring, label: Mentoring, type: text, list: true }
+      - name: photos
+        label: Group photos
+        type: object
+        list: true
+        fields: *photo_fields
+
+  # ------------------------------------------------------------------ Service and experience
+  - name: service
+    label: Service, development, and experience
+    type: file
+    path: content/service.yml
+    fields:
+      - { name: peer_review_and_memberships, label: Peer review, memberships, and credentials, type: text, list: true }
+      - { name: outreach, label: Outreach and community, type: text, list: true }
+      - { name: professional_development, label: Professional development, type: text, list: true }
+      - { name: experience_intro, label: Note above industry experience, type: text }
+      - { name: experience, label: Industry and applied experience, type: text, list: true }
+      - name: experience_photos
+        label: Experience photos
+        type: object
+        list: true
+        fields: *photo_fields
+
+  # ------------------------------------------------------------------ Contact
+  - name: contact
+    label: Contact and references
+    type: file
+    path: content/contact.yml
+    fields:
+      - { name: intro, label: Introduction, type: text }
+      - { name: contact_form, label: Contact form address, type: string }
+      - { name: office, label: Office, type: string }
+      - name: profiles
+        label: Profile links
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Link text, type: string }
+          - { name: url, label: Web address, type: string }
+      - name: references
+        label: References
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: role, label: Role, type: string }
+          - { name: affiliation, label: Affiliation, type: string }
+      - { name: references_note, label: Note under references, type: text }

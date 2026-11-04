@@ -1,0 +1,77 @@
+# Service, outreach, professional development, and industry experience.
+# Formatting you can use in any text: *italic*, **bold**, [link text](https://address)
+
+peer_review_and_memberships:
+  - Reviewer, *International Journal of Hydrogen Energy* (9 manuscripts, 2024–2026).
+  - Reviewer, *Physics of Fluids* (4 manuscripts, 2025–2026).
+  - Reviewer, *ASME Journal of Thermal Science and Engineering Applications* (3 manuscripts, 2025–2026).
+  - Reviewer, *International Journal of Thermal Sciences* and *Computers & Fluids* (2026).
+  - Member, Texas A&M Energy Research Society, since 2024.
+  - Member, American Society of Mechanical Engineers (ASME), since 2023.
+  - Member, The Combustion Institute, since 2023.
+  - Certified Mechanical Engineer, Pakistan Engineering Council, since 2021.
+
+outreach:
+  - Invited workshop for the Undergraduate Research Group (UROG), GIKI, April 2026.
+  - Volunteer, Texas Science and Engineering Fair, Spark! PK–12 Engineering Education Outreach, Texas A&M Engineering, March 2026.
+  - Research mentor, FireGY Laboratory, Georgia Southern University, 2022–2024.
+  - Student mentor, Mentor Collective, Georgia Southern University, 2023–2024.
+  - "Member, Project Topi, GIKI, 2017–2021: educational support for underprivileged children, anti-child-labor awareness, and blood-donation drives with the Pakistan Red Crescent Society."
+  - Community volunteer, Community Table, Sylva, NC, Spring 2020 (Global UGRAD service).
+
+professional_development:
+  - >-
+    **RAISE AI Bridge Summit**, Texas A&M University, January 2026. Week-long interdisciplinary summit on
+    use-inspired AI, including physics-informed machine learning, Bayesian learning, and uncertainty quantification.
+  - >-
+    **Summer PACES Research Training Workshop**, Albuquerque, NM, August 2025. Selected participant;
+    high-performance computing and AI/ML workflows on NSF-supported clusters.
+  - >-
+    **OpenFOAM training certifications**, CFD Direct, January–February 2025. OpenFOAM Foundation, OpenFOAM
+    Advanced, Essential CFD, and Applied CFD.
+  - >-
+    **Machine Learning Specialization**, University of Washington via Coursera, 2021. Regression,
+    classification, clustering, and retrieval.
+  - >-
+    **Python for data science and machine learning**, 2021–2023, including the Digital Skills for KP data
+    science and machine learning training; **MATLAB Master Class**, IETE Mumbai and Pantech Prolabs, 2020.
+
+experience_intro: >-
+  Alongside research, I have worked in applied settings, from asphalt plant quality assurance to applied
+  machine learning and mathematics education content, that inform how I frame and teach engineering
+  problems.
+
+experience:
+  - >-
+    **Engineering Intern**, E.R. Snell Contractor, Inc., Summer 2023. Thermal processing and
+    quality-assurance workflows at asphalt plants, including mix sampling and testing; OSHA 10-hour
+    construction safety certification.
+  - >-
+    **Mathematics Subject Matter Expert and Content Reviewer**, Photomath Expert Marketplace, Jul 2020–Dec
+    2022. Peer-reviewed and quality-assured 23,584 step-by-step solutions in algebra, calculus, geometry,
+    statistics, and foundational mathematics for correctness, clarity, and completeness, and authored 1,019
+    original solutions aligned with international school and early-university curricula.
+  - >-
+    **Artificial Intelligence Research Intern**, CureMD, Aug 2021–Feb 2022. Built a TensorFlow CNN for
+    multimodal sentiment classification from speech and text after speaker diarization.
+  - >-
+    **Logistics and Supply Chain Intern**, PepsiCo Pakistan, Jun–Jul 2021. Benchmarked health, safety, and
+    environmental standards across multinational food-manufacturing logistics operations.
+  - >-
+    **Technology and Communications Intern**, Zigron (Pvt.) Limited, Sep–Nov 2020. Technical research and
+    reports on IoT-based smart-home security systems.
+  - >-
+    **Mechanical Engineering Intern**, Gadoon Textile Mills, Jul–Aug 2019. Automated yarn-production
+    machinery and CNC part programming (ISO 6983 G- and M-code).
+
+experience_photos:
+  - image: assets/images/photos/industry-er-snell-plant-2023.jpg
+    width: 675
+    height: 1200
+    alt: Muhammad Hasnain in a safety vest standing in front of an asphalt plant at E.R. Snell
+    caption: E.R. Snell asphalt plant, Summer 2023.
+  - image: assets/images/photos/industry-er-snell-2023.jpg
+    width: 360
+    height: 480
+    alt: Muhammad Hasnain in a hard hat and safety vest sampling asphalt mix at an E.R. Snell plant
+    caption: Sampling asphalt mix for quality testing.
