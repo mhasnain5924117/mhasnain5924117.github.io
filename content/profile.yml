@@ -53,7 +53,8 @@ hero_links:
 
 # The row of key numbers under your links. These fill in automatically:
 #   [[journal articles]] from your publications list,
-#   [[citations]] and [[h-index]] from content/metrics.yml (refreshed from Google Scholar every two weeks).
+#   [[citations]] and [[h-index]] from content/metrics.yml (refreshed from Google Scholar every two weeks),
+#   [[reviews]] from content/metrics.yml (change it there by hand).
 highlights:
   - value: "[[journal articles]]"
     label: Journal articles
@@ -61,7 +62,7 @@ highlights:
     label: Citations
   - value: "[[h-index]]"
     label: h-index
-  - value: "18"
+  - value: "[[reviews]]"
     label: Manuscript reviews
 
 about:
@@ -116,7 +117,7 @@ at_a_glance:
     text: Teaching assistant for 5 courses across Texas A&M and Georgia Southern, including MEEN 344 Fluid Mechanics (90+ students)
   - label: Peer review
     text: >-
-      18 reviews for *Int. J. Hydrogen Energy*, *Physics of Fluids*, *ASME J. Thermal Sci. Eng. Appl.*,
+      [[reviews]] reviews for *Int. J. Hydrogen Energy*, *Physics of Fluids*, *ASME J. Thermal Sci. Eng. Appl.*,
       *Int. J. Thermal Sciences*, and *Computers & Fluids*
   - label: Email
     text: "[mhasnain5924117@tamu.edu](mailto:mhasnain5924117@tamu.edu)"

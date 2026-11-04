@@ -95,6 +95,7 @@ content:
     fields:
       - { name: citations, label: Total citations, type: number }
       - { name: h_index, label: h-index, type: number }
+      - { name: reviews, label: Total manuscript reviews (update by hand), type: number }
       - { name: source, label: Source, type: string }
       - { name: updated, label: Last updated (YYYY-MM-DD), type: string }
 

@@ -247,7 +247,8 @@ def build(today: dt.date | None = None) -> str:
               "[[total publications]]": str(sum(1 for p in pubs if p["category"] in ("journal", "conference")
                                                 and p.get("status") in ("published", "in print"))),
               "[[citations]]": str(c.get("metrics", {}).get("citations", "")),
-              "[[h-index]]": str(c.get("metrics", {}).get("h_index", ""))}
+              "[[h-index]]": str(c.get("metrics", {}).get("h_index", "")),
+              "[[reviews]]": str(c.get("metrics", {}).get("reviews", ""))}
 
     def fill(text) -> Markup:
         text = str(text)
