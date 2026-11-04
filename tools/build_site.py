@@ -31,12 +31,13 @@ OWN_NAME = "M. Hasnain"
 
 MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
+# (category, heading, folded behind a "show" toggle to keep the page short)
 PUB_GROUPS = [
-    ("journal", "Journal articles"),
-    ("conference", "Refereed conference papers"),
-    ("preprint", "Preprints and manuscripts under review"),
-    ("presentation", "Conference presentations and abstracts"),
-    ("poster", "Posters"),
+    ("journal", "Journal articles", False),
+    ("conference", "Refereed conference papers", False),
+    ("preprint", "Preprints and manuscripts under review", False),
+    ("presentation", "Conference presentations and abstracts", True),
+    ("poster", "Posters", True),
 ]
 STATUSES = {"published", "in print", "to appear", "under review"}
 
@@ -96,10 +97,8 @@ def citation(p: dict) -> Markup:
     if p.get("details"):
         venue += ", " + str(md(p["details"]))
     parts.append(venue + ".")
-    if status == "to appear":
-        parts.append("To appear.")
-    elif status == "in print":
-        parts.append("In print.")
+    if status in ("to appear", "in print"):
+        parts.append(f'<span class="pub-status">{status.capitalize()}</span>')
     links = [f'<a class="doi" href="{html.escape(l["url"])}" target="_blank" rel="noopener">{html.escape(l["label"])}</a>'
              for l in p.get("links") or []]
     if links:
@@ -136,7 +135,7 @@ def publication_counts(items: list[dict]) -> str:
 def check(content: dict) -> list[str]:
     """Catch the mistakes that are easy to make when editing by hand."""
     problems = []
-    groups = {g for g, _ in PUB_GROUPS}
+    groups = {g for g, _, _ in PUB_GROUPS}
     for i, p in enumerate(content["publications"]["items"], 1):
         label = f'publication #{i} ("{str(p.get("title", "?"))[:50]}")'
         for field in ("authors", "title", "venue", "category"):
@@ -239,8 +238,19 @@ def build(today: dt.date | None = None) -> str:
     env = Environment(loader=FileSystemLoader(TEMPLATES), autoescape=True, undefined=StrictUndefined,
                       keep_trailing_newline=True)
     env.undefined = Undefined  # optional fields may be left out of the YAML files
+    journals = sum(1 for p in pubs if p["category"] == "journal" and p.get("status") in ("published", "in print"))
+    tokens = {"[[publication counts]]": counts, "[[journal articles]]": str(journals),
+              "[[total publications]]": str(sum(1 for p in pubs if p["category"] in ("journal", "conference")
+                                                and p.get("status") in ("published", "in print")))}
+
+    def fill(text) -> Markup:
+        text = str(text)
+        for key, value in tokens.items():
+            text = text.replace(key, value)
+        return md(text)
+
     env.filters.update(md=md, month=month, lower_first=lower_first, links_json=links_json, citation=citation,
-                       glance=lambda t: md(str(t).replace("[[publication counts]]", counts)))
+                       glance=fill, tokens=fill)
 
     profile = c["profile"]
     return env.get_template("index.html.j2").render(
@@ -248,8 +258,8 @@ def build(today: dt.date | None = None) -> str:
         site_url=SITE_URL,
         page_title=f"{profile['name']} | {profile['title']}",
         selected_pubs=[p for p in pubs if p.get("selected")],
-        pub_groups=[{"heading": h, "items": [p for p in pubs if p["category"] == g]}
-                    for g, h in PUB_GROUPS if any(p["category"] == g for p in pubs)],
+        pub_groups=[{"heading": h, "collapsed": folded, "items": [p for p in pubs if p["category"] == g]}
+                    for g, h, folded in PUB_GROUPS if any(p["category"] == g for p in pubs)],
         person_json=Markup(person_json(profile, c["contact"])),
         videos_json=Markup(videos_json(c["research"], profile)),
         updated_iso=today.isoformat(),

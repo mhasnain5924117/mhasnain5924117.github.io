@@ -2,6 +2,9 @@
 # date: year and month as YYYY-MM (for example 2026-11). It is shown as "Nov 2026".
 # Formatting you can use in any text: *italic*, **bold**, [link text](https://address)
 
+# How many of the newest items to show; the rest sit under "Earlier news".
+show_latest: 6
+
 items:
   - date: 2026-11
     text: MIGONet, a multiple-input graph neural operator trained on solver-free manufactured solutions, accepted in *Transport Phenomena*.

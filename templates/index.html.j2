@@ -114,6 +114,13 @@
               <li><a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a></li>
               {%- endfor %}
             </ul>
+            {%- if profile.highlights %}
+            <ul class="hero-highlights" aria-label="Highlights">
+              {%- for h in profile.highlights %}
+              <li><span class="hl-value">{{ h.value | tokens }}</span><span class="hl-label">{{ h.label | tokens }}</span></li>
+              {%- endfor %}
+            </ul>
+            {%- endif %}
           </div>
           <figure class="hero-media">
             <img
@@ -309,12 +316,23 @@
           {%- endif %}
           {%- for group in pub_groups %}
 
-          <h3 class="subheading">{{ group.heading }}</h3>
+          {%- if group.collapsed %}
+          <details class="more-block">
+            <summary><span class="more-title">{{ group.heading }}</span> <span class="more-count">{{ group['items'] | length }}</span></summary>
+            <ol class="pub-list">
+              {%- for p in group['items'] %}
+              <li>{{ p | citation }}</li>
+              {%- endfor %}
+            </ol>
+          </details>
+          {%- else %}
+          <h3 class="subheading">{{ group.heading }} <span class="heading-count">{{ group['items'] | length }}</span></h3>
           <ol class="pub-list">
             {%- for p in group['items'] %}
             <li>{{ p | citation }}</li>
             {%- endfor %}
           </ol>
+          {%- endif %}
           {%- endfor %}
           {{ photo_strip(publications.photos, "Poster presentation photographs") | indent(10) }}
         </div>
@@ -488,11 +506,22 @@
       <section class="section section-alt" id="news">
         <div class="container">
           <h2>News</h2>
+          {%- set shown = news.get('show_latest', 6) %}
           <ul class="news-list">
-            {%- for n in news['items'] %}
+            {%- for n in news['items'][:shown] %}
             <li><time datetime="{{ n.date }}">{{ n.date | month }}</time><span>{{ n.text | md }}</span></li>
             {%- endfor %}
           </ul>
+          {%- if news['items'] | length > shown %}
+          <details class="more-block">
+            <summary><span class="more-title">Earlier news</span> <span class="more-count">{{ news['items'][shown:] | length }}</span></summary>
+            <ul class="news-list">
+              {%- for n in news['items'][shown:] %}
+              <li><time datetime="{{ n.date }}">{{ n.date | month }}</time><span>{{ n.text | md }}</span></li>
+              {%- endfor %}
+            </ul>
+          </details>
+          {%- endif %}
         </div>
       </section>
 

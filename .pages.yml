@@ -76,6 +76,9 @@ content:
     type: file
     path: content/news.yml
     fields:
+      - name: show_latest
+        label: How many news items to show before "Earlier news"
+        type: number
       - name: items
         label: News items (newest at the top)
         type: object
@@ -162,6 +165,13 @@ content:
         fields:
           - { name: label, label: Link text, type: string }
           - { name: url, label: Web address, type: string }
+      - name: highlights
+        label: Key numbers at the top (write [[journal articles]] for an automatic count)
+        type: object
+        list: true
+        fields:
+          - { name: value, label: Number or short word, type: string }
+          - { name: label, label: Label, type: string }
       - name: about
         label: About paragraphs
         type: text

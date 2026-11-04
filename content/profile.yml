@@ -38,6 +38,20 @@ hero_links:
     url: https://github.com/mhasnain5924117
   - label: LinkedIn
     url: https://www.linkedin.com/in/mhasnain1/
+  - label: ResearchGate
+    url: https://www.researchgate.net/profile/Muhammad-Hasnain-40
+
+# The row of key numbers under your links. [[journal articles]] is counted automatically
+# from your publications list.
+highlights:
+  - value: "[[journal articles]]"
+    label: Journal articles
+  - value: ICLR
+    label: 2026 conference paper
+  - value: "92+"
+    label: Citations, h-index 4
+  - value: "18"
+    label: Manuscript reviews
 
 about:
   - >-

@@ -247,3 +247,16 @@ function initProjectMedia() {
     });
   });
 }
+
+// Folded lists ("Show" sections) open automatically when the page is printed or saved as PDF.
+window.addEventListener("beforeprint", () => {
+  document.querySelectorAll("details.more-block").forEach((block) => {
+    block.dataset.wasOpen = block.open ? "1" : "";
+    block.open = true;
+  });
+});
+window.addEventListener("afterprint", () => {
+  document.querySelectorAll("details.more-block").forEach((block) => {
+    block.open = block.dataset.wasOpen === "1";
+  });
+});

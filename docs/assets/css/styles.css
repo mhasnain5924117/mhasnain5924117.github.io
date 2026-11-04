@@ -1291,3 +1291,139 @@ figcaption {
     display: block !important;
   }
 }
+
+/* ===================== Additions (2026-11): highlights, foldable lists, badges ===================== */
+
+section[id] {
+  scroll-margin-top: 84px;
+}
+
+.hero-highlights {
+  list-style: none;
+  margin: 1.6rem 0 0;
+  padding: 1.1rem 0 0;
+  border-top: 1px solid var(--hairline);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.hero-highlights li {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.hl-value {
+  font-family: var(--serif);
+  font-size: clamp(1.45rem, 3vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ink-strong);
+}
+
+.hl-label {
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--ink-muted);
+}
+
+.heading-count,
+.more-count {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  background: #ece6d8;
+  color: var(--brass);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.more-block {
+  margin-top: 1.4rem;
+  max-width: 92ch;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.more-block > summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.85rem 1.1rem;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: var(--ink-strong);
+}
+
+.more-block > summary::-webkit-details-marker {
+  display: none;
+}
+
+.more-block > summary::after {
+  content: "Show";
+  margin-left: auto;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--teal);
+}
+
+.more-block[open] > summary::after {
+  content: "Hide";
+}
+
+.more-block > summary:hover {
+  color: var(--teal);
+}
+
+.more-block > summary:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
+
+.more-block > .pub-list,
+.more-block > .news-list {
+  padding: 0.2rem 1.2rem 1.1rem 2.6rem;
+}
+
+.more-block > .news-list {
+  padding-left: 1.2rem;
+}
+
+.pub-status {
+  display: inline-block;
+  padding: 0.02rem 0.45rem;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  color: var(--brass);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+}
+
+@media (max-width: 640px) {
+  .hero-highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem 0.75rem;
+  }
+
+  .hero-media {
+    order: -1;
+    max-width: 260px;
+    margin-inline: 0;
+  }
+
+  .more-block > .pub-list {
+    padding-left: 2.2rem;
+  }
+}
