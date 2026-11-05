@@ -101,7 +101,7 @@ areas:
       open-source AIRS library. Earlier, I implemented physics-informed neural networks in Julia SciML
       for transient scalar transport and coupled learned models with OpenFOAM.
     links:
-      - "[Transport Phenomena (2026)](https://doi.org/10.1515/tp-2026-0133)"
+      - "[Transport Phenomena (2026)](https://doi.org/10.1515/tp-2026-0133) · [arXiv:2611.05876](https://arxiv.org/abs/2611.05876)"
       - "[ICLR 2026 (OpenReview)](https://openreview.net/forum?id=d4gzLgGl7I) · [arXiv:2506.07969](https://arxiv.org/abs/2506.07969)"
       - "[AIRS library (ShockCast)](https://github.com/divelab/AIRS)"
     figure:
