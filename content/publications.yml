@@ -1,56 +1,54 @@
-# Your publications. Put new items at the TOP of their group.
-#
-# category: journal, conference, preprint, presentation, or poster
-# status:   published, in print, to appear, or under review
-# selected: true puts the paper in "Selected publications" (keep it to your 3-5 best);
-#           "highlight" is the one-line note shown under it there.
-# Your name ("M. Hasnain") is made bold automatically.
-# The citation is built as:  Authors. Title. Venue, details. (+ "To appear." / "In print." when relevant)
-
-intro: >-
-  Citation counts are on [Google Scholar](https://scholar.google.com/citations?user=YYpAj5AAAAAJ&hl=en)
-  and [ORCID](https://orcid.org/0009-0004-6871-9713). My name is in bold in the author lists below.
-
+intro: Citation counts are on [Google
+  Scholar](https://scholar.google.com/citations?user=YYpAj5AAAAAJ&hl=en) and
+  [ORCID](https://orcid.org/0009-0004-6871-9713). My name is in bold in the
+  author lists below.
 items:
-  # ---------------- Journal articles ----------------
   - category: journal
-    status: in print
+    status: published
     selected: true
-    highlight: A graph neural operator that takes several input fields at once and learns entirely from manufactured solutions, so no numerical solver is needed to produce its training data.
+    highlight: A graph neural operator that takes several input fields at once and
+      learns entirely from manufactured solutions, so no numerical solver is
+      needed to produce its training data.
     authors: M. Hasnain, N. K. Anand, A. Srinivasa
-    title: "MIGONet: A multiple-input graph neural operator with solver-free discrete manufactured-solution training"
+    title: "MIGONet: A multiple-input graph neural operator with solver-free
+      discrete manufactured-solution training"
     venue: Transport Phenomena
     details: "2026"
     links:
       - label: doi:10.1515/tp-2026-0133
-        url: https://doi.org/10.1515/tp-2026-0133
+        url: https://doi.org/10.48550/arXiv.2611.05876
       - label: arXiv:2611.05876
         url: https://arxiv.org/abs/2611.05876
-
   - category: journal
     status: published
-    authors: M. U. Khan, M. Hasnain, H. Sezer, S. P. Kozhumal, M. K. Selvaraj, A. Simeoni
+    selected: false
+    authors: M. U. Khan, M. Hasnain, H. Sezer, S. P. Kozhumal, M. K. Selvaraj, A.
+      Simeoni
     title: Predictive heat transfer model for fire-induced injuries in tree stems
     venue: International Communications in Heat and Mass Transfer
     details: 180 (Part 3), 112653, 2026
     links:
       - label: doi:10.1016/j.icheatmasstransfer.2026.112653
         url: https://doi.org/10.1016/j.icheatmasstransfer.2026.112653
-
-  # ---------------- Refereed conference papers (ICLR sits here so it stays first among Selected) --------
   - category: conference
     status: to appear
+    selected: false
     authors: M. Hasnain, N. K. Anand, A. Srinivasa
-    title: A manufactured-solution-based data generation framework for machine learning models of transport PDEs
-    venue: Proceedings of the ASME International Mechanical Engineering Congress and Exposition (IMECE 2026)
+    title: A manufactured-solution-based data generation framework for machine
+      learning models of transport PDEs
+    venue: Proceedings of the ASME International Mechanical Engineering Congress and
+      Exposition (IMECE 2026)
     details: Fluids Engineering, Vancouver, BC, Canada, November 8–12, 2026
-
   - category: conference
     status: published
     selected: true
-    highlight: First learning framework for shock-dominated high-speed flows with learned adaptive time-stepping; datasets and code released openly.
-    authors: J. Helwig, S. S. Adavi, X. Zhang, Y. Lin, F. S. Chim, L. T. Vizzini, H. Yu, M. Hasnain, S. K. Biswas, J. J. Holloway, N. Singh, N. K. Anand, S. Guhathakurta, S. Ji
-    title: A two-phase deep learning framework for adaptive time-stepping in high-speed flow modeling
+    highlight: First learning framework for shock-dominated high-speed flows with
+      learned adaptive time-stepping; datasets and code released openly.
+    authors: J. Helwig, S. S. Adavi, X. Zhang, Y. Lin, F. S. Chim, L. T. Vizzini, H.
+      Yu, M. Hasnain, S. K. Biswas, J. J. Holloway, N. Singh, N. K. Anand, S.
+      Guhathakurta, S. Ji
+    title: A two-phase deep learning framework for adaptive time-stepping in
+      high-speed flow modeling
     venue: International Conference on Learning Representations (ICLR)
     details: "2026"
     links:
@@ -58,250 +56,284 @@ items:
         url: https://openreview.net/forum?id=d4gzLgGl7I
       - label: arXiv:2506.07969
         url: https://arxiv.org/abs/2506.07969
-
-  # ---------------- More journal articles ----------------
   - category: journal
     status: published
     selected: true
-    highlight: Experimentally validated 3D dehydration and calcination model that lets fire investigators relate observed calcination depth to heat-flux history.
+    highlight: Experimentally validated 3D dehydration and calcination model that
+      lets fire investigators relate observed calcination depth to heat-flux
+      history.
     authors: M. Hasnain, H. Sezer, S. P. Kozhumal
-    title: "Predicting thermal response of gypsum board under various heat flux configurations: A three-dimensional mathematical model"
+    title: "Predicting thermal response of gypsum board under various heat flux
+      configurations: A three-dimensional mathematical model"
     venue: International Journal of Thermal Sciences
     details: 221, 110457, 2026
     links:
       - label: doi:10.1016/j.ijthermalsci.2025.110457
         url: https://doi.org/10.1016/j.ijthermalsci.2025.110457
-
   - category: journal
     status: published
     selected: true
-    highlight: Consolidates two decades of reactor-scale modeling and identifies open problems in coupled kinetics, heat management, and reactor geometry.
+    highlight: Consolidates two decades of reactor-scale modeling and identifies
+      open problems in coupled kinetics, heat management, and reactor geometry.
     authors: M. Hasnain, H. Sezer, J. H. Mason
-    title: "Mathematical modeling of heat and mass transfer in metal hydride hydrogen storage systems: A comprehensive review"
+    title: "Mathematical modeling of heat and mass transfer in metal hydride
+      hydrogen storage systems: A comprehensive review"
     venue: Renewable and Sustainable Energy Reviews
     details: 226, 116294, 2026
     links:
       - label: doi:10.1016/j.rser.2025.116294
         url: https://doi.org/10.1016/j.rser.2025.116294
-
   - category: journal
     status: published
     selected: true
-    highlight: Introduced a residual graph convolutional architecture that predicts coupled velocity, pressure, and temperature fields directly on unstructured CFD meshes and extrapolates in Reynolds number.
+    highlight: Introduced a residual graph convolutional architecture that predicts
+      coupled velocity, pressure, and temperature fields directly on
+      unstructured CFD meshes and extrapolates in Reynolds number.
     authors: M. Hasnain, N. K. Anand, A. Srinivasa, P. Kumar
-    title: A novel residual multilayer perceptron-based graph convolutional network for modeling heat transfer and fluid flow
+    title: A novel residual multilayer perceptron-based graph convolutional network
+      for modeling heat transfer and fluid flow
     venue: Physics of Fluids
     details: 37(10), 107138, 2025
     links:
       - label: doi:10.1063/5.0292956
         url: https://doi.org/10.1063/5.0292956
-
   - category: journal
     status: published
+    selected: false
     authors: M. Hasnain, H. Sezer, J. H. Mason
-    title: "Modeling heat and mass transfer in metal hydride hydrogen storage systems: Impact of operating parameters and reactor geometry"
+    title: "Modeling heat and mass transfer in metal hydride hydrogen storage
+      systems: Impact of operating parameters and reactor geometry"
     venue: International Journal of Hydrogen Energy
     details: 71, 1045–1055, 2024
     links:
       - label: doi:10.1016/j.ijhydene.2024.05.311
         url: https://doi.org/10.1016/j.ijhydene.2024.05.311
-
-  # ---------------- More conference papers ----------------
   - category: conference
     status: published
+    selected: false
     authors: M. Hasnain, S. Khan, M. A. Ezazi, H. Sezer
-    title: Modeling heat and mass transfer in metal hydride-based hydrogen storage systems using the finite volume method
-    venue: Proceedings of the ASME International Mechanical Engineering Congress and Exposition (IMECE 2023)
+    title: Modeling heat and mass transfer in metal hydride-based hydrogen storage
+      systems using the finite volume method
+    venue: Proceedings of the ASME International Mechanical Engineering Congress and
+      Exposition (IMECE 2023)
     details: Vol. 10, V010T11A047, New Orleans, LA, 2023
     links:
       - label: doi:10.1115/IMECE2023-112874
         url: https://doi.org/10.1115/IMECE2023-112874
-
   - category: conference
     status: published
+    selected: false
     authors: S. Khan, S. Anwar, J. Casa, M. Hasnain, H. Ahmed, H. Sezer
     title: Modeling thermal runaway in prismatic lithium-ion batteries
-    venue: Proceedings of the ASME International Mechanical Engineering Congress and Exposition (IMECE 2023)
+    venue: Proceedings of the ASME International Mechanical Engineering Congress and
+      Exposition (IMECE 2023)
     details: Vol. 10, V010T11A048, New Orleans, LA, 2023
     links:
       - label: doi:10.1115/IMECE2023-113787
         url: https://doi.org/10.1115/IMECE2023-113787
-
-  # ---------------- Preprints and manuscripts under review ----------------
   - category: preprint
     status: under review
+    selected: false
     authors: M. Hasnain, N. K. Anand, P. Kumar, A. Srinivasa, S. Ji
-    title: A physics-regularized graph neural surrogate for parametric and geometric extrapolation in backward-facing step flow
+    title: A physics-regularized graph neural surrogate for parametric and geometric
+      extrapolation in backward-facing step flow
     venue: Physics of Fluids
     details: "2026"
     links:
       - label: SSRN doi:10.2139/ssrn.6446623
         url: https://dx.doi.org/10.2139/ssrn.6446623
-
   - category: preprint
     status: under review
+    selected: false
     authors: M. Hasnain, H. Sezer, J. H. Mason
-    title: "Modeling heat and mass transfer in metal hydride hydrogen storage reactors: Impact of operating conditions and reactor size on hydrogen desorption"
+    title: "Modeling heat and mass transfer in metal hydride hydrogen storage
+      reactors: Impact of operating conditions and reactor size on hydrogen
+      desorption"
     venue: International Journal of Hydrogen Energy
     links:
       - label: SSRN 4898120
         url: https://ssrn.com/abstract=4898120
-
-  # ---------------- Conference presentations and abstracts ----------------
   - category: presentation
     status: published
+    selected: false
     authors: M. Hasnain, N. K. Anand, P. Kumar, A. Srinivasa, S. Ji
-    title: A physics-assisted geometry-generalizable graph convolutional network for fluid flow
-    venue: 17th World Congress on Computational Mechanics and 10th European Congress on Computational Methods in Applied Sciences and Engineering (WCCM-ECCOMAS 2026)
-    details: CFD and Fluid-Structure Interaction track, Munich, Germany, July 19–24, 2026
-
+    title: A physics-assisted geometry-generalizable graph convolutional network for
+      fluid flow
+    venue: 17th World Congress on Computational Mechanics and 10th European Congress
+      on Computational Methods in Applied Sciences and Engineering (WCCM-ECCOMAS
+      2026)
+    details: CFD and Fluid-Structure Interaction track, Munich, Germany, July 19–24,
+      2026
   - category: presentation
     status: published
+    selected: false
     authors: M. Hasnain, N. K. Anand, A. Srinivasa, P. Kumar
-    title: Application of graph neural networks for heat transfer and fluid flow problems
+    title: Application of graph neural networks for heat transfer and fluid flow
+      problems
     venue: ASME IMECE 2025
-    details: Machine Learning and Quantum Computing for Fluids track, Memphis, TN, November 2025
-
+    details: Machine Learning and Quantum Computing for Fluids track, Memphis, TN,
+      November 2025
   - category: presentation
     status: published
+    selected: false
     authors: M. Hasnain, R. Paye, T. Borth, G. E. Gorbett, S. P. Kozhumal, H. Sezer
-    title: Three-dimensional mathematical modeling of heat and mass transfer during calcination of gypsum board exposed to fire
-    venue: Eastern States Section of the Combustion Institute (ESSCI) Spring Technical Meeting
+    title: Three-dimensional mathematical modeling of heat and mass transfer during
+      calcination of gypsum board exposed to fire
+    venue: Eastern States Section of the Combustion Institute (ESSCI) Spring
+      Technical Meeting
     details: Athens, GA, March 2024
-
   - category: presentation
     status: published
-    authors: S. Khan, M. Hasnain, J. Casa, A. Said, V. Akkerman, M. Selvaraj, A. Simeoni, H. Sezer
-    title: Mathematical modeling of heat-induced decomposition kinetics leading to thermal runaway in lithium-ion batteries
+    selected: false
+    authors: S. Khan, M. Hasnain, J. Casa, A. Said, V. Akkerman, M. Selvaraj, A.
+      Simeoni, H. Sezer
+    title: Mathematical modeling of heat-induced decomposition kinetics leading to
+      thermal runaway in lithium-ion batteries
     venue: ESSCI Spring Technical Meeting
     details: Athens, GA, March 2024
-
   - category: presentation
     status: published
+    selected: false
     authors: M. Usman, M. Hasnain, S. Khan, A. Simeoni, R. Ziazi, H. Sezer
-    title: Mathematical model for predicting injuries and temperature distributions in stem exposed to fire
+    title: Mathematical model for predicting injuries and temperature distributions
+      in stem exposed to fire
     venue: ESSCI Spring Technical Meeting
     details: Athens, GA, March 2024
-
   - category: presentation
     status: published
+    selected: false
     authors: A. Idris, S. Khan, M. Hasnain, M. Selvaraj, A. Simeoni, H. Sezer
-    title: Numerical modeling of spontaneous ignition in large coal stockpiles using finite volume method
+    title: Numerical modeling of spontaneous ignition in large coal stockpiles using
+      finite volume method
     venue: ESSCI Spring Technical Meeting
     details: Athens, GA, March 2024
-
   - category: presentation
     status: published
-    authors: M. Hasnain, R. Paye, J. Casa, T. Borth, G. E. Gorbett, S. P. Kozhumal, H. Sezer
-    title: 3D mathematical model for heat and mass transfer mechanisms in gypsum board exposed to fire
+    selected: false
+    authors: M. Hasnain, R. Paye, J. Casa, T. Borth, G. E. Gorbett, S. P. Kozhumal,
+      H. Sezer
+    title: 3D mathematical model for heat and mass transfer mechanisms in gypsum
+      board exposed to fire
     venue: 13th U.S. National Combustion Meeting
     details: College Station, TX, March 2023
     links:
       - label: NIJ library record
         url: https://nij.ojp.gov/library/publications/3d-mathematical-model-heat-and-mass-transfer-mechanisms-gypsum-board-exposed
-
   - category: presentation
     status: published
-    authors: S. Khan, M. Hasnain, A. Liaqat, V. Akkerman, H. Ahmed, S. P. Kozhumal, H. Sezer
-    title: "The self-heating ignition of lithium-ion batteries: A comparative study of COMSOL and GPYRO models with finite volume toolbox"
+    selected: false
+    authors: S. Khan, M. Hasnain, A. Liaqat, V. Akkerman, H. Ahmed, S. P. Kozhumal,
+      H. Sezer
+    title: "The self-heating ignition of lithium-ion batteries: A comparative study
+      of COMSOL and GPYRO models with finite volume toolbox"
     venue: 13th U.S. National Combustion Meeting
     details: College Station, TX, March 2023
-
-  # ---------------- Posters ----------------
   - category: poster
     status: published
+    selected: false
     authors: M. Hasnain, H. Sezer
-    title: Mathematical modeling of heat and mass transfer in metal-hydrides for safer and more efficient hydrogen storage reactors
+    title: Mathematical modeling of heat and mass transfer in metal-hydrides for
+      safer and more efficient hydrogen storage reactors
     venue: 9th Annual Texas A&M Conference on Energy
     details: College Station, TX, September 2025
-
   - category: poster
     status: published
+    selected: false
     authors: M. Hasnain, M. U. Khan, H. Sezer
-    title: Three-dimensional multiphysics modeling of heat and mass transfer during calcination of gypsum board for forensic fire investigations
+    title: Three-dimensional multiphysics modeling of heat and mass transfer during
+      calcination of gypsum board for forensic fire investigations
     venue: Georgia Southern University Student Research Symposium
     details: Statesboro, GA, April 2024
     award: Top Eagle Award, first place among 176 posters.
-
   - category: poster
     status: published
+    selected: false
     authors: M. Hasnain, H. Sezer
-    title: Mathematical modeling of coupled heat and mass transport in metal-hydrides for safer and more efficient hydrogen storage systems
+    title: Mathematical modeling of coupled heat and mass transport in
+      metal-hydrides for safer and more efficient hydrogen storage systems
     venue: Georgia Southern University Student Research Symposium
     details: Statesboro, GA, April 2024
     award: Georgia Power Innovation Award, second place.
-
   - category: poster
     status: published
+    selected: false
     authors: M. Hasnain, H. Sezer
-    title: Solving transient advection-diffusion equations using PINNs and the finite volume method
+    title: Solving transient advection-diffusion equations using PINNs and the
+      finite volume method
     venue: Georgia Southern University Student Research Symposium
     details: Statesboro, GA, April 2024
-
   - category: poster
     status: published
+    selected: false
     authors: P. D. Castillo, S. Khan, M. Hasnain, H. Sezer
-    title: An immersed boundary method for drag coefficient calculations in complex rigid and flexible vegetation
+    title: An immersed boundary method for drag coefficient calculations in complex
+      rigid and flexible vegetation
     venue: Georgia Southern University Student Research Symposium
     details: Statesboro, GA, April 2024
-
   - category: poster
     status: published
+    selected: false
     authors: J. Kruger, S. Khan, M. Hasnain, H. Sezer
-    title: Simulation of two pool fires converging using FDS and applications with wildfires
+    title: Simulation of two pool fires converging using FDS and applications with
+      wildfires
     venue: Georgia Southern University Student Research Symposium
     details: Statesboro, GA, April 2024
-
   - category: poster
     status: published
+    selected: false
     authors: M. Hasnain, H. Sezer
-    title: A diffusion-based mathematical modeling of hyperbaric oxygen therapy for chronic wounds
+    title: A diffusion-based mathematical modeling of hyperbaric oxygen therapy for
+      chronic wounds
     venue: Georgia Southern University Student Research Symposium
     details: Statesboro, GA, April 2023
     award: SALT Research Award, second place.
-
   - category: poster
     status: published
+    selected: false
     authors: M. Hasnain, H. Sezer
     title: Modeling and optimization of metal hydride based hydrogen storage systems
     venue: Georgia Southern University Student Research Symposium
     details: Statesboro, GA, April 2023
     award: SALT Research Award, third place.
-
   - category: poster
     status: published
+    selected: false
     authors: S. Khan, M. Hasnain, H. Sezer
     title: Mathematical modeling of thermal runaway in lithium-ion batteries
     venue: Georgia Southern University Student Research Symposium
     details: Statesboro, GA, April 2023
     award: Gulfstream Aerospace Research Award, third place.
-
   - category: poster
     status: published
+    selected: false
     authors: S. Khan, M. Hasnain, H. Sezer
     title: A mathematical model for thermal metamaterials
     venue: Georgia Southern University Student Research Symposium
     details: Statesboro, GA, April 2023
-
-# Photos shown under the publications list
 photos:
   - image: assets/images/photos/poster-tamu-energy-2024.jpg
+    alt: Muhammad Hasnain beside his poster on coupled heat and mass transfer in
+      metal hydrides at the Texas A&M Conference on Energy
+    caption: Texas A&M Conference on Energy poster session.
     width: 618
     height: 1100
-    alt: Muhammad Hasnain beside his poster on coupled heat and mass transfer in metal hydrides at the Texas A&M Conference on Energy
-    caption: Texas A&M Conference on Energy poster session.
   - image: assets/images/photos/poster-gsu-2024-gypsum.jpg
+    alt: Muhammad Hasnain beside his award-winning poster on three-dimensional
+      modeling of gypsum board calcination at the 2024 Georgia Southern Student
+      Research Symposium
+    caption: Georgia Southern Student Research Symposium, April 2024 (Top Eagle Award).
     width: 985
     height: 1100
-    alt: Muhammad Hasnain beside his award-winning poster on three-dimensional modeling of gypsum board calcination at the 2024 Georgia Southern Student Research Symposium
-    caption: Georgia Southern Student Research Symposium, April 2024 (Top Eagle Award).
   - image: assets/images/photos/poster-gsu-2023-hbot.jpg
+    alt: Muhammad Hasnain and Dr. Hayri Sezer beside the hyperbaric oxygen therapy
+      modeling poster at the 2023 Georgia Southern Student Research Symposium
+    caption: With Dr. Hayri Sezer, Georgia Southern Student Research Symposium,
+      April 2023.
     width: 618
     height: 1100
-    alt: Muhammad Hasnain and Dr. Hayri Sezer beside the hyperbaric oxygen therapy modeling poster at the 2023 Georgia Southern Student Research Symposium
-    caption: With Dr. Hayri Sezer, Georgia Southern Student Research Symposium, April 2023.
   - image: assets/images/photos/poster-gsu-2023-metal-hydride.jpg
+    alt: Muhammad Hasnain beside his metal hydride hydrogen storage optimization
+      poster at the 2023 Georgia Southern Student Research Symposium
+    caption: Metal hydride hydrogen storage poster, April 2023.
     width: 618
     height: 1100
-    alt: Muhammad Hasnain beside his metal hydride hydrogen storage optimization poster at the 2023 Georgia Southern Student Research Symposium
-    caption: Metal hydride hydrogen storage poster, April 2023.
