@@ -16,7 +16,7 @@ items:
     details: "2026"
     links:
       - label: doi:10.1515/tp-2026-0133
-        url: https://doi.org/10.48550/arXiv.2611.05876
+        url: https://doi.org/10.1515/tp-2026-0133
       - label: arXiv:2611.05876
         url: https://arxiv.org/abs/2611.05876
   - category: journal
